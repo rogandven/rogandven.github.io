@@ -4,7 +4,7 @@ import { getUNIXDate } from "../utils/general.utils.ts";
 import { validateAbsolutePath, validateRelativePath, validateString } from "../validations/general.validations.ts";
 import { slugify } from "../utils/general.utils.ts";
 
-export default class Event {
+export default class EventClass {
     private _companyName: string | undefined = undefined;
     private _name: string = DEFAULT_EVENT_NAME;
     private _description: string | undefined = undefined;
@@ -98,16 +98,16 @@ export default class Event {
     }
 
     constructor(
-        companyName = undefined, 
-        name = DEFAULT_EVENT_NAME, 
-        description = undefined, 
-        imageURL = undefined, 
-        location = undefined, 
-        startDate = DEFAULT_DATE, 
-        endDate = undefined, 
-        repositoryURL = undefined, 
-        certificateURL = undefined, 
-        iconName = undefined
+        companyName: string | undefined = undefined, 
+        name: string = DEFAULT_EVENT_NAME, 
+        description: string | undefined = undefined, 
+        imageURL: string | undefined = undefined, 
+        location: string | undefined = undefined, 
+        startDate: string = DEFAULT_DATE, 
+        endDate: string | undefined = undefined, 
+        repositoryURL: string | undefined = undefined, 
+        certificateURL: string | undefined = undefined, 
+        iconName: string | undefined = undefined
     ) {
         this.companyName = companyName;
         this.name = name;

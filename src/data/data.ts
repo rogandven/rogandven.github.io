@@ -7,6 +7,7 @@ import DatabaseIcon from "../components/icons/DatabaseIcon.astro";
 import ExcelIcon from "../components/icons/ExcelIcon.astro";
 import SocialLink from "../classes/SocialLink.ts";
 import LinkedInIcon from "../components/icons/LinkedInIcon.astro";
+import EventClass from "../classes/EventClass.ts";
 
 const DATA = {
     education: [
@@ -19,7 +20,18 @@ const DATA = {
 
     ],
     projects: [
-
+        new EventClass(
+            "Universidad del Bío-Bío", 
+            "CEE", 
+            undefined, 
+            undefined, 
+            "Concepción, Chile", 
+            "2025-03-01", 
+            "2025-08-01", 
+            "https://github.com/rogandven/Backend-Plantilla-MDD-2025-1",
+            undefined,
+            "vote"
+        )
     ],
     tools: [
         new Tool("Astro", Astro, "Framework de páginas web estáticas"),
