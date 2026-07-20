@@ -1,3 +1,5 @@
+import { DEFAULT_DATE } from "../constants/general.constants";
+
 export const slugify = (text: string): string => {
   return text
     .toString()
@@ -8,3 +10,8 @@ export const slugify = (text: string): string => {
     .replace(/^-+/, '')
     .replace(/-+$/, '');
 }
+
+export const getUNIXDate = (date: string): number => {
+  const newDate = new Date(date || DEFAULT_DATE);
+  return newDate.getDate();
+} 
