@@ -2,9 +2,11 @@ import { Icon } from "astro-icon/components";
 import Language from "../classes/Language.ts";
 import Tool from "../classes/Tool.ts";
 
-import { Astro, C, Docker, Git, Html5, Javascript, Libreofficecalc, Openjdk, Latex, Linux, Nodedotjs, Duckdb, Php, Postgresql, Python, React, Databricks, Dblp } from "simple-icons-astro";
+import { Astro, C, Docker, Git, Html5, Javascript, Libreofficecalc, Openjdk, Latex, Linux, Nodedotjs, Duckdb, Php, Postgresql, Python, React, Databricks, Dblp, Github, Youtube } from "simple-icons-astro";
 import DatabaseIcon from "../components/icons/DatabaseIcon.astro";
 import ExcelIcon from "../components/icons/ExcelIcon.astro";
+import SocialLink from "../classes/SocialLink.ts";
+import LinkedInIcon from "../components/icons/LinkedInIcon.astro";
 
 const DATA = {
     education: [
@@ -41,7 +43,11 @@ const DATA = {
         new Language("Español", undefined, true),
         new Language("Inglés", "C1", false),
     ],
-    socials: [],
+    socials: [
+        new SocialLink("GitHub", Github, "https://www.github.com/rogandven"),
+        new SocialLink("LinkedIn", LinkedInIcon, "https://www.linkedin.com/in/rogandven"),
+        new SocialLink("YouTube", Youtube, "https://www.youtube.com/@rogandven"),
+    ],
 };
 
 export default DATA;

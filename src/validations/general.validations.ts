@@ -27,6 +27,11 @@ export const validateAbsolutePath = (str: string | undefined) => {
         return undefined;
     }
     str = str.trim();
-    const newURL = new URL(str);
-    return newURL.toString();
+    try {
+        const newURL = new URL(str);
+        return newURL.toString();
+    } catch (error) {
+        throw Error(`Invalid URL: ${str}`);
+    }
+    
 }
