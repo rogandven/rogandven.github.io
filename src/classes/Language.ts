@@ -15,7 +15,7 @@ export default class Language {
         return this._name;
     }
 
-    set level(level: string) {
+    set level(level: string | undefined) {
         this._level = validateLevel(level);
     }
     get levelString(): string {
@@ -42,5 +42,11 @@ export default class Language {
     }
     get isNative(): boolean {
         return this._isNative;
+    }
+
+    constructor(name: string, level: string | undefined, isNative: boolean) {
+        this.name = name;
+        this.level = level;
+        this.isNative = isNative;
     }
 };
