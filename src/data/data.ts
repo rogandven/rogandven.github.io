@@ -4,6 +4,7 @@ import Tool from "../classes/Tool.ts";
 
 import { Astro, C, Docker, Git, Html5, Javascript, Libreofficecalc, Openjdk, Latex, Linux, Nodedotjs, Duckdb, Php, Postgresql, Python, React, Databricks, Dblp } from "simple-icons-astro";
 import DatabaseIcon from "../components/icons/DatabaseIcon.astro";
+import ExcelIcon from "../components/icons/ExcelIcon.astro";
 
 const DATA = {
     education: [
@@ -22,7 +23,7 @@ const DATA = {
         new Tool("Astro", Astro, "Framework de páginas web estáticas"),
         new Tool("C", C, "Lenguaje de programación de bajo nivel"),
         new Tool("Docker", Docker, "Herramienta para la creación y manejo de contenedores"),
-        new Tool("Excel", Libreofficecalc, "Herramienta para la creación de planillas de cálculo"),
+        new Tool("Excel", ExcelIcon, "Herramienta para la creación de planillas de cálculo"),
         new Tool("Git", Git, "Herramienta de control de versiones"),
         new Tool("HTML5", Html5, "Lenguaje de marcado de hipertexto"),
         new Tool("Java", Openjdk, "Lenguaje de programación de alto nivel orientado a objetos"),

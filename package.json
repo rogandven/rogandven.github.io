@@ -12,7 +12,9 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@iconify-json/cib": "^1.2.3",
     "@iconify-json/mdi": "^1.2.3",
+    "@iconify-json/streamline-ultimate": "^1.2.2",
     "@tailwindcss/vite": "^4.3.3",
     "astro": "^7.1.1",
     "astro-icon": "^1.1.5",
