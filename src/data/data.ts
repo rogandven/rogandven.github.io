@@ -11,13 +11,94 @@ import EventClass from "../classes/EventClass.ts";
 
 const DATA = {
     education: [
-
+        new EventClass(
+            "Universidad del Bío-Bío",
+            "Ingeniería de Ejecución en Computación e Informática",
+            undefined,
+            undefined, 
+            "Concepción, Chile",
+            "2023-03-03",
+            "2030-01-01",
+            undefined,
+            undefined,
+            undefined,
+        ),
+        new EventClass(
+            "BiblioRedes",
+            "Jóvenes Programadores",
+            undefined,
+            undefined, 
+            "Remoto",
+            "2021-01-12",
+            "2023-12-12",
+            undefined,
+            undefined,
+            undefined,
+        ),
+        new EventClass(
+            "Liceo Antonio Varas",
+            "Educación media científico-humanista",
+            undefined,
+            undefined, 
+            "Cauquenes, Chile",
+            "2019-03-03",
+            "2022-12-12",
+            undefined,
+            undefined,
+            undefined,
+        ),                  
     ],
     experience: [
-
+        new EventClass(
+            "Universidad del Bío-Bío", 
+            "Pasantía de Administrador de Sistemas", 
+            undefined, 
+            undefined, 
+            "Concepción, Chile", 
+            "2025-01-01", 
+            "2025-03-03",
+            undefined,
+            undefined,
+            undefined,
+        ),    
     ],
     certifications: [
-
+        new EventClass(
+            "Centro de Idiomas UBB", 
+            "Diagnóstico de Inglés", 
+            undefined, 
+            undefined, 
+            "Concepción, Chile", 
+            "2023-06-01", 
+            undefined,
+            undefined,
+            undefined,
+            undefined,
+        ),        
+        new EventClass(
+            "Pearson", 
+            "Versant", 
+            undefined, 
+            undefined, 
+            "Remoto", 
+            "2025-08-01", 
+            undefined,
+            undefined,
+            undefined,
+            undefined,
+        ),
+        new EventClass(
+            "British Council", 
+            "Core Skills", 
+            undefined, 
+            undefined, 
+            "Remoto", 
+            "2026-07-01", 
+            undefined,
+            undefined,
+            undefined,
+            undefined,
+        ),        
     ],
     projects: [
         new EventClass(
@@ -31,7 +112,43 @@ const DATA = {
             "https://github.com/rogandven/Backend-Plantilla-MDD-2025-1",
             undefined,
             "vote"
-        )
+        ),
+        new EventClass(
+            "Universidad del Bío-Bío", 
+            "Gestión de Matriculas", 
+            undefined, 
+            undefined, 
+            "Concepción, Chile", 
+            "2025-06-01", 
+            undefined, 
+            "https://github.com/rogandven/Entrega-BD-2025",
+            undefined,
+            "school"
+        ),   
+        new EventClass(
+            "Universidad del Bío-Bío", 
+            "Art Sell", 
+            undefined, 
+            undefined, 
+            "Concepción, Chile", 
+            "2025-11-01", 
+            undefined, 
+            "https://1drv.ms/b/c/3f355de2d03d02f0/IQBt05k7lxf5SaAXGqgXhX7NASK8zGpxG67S5q7jKDE47K05",
+            undefined,
+            "mdi:paint-outline"
+        ),
+        new EventClass(
+            "Universidad del Bío-Bío", 
+            "Gestión de Electivos", 
+            undefined, 
+            undefined, 
+            "Concepción, Chile", 
+            "2025-08-01", 
+            "2026-01-01", 
+            "https://github.com/rogandven/GestionDeElectivosISW-2025-2",
+            undefined,
+            "bookshelf"
+        ),                          
     ],
     tools: [
         new Tool("Astro", Astro, "Framework de páginas web estáticas"),

@@ -13,5 +13,5 @@ export const slugify = (text: string): string => {
 
 export const getUNIXDate = (date: string): number => {
   const newDate = new Date(date || DEFAULT_DATE);
-  return newDate.getDate();
+  return newDate.getTime();
 } 
