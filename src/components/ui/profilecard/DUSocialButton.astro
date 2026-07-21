@@ -24,7 +24,7 @@ const {
   margin = "" 
 } = Astro.props;
 ---
-  <a href={destination} class={margin} target="_blank">
+  <a href={destination} aria-label={content} class={margin} target="_blank">
     <div class="flex flex-col align-middle items-center-safe">
       <DUTooltip text={content}>
       <button class={`btn btn-sm ${color}`} title={content} aria-label={content}>
