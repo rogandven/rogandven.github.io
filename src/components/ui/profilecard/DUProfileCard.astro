@@ -7,6 +7,7 @@ import DUBadge from "./DUBadge.astro";
 import { getAge } from "../../../utils/general.utils";
 import { AGE_BADGE_NAME, DAISYUI_BUTTON_COLORS } from "../../../constants/daisyui.constants";
 import DUSocialButton from "./DUSocialButton.astro";
+import DUTooltip from "./DUTooltip.astro";
 
 ---
 <div class="card bg-base-100 w-96 shadow-sm">
@@ -24,12 +25,14 @@ import DUSocialButton from "./DUSocialButton.astro";
         <div>
             <h2 class="card-title text-primary">
                 {NAME}
-                <DUBadge
-                    color="badge-accent"
-                    content={String(getAge(DATE_OF_BIRTH))}
-                    iconName="mdi:cake"
-                    textId={AGE_BADGE_NAME}
-                />
+                <DUTooltip text="Edad">
+                    <DUBadge
+                        color="badge-accent"
+                        content={String(getAge(DATE_OF_BIRTH))}
+                        iconName="mdi:cake"
+                        textId={AGE_BADGE_NAME}
+                    />
+                </DUTooltip>
             </h2>
             <DUDynamicUsername links={DATA.socials}/>
             <p class="mb-1">Aspirante ingeniero en informática. Actualmente siguiendo adelante a pesar de los desafíos de la vida.</p>
