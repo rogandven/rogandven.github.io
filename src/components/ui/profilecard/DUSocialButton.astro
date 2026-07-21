@@ -1,0 +1,36 @@
+---
+import { Github } from 'simple-icons-astro';
+import { DEFAULT_ICON_TEXTSIZE, DEFAULT_ICON_ICONSIZE } from '../../../constants/daisyui.constants';
+import { DEFAULT_DISPLAY_NAME, DEFAULT_URL } from '../../../constants/sociallink.constants';
+import DUTooltip from './DUTooltip.astro';
+
+interface Props {
+  margin?: string;
+  color?: string;
+  Logo?: (_props: Record<string, any>) => any;
+  textSize?: string;
+  iconSize?: string;
+  destination?: string;
+  content?: string;
+}
+
+const { 
+  color = "btn-neutral",
+  Logo = Github,
+  textSize = DEFAULT_ICON_TEXTSIZE,
+  iconSize = DEFAULT_ICON_ICONSIZE, 
+  destination = DEFAULT_URL, 
+  content = DEFAULT_DISPLAY_NAME,
+  margin = "" 
+} = Astro.props;
+---
+  <a href={destination} class={margin} target="_blank">
+    <div class="flex flex-col align-middle items-center-safe">
+      <DUTooltip text={content}>
+      <button class={`btn btn-sm ${color}`} title={content} aria-label={content}>
+        <Logo class={`${textSize} ${iconSize}`} />
+        {/* content */}
+      </button>
+      </DUTooltip>
+    </div>
+  </a>

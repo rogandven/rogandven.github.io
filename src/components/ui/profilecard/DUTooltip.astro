@@ -1,0 +1,15 @@
+---
+import { DEFAULT_DISPLAY_NAME } from '../../../constants/sociallink.constants';
+
+interface Props {
+  text?: string;
+}
+
+const { 
+  text = DEFAULT_DISPLAY_NAME
+} = Astro.props;
+---
+
+<div class="tooltip w-min" data-tip={text}>
+  <slot />
+</div>

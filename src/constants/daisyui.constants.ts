@@ -11,3 +11,5 @@ export const DEFAULT_ICON_TEXTSIZE: string = "text-sm";
 export const DEFAULT_ICON_ICONSIZE: string = "size-4";
 
 export const AGE_BADGE_NAME: string = "age-badge";
+
+export const DAISYUI_BUTTON_COLORS: string[] = ["btn-primary", "btn-secondary", "btn-accent", "btn-info", "btn-success", "btn-warning", "btn-error"];

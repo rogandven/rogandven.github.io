@@ -5,12 +5,13 @@ import DUAvatar from "./DUAvatar.astro";
 import DUDynamicUsername from "./DUDynamicUsername.astro";
 import DUBadge from "./DUBadge.astro";
 import { getAge } from "../../../utils/general.utils";
-import { AGE_BADGE_NAME } from "../../../constants/daisyui.constants";
+import { AGE_BADGE_NAME, DAISYUI_BUTTON_COLORS } from "../../../constants/daisyui.constants";
+import DUSocialButton from "./DUSocialButton.astro";
 
 ---
 <div class="card bg-base-100 w-96 shadow-sm">
   <div class="card-body">
-    <div class="flex flex-row">
+    <div class="flex flex-row align-middle items-center-safe justify-items-center-safe">
         <div class="mr-4">
             <DUAvatar 
                 color="ring-primary"
@@ -31,7 +32,18 @@ import { AGE_BADGE_NAME } from "../../../constants/daisyui.constants";
                 />
             </h2>
             <DUDynamicUsername links={DATA.socials}/>
-            <p>Aspirante ingeniero en informática.</p>
+            <p class="mb-1">Aspirante ingeniero en informática. Actualmente siguiendo adelante a pesar de los desafíos de la vida.</p>
+            <div class="flex flex-row">
+            {DATA.socials.map((link, index) => {
+                return (<DUSocialButton 
+                    color={DAISYUI_BUTTON_COLORS[index % DAISYUI_BUTTON_COLORS.length]}
+                    Logo={link.icon} 
+                    destination={link.URL}
+                    content={link.displayName}
+                    margin="mr-2"
+                />);
+            })}
+            </div>
         </div>
     </div>
   </div>
