@@ -1,6 +1,6 @@
 ---
 import type SocialLink from '../../../classes/SocialLink.ts';
-import { DEFAULT_ICON_TEXTSIZE, DEFAULT_ICON_ICONSIZE } from '../../../constants/daisyui.constants';
+import { DEFAULT_ICON_TEXTSIZE, DEFAULT_ICON_ICONSIZE, DAISYUI_LINK_COLORS } from '../../../constants/daisyui.constants';
 
 interface Props {
     links: SocialLink[],
@@ -17,12 +17,12 @@ const {
 <span class={`text-rotate duration-6000 ${textSize}`}>
   <span>
     {
-        links.map((link) => {
+        links.map((link, index) => {
             const LOGO_CLASS = `${textSize} ${iconSize}`;
             const Logo = link.icon;
             return <span>
                 <a 
-                    class="link link-secondary" 
+                    class={`link ${DAISYUI_LINK_COLORS[index % DAISYUI_LINK_COLORS.length]}`}
                     href={link.URL} 
                     target="_blank"
                     aria-label={link.displayName}
