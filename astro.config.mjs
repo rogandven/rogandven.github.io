@@ -3,6 +3,8 @@ import tailwindcss from "@tailwindcss/vite";
 
 import icon from "astro-icon";
 
+import react from "@astrojs/react";
+
 export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
@@ -13,5 +15,5 @@ export default defineConfig({
     include: {
       mdi: ['*']
     }
-  })],
+  }), react()],
 });
