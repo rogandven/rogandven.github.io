@@ -10,6 +10,14 @@ import LinkedInIcon from "../components/icons/LinkedInIcon.astro";
 import EventClass from "../classes/EventClass.ts";
 
 const DATA = {
+    name: "Roger Venegas",
+    username: "rogandven",
+    location: {
+        NAME: "Concepción", 
+        URL: "https://www.google.com/maps/place/Concepci%C3%B3n,+B%C3%ADo+B%C3%ADo"
+    },
+    date_of_birth: new Date("2004-09-16"),
+    description: "Aspirante ingeniero en informática. Actualmente siguiendo adelante a pesar de los desafíos de la vida.",
     education: [
         new EventClass(
             "Universidad del Bío-Bío",

@@ -1,6 +1,6 @@
 ---
 import "../assets/styles.css";
-import { NAME } from "../constants/personal.constants";
+import DATA from "../data/data";
 ---
 <!doctype html>
 <html lang="en">
@@ -10,7 +10,7 @@ import { NAME } from "../constants/personal.constants";
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="icon" href="/favicon.ico" />
 		<meta name="generator" content={Astro.generator} />
-		<title>{NAME}</title>
+		<title>{DATA.name}</title>
 	</head>
 	<body>
 		<slot />

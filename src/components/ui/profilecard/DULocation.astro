@@ -1,0 +1,24 @@
+---
+import { Icon } from "astro-icon/components";
+import { DEFAULT_LOCATION } from "../../../constants/general.constants";
+import { DEFAULT_URL } from "../../../constants/sociallink.constants";
+import DUTooltip from "./DUTooltip.astro";
+
+interface Props {
+    text: string,
+    url: string,
+}
+
+const { 
+    text = DEFAULT_LOCATION,
+    url = DEFAULT_URL,
+} = Astro.props;
+---
+<a href={url} target="_blank">
+    <DUTooltip text="Ubicación">
+        <div class="flex flex-row items-center align-middle w-min link link-info">
+            <Icon name="mdi:location" class="mr-1"/>
+            <span>{text}</span>
+        </div>
+    </DUTooltip>
+</a>

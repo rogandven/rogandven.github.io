@@ -23,7 +23,7 @@ export default class Tool extends SocialLink {
 
     constructor(
         name: string = DEFAULT_DISPLAY_NAME, 
-        icon: (_props: Record<string, any>) => any = DEFAULT_ICON, 
+        icon: (_props: any) => any = DEFAULT_ICON, 
         description = DEFAULT_DESCRIPTION, 
         proficiency = DEFAULT_PROFICIENCY
     ) {

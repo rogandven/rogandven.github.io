@@ -5,7 +5,7 @@ import { validateAbsolutePath } from "../validations/general.validations.ts";
 export default class SocialLink {
     private _displayName?: string = DEFAULT_DISPLAY_NAME;
     private _sluggifiedName?: string = DEFAULT_SLUGGIFIED_NAME;
-    private _icon?: (_props: Record<string, any>) => any = DEFAULT_ICON;
+    private _icon?: (_props: any) => any = DEFAULT_ICON;
     private _url?: string = DEFAULT_URL;
     private _username?: string = DEFAULT_SLUGGIFIED_NAME;
 
@@ -21,10 +21,10 @@ export default class SocialLink {
         return this._sluggifiedName || DEFAULT_SLUGGIFIED_NAME;
     }
 
-    get icon(): (_props: Record<string, any>) => any {
+    get icon(): (_props: any) => any {
         return this._icon || DEFAULT_ICON;
     }
-    set icon(icon: (_props: Record<string, any>) => any) {
+    set icon(icon: (_props: any) => any) {
         this._icon = icon;
     }
 

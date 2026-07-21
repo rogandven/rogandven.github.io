@@ -1,13 +1,13 @@
 ---
-import { DATE_OF_BIRTH, NAME } from "../../../constants/personal.constants";
 import DATA from "../../../data/data.ts";
 import DUAvatar from "./DUAvatar.astro";
 import DUDynamicUsername from "./DUDynamicUsername.astro";
 import DUBadge from "./DUBadge.astro";
 import { getAge } from "../../../utils/general.utils";
-import { AGE_BADGE_NAME, DAISYUI_BUTTON_COLORS } from "../../../constants/daisyui.constants";
+import { AGE_BADGE_NAME, DAISYUI_BUTTON_COLORS, DIVIDER } from "../../../constants/daisyui.constants";
 import DUSocialButton from "./DUSocialButton.astro";
 import DUTooltip from "./DUTooltip.astro";
+import DULocation from "./DULocation.astro";
 
 ---
 <div class="card bg-base-100 w-96 shadow-sm">
@@ -17,25 +17,35 @@ import DUTooltip from "./DUTooltip.astro";
             <DUAvatar 
                 color="ring-primary"
                 imageURL="/images/pfp.png"
-                imageALT={NAME}
+                imageALT={DATA.name}
                 imageSize={30}
                 imageSizeClass="w-30"
             />
         </div>
         <div>
             <h2 class="card-title text-primary">
-                {NAME}
+                {DATA.name}
                 <DUTooltip text="Edad">
                     <DUBadge
                         color="badge-accent"
-                        content={String(getAge(DATE_OF_BIRTH))}
+                        content={String(getAge(DATA.date_of_birth))}
                         iconName="mdi:cake"
                         textId={AGE_BADGE_NAME}
                     />
                 </DUTooltip>
             </h2>
-            <DUDynamicUsername links={DATA.socials}/>
-            <p class="mb-1">Aspirante ingeniero en informática. Actualmente siguiendo adelante a pesar de los desafíos de la vida.</p>
+            <div class="flex flex-row align-middle items-center">
+                <span>
+                    <DUTooltip text="Redes Sociales">
+                        <DUDynamicUsername links={DATA.socials}/>
+                    </DUTooltip>
+                </span>
+                <span class="ml-1 mr-1">{DIVIDER}</span>
+                <span>
+                    <DULocation text={DATA.location.NAME} url={DATA.location.URL} />
+                </span>
+            </div>
+            <p class="mb-1">{DATA.description}</p>
             <div class="flex flex-row">
             {DATA.socials.map((link, index) => {
                 return (<DUSocialButton 

@@ -3,3 +3,5 @@ export const TODAY: number = Date.now();
 // https://regex-snippets.com/unix-path
 export const UNIX_PATH_REGEX: RegExp = /^(\/[^\/ ]*)+\/?$|^\.(\/[^\/ ]*)+\/?$|^\.\.\/([^\/ ]*\/)*[^\/ ]*$/;
 export const ICON_PREFIX: string = "mdi:";
+
+export const DEFAULT_LOCATION: string = "Calle Falsa 123";
