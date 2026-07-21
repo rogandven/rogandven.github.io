@@ -1,9 +1,11 @@
 ---
-import { NAME } from "../../../constants/personal.constants";
+import { DATE_OF_BIRTH, NAME } from "../../../constants/personal.constants";
 import DATA from "../../../data/data.ts";
 import DUAvatar from "./DUAvatar.astro";
 import DUDynamicUsername from "./DUDynamicUsername.astro";
-
+import DUBadge from "./DUBadge.astro";
+import { getAge } from "../../../utils/general.utils";
+import { AGE_BADGE_NAME } from "../../../constants/daisyui.constants";
 
 ---
 <div class="card bg-base-100 w-96 shadow-sm">
@@ -13,16 +15,39 @@ import DUDynamicUsername from "./DUDynamicUsername.astro";
             <DUAvatar 
                 color="ring-primary"
                 imageURL="/images/pfp.png"
-                imageALT="Roger Venegas"
+                imageALT={NAME}
                 imageSize={30}
                 imageSizeClass="w-30"
             />
         </div>
         <div>
-            <h2 class="card-title text-primary">{NAME}</h2>
+            <h2 class="card-title text-primary">
+                {NAME}
+                <DUBadge
+                    color="badge-accent"
+                    content={String(getAge(DATE_OF_BIRTH))}
+                    iconName="mdi:cake"
+                    textId={AGE_BADGE_NAME}
+                />
+            </h2>
             <DUDynamicUsername links={DATA.socials}/>
             <p>Aspirante ingeniero en informática.</p>
         </div>
     </div>
   </div>
 </div>
+<script is:inline type="module">
+    try {
+        const DATE_OF_BIRTH = new Date("2004-09-16");
+        const AGE_BADGE_NAME = "age-badge";
+        const getAge = (date) => {
+        const TODAY = new Date(Date.now());
+            var years = TODAY.getFullYear() - date.getFullYear();
+            if (!(date.getMonth() <= TODAY.getMonth())) {
+                years -= 1;
+            }
+            return years;
+        }
+        document.getElementById(AGE_BADGE_NAME).textContent = getAge(DATE_OF_BIRTH);
+    } catch (error) {}
+</script>

@@ -1,0 +1,23 @@
+---
+import { Icon } from 'astro-icon/components';
+
+interface Props {
+    color: string,
+    content: string, 
+    iconName: string,
+    textId: string,
+}
+
+const { 
+    color,
+    content,
+    iconName,
+    textId,
+} = Astro.props;
+---
+<div class={`badge ${color}`}>
+    <Icon name={iconName}/>
+    <span id={textId}>
+        {content}
+    </span>
+</div>

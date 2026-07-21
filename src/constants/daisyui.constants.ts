@@ -9,3 +9,5 @@ export const DEFAULT_COLOR: string = "ring-primary";
 
 export const DEFAULT_ICON_TEXTSIZE: string = "text-sm";
 export const DEFAULT_ICON_ICONSIZE: string = "size-4";
+
+export const AGE_BADGE_NAME: string = "age-badge";
