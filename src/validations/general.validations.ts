@@ -7,7 +7,7 @@ export const validateString = (str: string | undefined, fieldName: string): stri
     }
     str = str.trim();
     if (str.length <= 0) {
-        throw Error(`"${fieldName}" cannot be empty`);
+        throw Error(`\`${fieldName}\` cannot be empty`);
     }
     return str;
 }
@@ -17,7 +17,7 @@ export const validateRelativePath = (str: string | undefined) => {
         return undefined;
     }
     if (!UNIX_PATH_REGEX.test(str)) {
-        throw Error(`invalid path: "${str}"`);
+        throw Error(`invalid path: \`${str}\``);
     }
     return str;
 }
@@ -31,7 +31,7 @@ export const validateAbsolutePath = (str: string | undefined) => {
         const newURL = new URL(str);
         return newURL.toString();
     } catch (error) {
-        throw Error(`Invalid URL: ${str}`);
+        throw Error(`Invalid URL: \`${str}\``);
     }
     
 }
