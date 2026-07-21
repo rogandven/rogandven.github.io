@@ -5,3 +5,4 @@ export const MAX_LEVEL: number = VALID_LEVELS.length;
 export const MIN_LEVEL: number = 0;
 export const NATIVE_STRING: string = "Nativo";
 export const UNDEFINED_STRING: string = "Sin aprender";
+export const DEFAULT_COUNTRY: string = "cl";

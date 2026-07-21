@@ -14,7 +14,8 @@ export default defineConfig({
   integrations: [icon({
     include: {
       mdi: ['*'],
-      bi: ['*']
+      bi: ['*'],
+      flag: ['*'],
     }
   }), react()],
 });

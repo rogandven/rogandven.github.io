@@ -8,12 +8,13 @@ import { AGE_BADGE_NAME, DAISYUI_BUTTON_COLORS, DIVIDER } from "../../../constan
 import DUSocialButton from "./DUSocialButton.astro";
 import DUTooltip from "./DUTooltip.astro";
 import DULocation from "./DULocation.astro";
-
+import { getCountryCode } from "../../../utils/language.utils";
+import { Icon  } from "astro-icon/components";
 ---
-<div class="card bg-base-100 w-96 shadow-sm">
+<div class="card bg-base-100 w-100 shadow-sm">
   <div class="card-body">
     <div class="flex flex-row align-middle items-center-safe justify-items-center-safe">
-        <div class="mr-4">
+        <div class="mr-3">
             <DUAvatar 
                 color="ring-primary"
                 imageURL="/images/pfp.png"
@@ -23,17 +24,22 @@ import DULocation from "./DULocation.astro";
             />
         </div>
         <div>
-            <h2 class="card-title">
-                {DATA.name}
-                <DUTooltip text="Edad">
-                    <DUBadge
-                        color="badge-accent"
-                        content={String(getAge(DATA.date_of_birth))}
-                        iconName="mdi:cake"
-                        textId={AGE_BADGE_NAME}
-                    />
-                </DUTooltip>
-            </h2>
+            <span>
+                <h2 class="card-title flex flex-row align-middle items-center content-center">
+                    <DUTooltip text={DATA.location.COUNTRY_NAME}>
+                        <Icon name={getCountryCode(DATA.location.COUNTRY_CODE)} class="rounded-sm"/>
+                    </DUTooltip>
+                    {DATA.name}
+                    <DUTooltip text="Edad">
+                        <DUBadge
+                            color="badge-accent"
+                            content={String(getAge(DATA.date_of_birth))}
+                            iconName="mdi:cake"
+                            textId={AGE_BADGE_NAME}
+                        />
+                    </DUTooltip>
+                </h2>
+            </span>
             <div class="flex flex-row align-bottom items-center content-center">
                 <span>
                     <DUTooltip text="Redes Sociales">

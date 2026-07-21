@@ -1,4 +1,5 @@
 ---
+import DULanguageCard from '../components/ui/languages/DULanguageCard.astro';
 import DUAvatar from '../components/ui/profilecard/DUAvatar.astro';
 import DUProfileCard from '../components/ui/profilecard/DUProfileCard.astro';
 import DUTechnologyCard from '../components/ui/technologies/DUTechnologyCard.astro';
@@ -13,6 +14,13 @@ import Layout from '../layouts/Layout.astro';
         {DATA.tools.map((tool, index) => {
             return <DUTechnologyCard 
                 tool={tool} 
+                text_color={DAISYUI_TEXT_COLORS[index % DAISYUI_TEXT_COLORS.length]}
+                proficiency_color={DAISYUI_PROGRESS_COLORS[index % DAISYUI_TEXT_COLORS.length]}
+            />
+        })}
+        {DATA.languages.map((language, index) => {
+            return <DULanguageCard 
+                language={language} 
                 text_color={DAISYUI_TEXT_COLORS[index % DAISYUI_TEXT_COLORS.length]}
                 proficiency_color={DAISYUI_PROGRESS_COLORS[index % DAISYUI_TEXT_COLORS.length]}
             />

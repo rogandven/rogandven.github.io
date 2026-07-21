@@ -1,7 +1,6 @@
 ---
 import Tool from '../../../classes/Tool';
 import { DAISYUI_TEXT_COLORS, DAISYUI_PROGRESS_COLORS } from '../../../constants/daisyui.constants';
-import { MAX_PROFICIENCY } from '../../../constants/tool.constants';
 import DUTooltip from '../profilecard/DUTooltip.astro';
 
 interface Props {
@@ -26,7 +25,7 @@ const Logo = tool.icon;
             class={`text-2xl size-15 ${text_color} ml-2 mr-2 mb-1`}
             _class={`size-15 ${text_color} mb-1`}
         />
-        <progress class={`progress ${proficiency_color} w-20 mt-1`} value={tool.proficiency} max={MAX_PROFICIENCY}></progress>
+        <progress class={`progress ${proficiency_color} w-20 mt-1`} value={tool.percentage} max={100}></progress>
     </div>
 </div>
 </DUTooltip>

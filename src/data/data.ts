@@ -14,7 +14,9 @@ const DATA = {
     username: "rogandven",
     location: {
         NAME: "Concepción", 
-        URL: "https://www.google.com/maps/place/Concepci%C3%B3n,+B%C3%ADo+B%C3%ADo"
+        URL: "https://www.google.com/maps/place/Concepci%C3%B3n,+B%C3%ADo+B%C3%ADo",
+        COUNTRY_CODE: "cl",
+        COUNTRY_NAME: "Chile",
     },
     date_of_birth: new Date("2004-09-16"),
     description: "Aspirante ingeniero en informática. Actualmente siguiendo adelante a pesar de los desafíos de la vida.",
@@ -160,7 +162,7 @@ const DATA = {
     ],
     tools: [
         new Tool("Astro", Astro, "Framework de páginas web estáticas", 3),
-        new Tool("C", C, "Lenguaje de programación de bajo nivel", 4),
+        new Tool("C", C, "Lenguaje de programación de bajo nivel", 3),
         new Tool("Docker", Docker, "Herramienta para la creación y manejo de contenedores", 2),
         new Tool("Excel", ExcelIcon, "Herramienta para la creación de planillas de cálculo", 3),
         new Tool("Git", Git, "Herramienta de control de versiones", 3),
@@ -177,8 +179,8 @@ const DATA = {
         new Tool("React", React, "Framework de JavaScript orientado al contenido dinámico", 3)
     ],
     languages: [
-        new Language("Español", undefined, true),
-        new Language("Inglés", "C1", false),
+        new Language("Español", undefined, true, "es"),
+        new Language("Inglés", "C1", false, "gb"),
     ],
     socials: [
         new SocialLink("GitHub", Github, "https://www.github.com/rogandven", "rogandven"),

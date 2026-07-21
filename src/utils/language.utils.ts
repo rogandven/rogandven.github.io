@@ -5,3 +5,7 @@ export const getLevelNumber = (level: string): number => {
         return element === String(level);
     })
 }
+
+export const getCountryCode = (code: string): string => {
+    return `flag:${code}-1x1`;
+}
