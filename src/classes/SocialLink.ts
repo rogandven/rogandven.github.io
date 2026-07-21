@@ -7,6 +7,7 @@ export default class SocialLink {
     private _sluggifiedName?: string = DEFAULT_SLUGGIFIED_NAME;
     private _icon?: (_props: Record<string, any>) => any = DEFAULT_ICON;
     private _url?: string = DEFAULT_URL;
+    private _username?: string = DEFAULT_SLUGGIFIED_NAME;
 
     get displayName(): string {
         return this._displayName || DEFAULT_DISPLAY_NAME;
@@ -34,9 +35,17 @@ export default class SocialLink {
         this._url = validateAbsolutePath(url);
     }
 
-    constructor(name: string = DEFAULT_DISPLAY_NAME, icon: (_props: Record<string, any>) => any = DEFAULT_ICON, url: string) {
+    get username(): string {
+        return String(this._username);
+    }
+    set username(username: string) {
+        this._username = username;
+    }    
+
+    constructor(name: string = DEFAULT_DISPLAY_NAME, icon: (_props: Record<string, any>) => any = DEFAULT_ICON, url: string, username: string) {
         this.displayName = name;
         this.icon = icon;
         this.URL = url;
+        this.username = username;
     }
 };

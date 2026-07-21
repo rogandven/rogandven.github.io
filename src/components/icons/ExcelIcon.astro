@@ -1,6 +1,14 @@
 ---
 import { Icon } from "astro-icon/components";
+
+interface Props {
+    newClass: string
+}
+
+const { 
+    newClass = ""
+} = Astro.props;
 ---
-<>
-    <Icon name="streamline-ultimate:microsoft-excel-logo"></Icon>
-</>
+<span class={newClass}>
+    <Icon name="streamline-ultimate:microsoft-excel-logo" class={newClass} />
+</span>

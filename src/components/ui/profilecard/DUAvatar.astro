@@ -1,6 +1,5 @@
 ---
 import PictureAstroComponent from 'astro/components/Picture.astro';
-import { getRingColor } from "../../../utils/daisyui.utils.ts";
 import { DEFAULT_IMAGE_FORMAT, DEFAULT_IMAGE_URL, DEFAULT_SIZE_CLASS, DEFAULT_IMAGE_SIZE, DEFAULT_IMAGE_ALT, DEFAULT_COLOR } from "../../../constants/daisyui.constants.ts";
 import { validateSizeClass } from "../../../validations/daisyUI.validations";
 
@@ -22,7 +21,7 @@ const {
 
 ---
 <div class="avatar">
-  <div class={`${getRingColor(color)} ring-offset-base-100 ${validateSizeClass(imageSizeClass, imageSize)} rounded-full ring-2 ring-offset-2`}>
+  <div class={`${color} ring-offset-base-100 ${validateSizeClass(imageSizeClass, imageSize)} rounded-full ring-2 ring-offset-2`}>
     <PictureAstroComponent src={imageURL} alt={imageALT} width={imageSize} height={imageSize} format={DEFAULT_IMAGE_FORMAT}/>
   </div>
 </div>

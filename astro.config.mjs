@@ -13,7 +13,8 @@ export default defineConfig({
   site: 'https://rogandven.github.io',
   integrations: [icon({
     include: {
-      mdi: ['*']
+      mdi: ['*'],
+      bi: ['*']
     }
   }), react()],
 });

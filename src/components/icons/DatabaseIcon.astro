@@ -1,6 +1,14 @@
 ---
 import { Icon } from "astro-icon/components";
+
+interface Props {
+    newClass: string
+}
+
+const { 
+    newClass = ""
+} = Astro.props;
 ---
-<>
-    <Icon name="cib:oracle"></Icon>
-</>
+<span class={newClass}>
+    <Icon name="cib:oracle" class={newClass} />
+</span>

@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@astrojs/react": "^6.0.1",
+    "@iconify-json/bi": "^1.2.7",
     "@iconify-json/cib": "^1.2.3",
     "@iconify-json/mdi": "^1.2.3",
     "@iconify-json/streamline-ultimate": "^1.2.2",

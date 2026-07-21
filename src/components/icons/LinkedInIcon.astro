@@ -1,6 +1,14 @@
 ---
 import { Icon } from "astro-icon/components";
+
+interface Props {
+    _class?: string
+}
+
+const { 
+    _class = ""
+} = Astro.props;
 ---
-<>
-    <Icon name="bi:linkedin"></Icon>
-</>
+<span class={_class}>
+    <Icon name="bi:linkedin" class={_class} />
+</span>

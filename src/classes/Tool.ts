@@ -1,7 +1,7 @@
 import { DEFAULT_DESCRIPTION, DEFAULT_PROFICIENCY } from "../constants/tool.constants.ts";
 import SocialLink from "./SocialLink.ts";
 import { validateProficiency } from "../validations/tool.validations.ts";
-import { DEFAULT_DISPLAY_NAME, DEFAULT_ICON } from "../constants/sociallink.constants.ts";
+import { DEFAULT_DISPLAY_NAME, DEFAULT_ICON, DEFAULT_URL } from "../constants/sociallink.constants.ts";
 
 export default class Tool extends SocialLink {
     private _description?: string = DEFAULT_DESCRIPTION;
@@ -27,7 +27,7 @@ export default class Tool extends SocialLink {
         description = DEFAULT_DESCRIPTION, 
         proficiency = DEFAULT_PROFICIENCY
     ) {
-        super(name, icon)
+        super(name, icon, DEFAULT_URL, DEFAULT_URL)
         this.description = description;
         this.proficiency = proficiency;
     }

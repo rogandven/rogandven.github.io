@@ -1,0 +1,28 @@
+---
+import { NAME } from "../../../constants/personal.constants";
+import DATA from "../../../data/data.ts";
+import DUAvatar from "./DUAvatar.astro";
+import DUDynamicUsername from "./DUDynamicUsername.astro";
+
+
+---
+<div class="card bg-base-100 w-96 shadow-sm">
+  <div class="card-body">
+    <div class="flex flex-row">
+        <div class="mr-4">
+            <DUAvatar 
+                color="ring-primary"
+                imageURL="/images/pfp.png"
+                imageALT="Roger Venegas"
+                imageSize={30}
+                imageSizeClass="w-30"
+            />
+        </div>
+        <div>
+            <h2 class="card-title text-primary">{NAME}</h2>
+            <DUDynamicUsername links={DATA.socials}/>
+            <p>Aspirante ingeniero en informática.</p>
+        </div>
+    </div>
+  </div>
+</div>

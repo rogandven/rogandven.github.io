@@ -173,9 +173,9 @@ const DATA = {
         new Language("Inglés", "C1", false),
     ],
     socials: [
-        new SocialLink("GitHub", Github, "https://www.github.com/rogandven"),
-        new SocialLink("LinkedIn", LinkedInIcon, "https://www.linkedin.com/in/rogandven"),
-        new SocialLink("YouTube", Youtube, "https://www.youtube.com/@rogandven"),
+        new SocialLink("GitHub", Github, "https://www.github.com/rogandven", "rogandven"),
+        new SocialLink("LinkedIn", LinkedInIcon, "https://www.linkedin.com/in/rogandven", "rogandven"),
+        new SocialLink("YouTube", Youtube, "https://www.youtube.com/@rogandven", "rogandven"),
     ],
 };
 

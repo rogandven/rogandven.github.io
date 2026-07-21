@@ -1,0 +1,40 @@
+---
+import type SocialLink from '../../../classes/SocialLink.ts';
+import { DEFAULT_ICON_TEXTSIZE, DEFAULT_ICON_ICONSIZE } from '../../../constants/daisyui.constants';
+
+interface Props {
+    links: SocialLink[],
+    textSize?: string,
+    iconSize?: string,
+}
+
+const { 
+    links = [],
+    textSize = DEFAULT_ICON_TEXTSIZE,
+    iconSize = DEFAULT_ICON_ICONSIZE,
+} = Astro.props;
+---
+<span class={`text-rotate duration-6000 ${textSize}`}>
+  <span>
+    {
+        links.map((link) => {
+            const LOGO_CLASS = `${textSize} ${iconSize}`;
+            const Logo = link.icon;
+            return <span>
+                <a 
+                    class="link link-secondary" 
+                    href={link.URL} 
+                    target="_blank"
+                >
+                    <div class="flex flex-row align-middle items-center-safe justify-center">
+                        <Logo class={LOGO_CLASS} _class={LOGO_CLASS}/>
+                        <span class="ml-1">
+                                {link.username}
+                        </span>
+                    </div>
+                </a>
+            </span>;
+        })
+    }
+  </span>
+</span>
