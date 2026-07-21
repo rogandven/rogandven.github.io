@@ -1,4 +1,4 @@
-import { DEFAULT_DESCRIPTION, DEFAULT_PROFICIENCY } from "../constants/tool.constants.ts";
+import { DEFAULT_DESCRIPTION, DEFAULT_PROFICIENCY, MAX_PROFICIENCY } from "../constants/tool.constants.ts";
 import SocialLink from "./SocialLink.ts";
 import { validateProficiency } from "../validations/tool.validations.ts";
 import { DEFAULT_DISPLAY_NAME, DEFAULT_ICON, DEFAULT_URL } from "../constants/sociallink.constants.ts";
@@ -19,6 +19,13 @@ export default class Tool extends SocialLink {
     }
     set proficiency(proficiency: number) {
         this._proficiency = validateProficiency(proficiency);
+    }
+
+    get percentage(): number {
+        return Math.fround(((this._proficiency || 0) / MAX_PROFICIENCY) * 100);
+    }
+    get percentageString(): string {
+        return this.percentage + "%";
     }
 
     constructor(

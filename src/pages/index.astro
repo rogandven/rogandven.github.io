@@ -1,9 +1,21 @@
 ---
 import DUAvatar from '../components/ui/profilecard/DUAvatar.astro';
 import DUProfileCard from '../components/ui/profilecard/DUProfileCard.astro';
+import DUTechnologyCard from '../components/ui/technologies/DUTechnologyCard.astro';
+import { DAISYUI_PROGRESS_COLORS, DAISYUI_TEXT_COLORS } from '../constants/daisyui.constants';
+import DATA from '../data/data';
 import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout>
-    <DUProfileCard></DUProfileCard>
+    <DUProfileCard />
+    <div class="flex flex-row flex-wrap">
+        {DATA.tools.map((tool, index) => {
+            return <DUTechnologyCard 
+                tool={tool} 
+                text_color={DAISYUI_TEXT_COLORS[index % DAISYUI_TEXT_COLORS.length]}
+                proficiency_color={DAISYUI_PROGRESS_COLORS[index % DAISYUI_TEXT_COLORS.length]}
+            />
+        })}
+    </div>
 </Layout>

@@ -2,13 +2,13 @@
 import { Icon } from "astro-icon/components";
 
 interface Props {
-    newClass: string
+    _class: string
 }
 
 const { 
-    newClass = ""
+    _class = ""
 } = Astro.props;
 ---
-<span class={newClass}>
-    <Icon name="cib:oracle" class={newClass} />
+<span class={_class}>
+    <Icon name="cib:oracle" class={_class} />
 </span>

@@ -1,0 +1,32 @@
+---
+import Tool from '../../../classes/Tool';
+import { DAISYUI_TEXT_COLORS, DAISYUI_PROGRESS_COLORS } from '../../../constants/daisyui.constants';
+import { MAX_PROFICIENCY } from '../../../constants/tool.constants';
+import DUTooltip from '../profilecard/DUTooltip.astro';
+
+interface Props {
+    tool: Tool,
+    text_color: string,
+    proficiency_color: string,
+}
+
+const { 
+    tool = new Tool(undefined, undefined, undefined, 0),
+    text_color = DAISYUI_TEXT_COLORS[0],
+    proficiency_color = DAISYUI_PROGRESS_COLORS[0]
+} = Astro.props;
+
+const Logo = tool.icon;
+---
+<DUTooltip text={`${tool.displayName} (${tool.percentageString})`}>
+<div class="card bg-base-100 w-20 shadow-sm m-2">
+    <div class="w-fit flex flex-col align-middle items-center">
+        <h1 class={`${text_color} mb-1`}>{tool.displayName}</h1>
+        <Logo 
+            class={`text-2xl size-15 ${text_color} ml-2 mr-2 mb-1`}
+            _class={`size-15 ${text_color} mb-1`}
+        />
+        <progress class={`progress ${proficiency_color} w-20 mt-1`} value={tool.proficiency} max={MAX_PROFICIENCY}></progress>
+    </div>
+</div>
+</DUTooltip>

@@ -13,5 +13,7 @@ export const DEFAULT_ICON_ICONSIZE: string = "size-4";
 export const AGE_BADGE_NAME: string = "age-badge";
 
 export const DAISYUI_BUTTON_COLORS: string[] = ["btn-primary", "btn-secondary", "btn-accent", "btn-info", "btn-success", "btn-warning", "btn-error"];
+export const DAISYUI_TEXT_COLORS: string[] = ["text-primary", "text-secondary", "text-accent", "text-info", "text-success", "text-warning", "text-error"];
+export const DAISYUI_PROGRESS_COLORS: string[] = ["progress-primary", "progress-secondary", "progress-accent", "progress-info", "progress-success", "progress-warning", "progress-error"];
 
 export const DIVIDER: string = "⋅";
