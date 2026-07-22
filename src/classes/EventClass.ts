@@ -51,8 +51,8 @@ export default class EventClass {
         this._location = validateString(location, "location");
     }
 
-    get startDate(): string {
-        return new Date(this._startDate).toLocaleDateString();
+    get startDate(): Date {
+        return new Date(this._startDate);
     }
     set startDate(startDate: string) {
         this._startDate = getUNIXDate(startDate);

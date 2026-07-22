@@ -1,4 +1,5 @@
 ---
+import DUTimeline from '../components/ui/education/DUTimeline.astro';
 import DULanguageCard from '../components/ui/languages/DULanguageCard.astro';
 import DUAvatar from '../components/ui/profilecard/DUAvatar.astro';
 import DUProfileCard from '../components/ui/profilecard/DUProfileCard.astro';
@@ -26,4 +27,5 @@ import Layout from '../layouts/Layout.astro';
             />
         })}
     </div>
+    <DUTimeline eventList={DATA.education} />
 </Layout>

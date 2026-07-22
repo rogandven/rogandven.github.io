@@ -1,0 +1,34 @@
+---
+import type EventClass from "../../../classes/EventClass";
+import DUCheckbox from "./DUCheckbox.astro";
+import DUInfoModal from "./DUInfoModal.astro";
+
+interface Props {
+  eventList?: EventClass[];
+}
+
+const { 
+  eventList = [], 
+} = Astro.props;
+---
+<ul class="timeline">
+    {eventList && eventList.length === 0 ? (<div/>) : eventList.map(
+        (event, index) => {
+            return (
+                <li>
+                    {index !== 0 ? (<hr />) : (<div />)}
+                    <div class="timeline-start">{event.startDate.getUTCFullYear()}</div>
+                    <div class="timeline-middle">
+                        <DUCheckbox />
+                    </div>
+                    <div class="timeline-end timeline-box w-70">
+                        <h1 class="text-lg" aria-label={event.companyName}><b>{event.companyName}</b></h1>
+                        <p class="text-sm">{event.name}</p>
+                        <DUInfoModal id={index} event={event}/>
+                    </div>
+                    {index !== (eventList.length - 1) ? (<hr />) : (<div />)}
+                </li>
+            );
+        }
+    )}
+</ul>

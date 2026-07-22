@@ -1,0 +1,32 @@
+---
+import { Icon } from 'astro-icon/components';
+import EventClass from '../../../classes/EventClass';
+import { DEFAULT_DATE } from '../../../constants/general.constants';
+
+interface Props {
+    id?: number;
+    event?: EventClass;
+}
+
+const { 
+    id = 0,
+    event = new EventClass(undefined, "prueba", "prueba", undefined, undefined, DEFAULT_DATE, DEFAULT_DATE, undefined, undefined, undefined), 
+} = Astro.props;
+---
+<button class="btn btn-info btn-sm text-lg" aria-label="Mostrar más" onclick=`{my_modal_${id}.showModal()}`>
+    <Icon name="mdi:information-outline" />
+</button>
+<dialog id=`my_modal_${id}` class="modal">
+  <div class="modal-box">
+    <h3 class="text-lg font-bold">{event.companyName}</h3>
+    <h3 class="text-lg font-bold">{event.name}</h3>
+    <p class="py-4">{event.description || "Descripción no disponible"}</p>
+    <div class="modal-action">
+      <form method="dialog">
+        <button class="btn btn-error btn-sm text-lg">
+            <Icon name="mdi:close" />
+        </button>
+      </form>
+    </div>
+  </div>
+</dialog>
