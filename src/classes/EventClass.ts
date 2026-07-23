@@ -8,7 +8,7 @@ export default class EventClass {
     private _companyName: string | undefined = undefined;
     private _name: string = DEFAULT_EVENT_NAME;
     private _description: string | undefined = undefined;
-    private _imageURL: string | undefined = undefined;
+    private _imageURL: undefined | ImageMetadata = undefined;
     private _location: string | undefined = undefined;
     private _startDate: number = getUNIXDate(DEFAULT_DATE);
     private _endDate: number | undefined = undefined;
@@ -39,11 +39,11 @@ export default class EventClass {
         this._description = validateString(description, "description");
     }
 
-    get imageURL(): string | undefined {
+    get imageURL(): ImageMetadata | undefined {
         return this._imageURL;
     }
-    set imageURL(imageURL: string | undefined) {
-        this._imageURL = validateRelativePath(imageURL);
+    set imageURL(imageURL: ImageMetadata | undefined) {
+        this._imageURL = imageURL;
     }
 
     get location(): string | undefined {
@@ -121,7 +121,7 @@ export default class EventClass {
         companyName: string | undefined = undefined, 
         name: string = DEFAULT_EVENT_NAME, 
         description: string | undefined = undefined, 
-        imageURL: string | undefined = undefined, 
+        imageURL: ImageMetadata | undefined = undefined, 
         location: string | undefined = undefined, 
         startDate: string = DEFAULT_DATE, 
         endDate: string | undefined = undefined, 

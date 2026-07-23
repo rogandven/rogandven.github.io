@@ -6,6 +6,7 @@ import { DAISYUI_BADGE_COLORS, DIVIDER } from "../constants/daisyui.constants";
 import { MESES_ESPANIOL } from "../constants/general.constants";
 import DUTooltip from "../components/ui/profilecard/DUTooltip.astro";
 import DUBadge from "../components/ui/profilecard/DUBadge.astro";
+import PictureAstroComponent from "astro/components/Picture.astro";
 
 const SCHOOL = DATA.education[0];
 console.log(SCHOOL);
@@ -43,6 +44,16 @@ console.log(SCHOOL);
     ) : (
         <p class="opacity-50 italic">Descripción no disponible</p>
     )}
+
+    {SCHOOL.imageURL ? (
+        <PictureAstroComponent 
+            src={SCHOOL.imageURL} 
+            format="avif" 
+            width={640} 
+            height={360}
+            alt={SCHOOL.companyName + ": " + SCHOOL.name}
+        />
+    ) : ("")}
 
     <div class="flex flex-row flex-wrap">
         {SCHOOL.relevantCourses.map((course, index) => {

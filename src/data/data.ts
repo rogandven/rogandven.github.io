@@ -25,7 +25,7 @@ const DATA = {
             "Universidad del Bío-Bío",
             "Ingeniería de Ejecución en Computación e Informática",
             "Los conocimientos en TI se ampliaron profesionalmente en la carrera de Ingeniería de Ejecución en Computación e Informática de la Universidad del Bío-Bío, yendo desde la comprensión de la teoría de arriba a abajo hasta el uso de dichos conocimientos en contextos profesionales simulados.",
-            UBBImage.src, 
+            UBBImage, 
             "Concepción, Chile",
             "2023-03-03",
             undefined,
