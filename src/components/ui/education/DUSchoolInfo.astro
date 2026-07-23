@@ -1,0 +1,105 @@
+---
+import { Icon } from "astro-icon/components";
+import { DAISYUI_BADGE_COLORS, DIVIDER } from "../../../constants/daisyui.constants";
+import { MESES_ESPANIOL } from "../../../constants/general.constants";
+import DUTooltip from "../../../components/ui/profilecard/DUTooltip.astro";
+import DUBadge from "../../../components/ui/profilecard/DUBadge.astro";
+import PictureAstroComponent from "astro/components/Picture.astro";
+import EventClass from "../../../classes/EventClass";
+
+interface Props {
+    school?: EventClass | undefined;
+}
+
+const { 
+    school = undefined
+} = Astro.props;
+
+---
+{school !== undefined ? (
+    <div>
+        <DUTooltip text={"Puesto"}>
+            <h1 class="text-lg font-bold flex flex-row align-middle items-center">
+                {school.iconName && <Icon name={school.iconName} class="mr-1" />}
+                {school.name}
+            </h1>
+        </DUTooltip>
+
+
+        <p class="text-sm flex flex-row align-middle items-center">
+            <DUTooltip text={"Organización"}>
+                <span class="text-accent flex flex-row align-middle items-center">
+                    <Icon name="mdi:school" class="mr-1" /> 
+                    {school.companyName}
+                </span>
+            </DUTooltip>
+
+            <span class="ml-1 mr-1">{DIVIDER}</span>
+
+            <DUTooltip text={"Ubicación"}>
+                <span class="text-info flex flex-row align-middle items-center">
+                    <Icon name="mdi:location" class="mr-1" /> 
+                    {school.location}
+                </span>
+            </DUTooltip>
+        </p>
+
+        <DUTooltip text={"Tiempo"}>
+            <p class="text-sm flex flex-row align-middle items-center">
+                <span class="text-secondary flex flex-row align-middle items-center">
+                    <Icon name="mdi:clock" class="mr-1" /> 
+                    {MESES_ESPANIOL[school.startDate.getMonth()] + " " + school.startDate.getFullYear()}
+                    <Icon name="mdi:arrow-right" class="mr-1 ml-1"></Icon>
+                    {(school.endDate && (
+                        MESES_ESPANIOL[school.endDate.getMonth()] + " " + school.endDate.getFullYear()
+                    )) || "Presente"}
+                </span>
+            </p>    
+        </DUTooltip>
+
+        {school.description ? (
+            <p class="mt-2 mb-2">{school.description}</p>
+        ) : (
+            <p class="opacity-50 italic mt-2 mb-2">Descripción no disponible</p>
+        )}
+
+        {school.imageURL ? (
+            <DUTooltip text={`${school.companyName}: ${school.name}`}>
+                <PictureAstroComponent
+                    class={"mb-2"} 
+                    src={school.imageURL} 
+                    format="avif" 
+                    width={640} 
+                    height={360}
+                    alt={school.companyName + ": " + school.name}
+                />
+            </DUTooltip>
+        ) : ("")}
+
+        <div class="flex flex-row flex-wrap mb-2">
+            {school.relevantCourses.map((course, index) => {
+                return (
+                    <div class="m-0.5">
+                    <DUTooltip text={String(course).toUpperCase()}>
+                    <DUBadge 
+                        color={DAISYUI_BADGE_COLORS[index % DAISYUI_BADGE_COLORS.length]}
+                        content={course}
+                        iconName="mdi:class"
+                        textId="0"
+                    />
+                    </DUTooltip>
+                    </div>
+                )
+            })}
+        </div>
+
+        <DUTooltip text="Página Web">
+            <a href={school.websiteURL} target="_blank">
+                <span class="link link-primary flex flex-row align-middle items-center">
+                    <Icon name="mdi:link-variant" class="mr-1" /> 
+                    {school.websiteURL}
+                </span>   
+            </a>
+        </DUTooltip>
+    </div>
+) : ("")}

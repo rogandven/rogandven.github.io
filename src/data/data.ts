@@ -183,7 +183,7 @@ const DATA = {
             undefined, 
             "https://1drv.ms/b/c/3f355de2d03d02f0/IQBt05k7lxf5SaAXGqgXhX7NASK8zGpxG67S5q7jKDE47K05",
             undefined,
-            "mdi:paint-outline",
+            "paint-outline",
             undefined,
             undefined,
         ),
