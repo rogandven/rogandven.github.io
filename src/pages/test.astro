@@ -1,0 +1,49 @@
+---
+import Layout from "../layouts/Layout.astro";
+import DATA from "../data/data";
+import { Icon } from "astro-icon/components";
+import { DIVIDER } from "../constants/daisyui.constants";
+import { MESES_ESPANIOL } from "../constants/general.constants";
+import DUTooltip from "../components/ui/profilecard/DUTooltip.astro";
+
+const SCHOOL = DATA.education[0];
+console.log(SCHOOL);
+---
+
+<Layout>
+    <h1 class="text-lg font-bold">
+        {SCHOOL.name}
+    </h1>
+    <p class="text-sm flex flex-row align-middle items-center">
+        <span class="text-accent flex flex-row align-middle items-center">
+            <Icon name="mdi:school" class="mr-1" /> 
+            {SCHOOL.companyName}
+        </span>
+        <span class="ml-1 mr-1">{DIVIDER}</span>
+        <span class="text-info flex flex-row align-middle items-center">
+            <Icon name="mdi:location" class="mr-1" /> 
+            {SCHOOL.location}
+        </span>
+    </p>
+
+    <p class="text-sm flex flex-row align-middle items-center">
+        <span class="text-secondary flex flex-row align-middle items-center">
+            <Icon name="mdi:clock" class="mr-1" /> 
+            {MESES_ESPANIOL[SCHOOL.startDate.getMonth()] + " " + SCHOOL.startDate.getFullYear()}
+            <Icon name="mdi:arrow-right" class="mr-1 ml-1"></Icon>
+            {(SCHOOL.endDate && (
+                MESES_ESPANIOL[SCHOOL.endDate.getMonth()] + " " + SCHOOL.endDate.getFullYear()
+            )) || "Presente"}
+        </span>
+    </p>    
+
+    Voluptas nesciunt vitae nihil culpa qui quasi. Accusamus vero ut accusantium ratione. Eius ut earum est molestiae ut et qui. Et totam mollitia nemo qui quisquam eum cum aut.
+
+    <p class="text-sm flex flex-row align-middle items-center">
+        <span class="text-primary flex flex-row align-middle items-center">
+            <Icon name="mdi:class" class="mr-1" /> 
+            {SCHOOL.relevantCourses.join(", ")}
+        </span>
+    </p>    
+
+</Layout>

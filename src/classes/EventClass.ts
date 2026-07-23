@@ -15,6 +15,8 @@ export default class EventClass {
     private _repositoryURL: string | undefined = undefined;
     private _certificateURL: string | undefined = undefined;
     private _iconName: string | undefined = undefined;
+    private _websiteURL: string | undefined = undefined;
+    private _relevantCourses: string[] = [];
 
     get companyName(): string | undefined {
         return this._companyName;
@@ -58,11 +60,11 @@ export default class EventClass {
         this._startDate = getUNIXDate(startDate);
     }
 
-    get endDate(): string | undefined {
+    get endDate(): Date | undefined {
         if (this._endDate === undefined) {
             return undefined;
         }
-        return new Date(this._endDate).toLocaleDateString();
+        return new Date(this._endDate);
     }
     set endDate(endDate: string | undefined) {
         if (endDate === undefined) {
@@ -97,6 +99,24 @@ export default class EventClass {
         this._iconName = ICON_PREFIX + String(validateString(slugify(iconName), "iconName"));
     }
 
+    get websiteURL(): string | undefined {
+        return this._websiteURL;
+    }
+    set websiteURL(website: string | undefined) {
+        this._websiteURL = validateAbsolutePath(website);
+    }
+
+    get relevantCourses(): string[] {
+        return this._relevantCourses;
+    }
+    set relevantCourses(relevantCourses: string[] | undefined) {
+        if (!relevantCourses) {
+            this._relevantCourses = [];
+            return;
+        }
+        this._relevantCourses = relevantCourses;
+    }
+
     constructor(
         companyName: string | undefined = undefined, 
         name: string = DEFAULT_EVENT_NAME, 
@@ -107,7 +127,9 @@ export default class EventClass {
         endDate: string | undefined = undefined, 
         repositoryURL: string | undefined = undefined, 
         certificateURL: string | undefined = undefined, 
-        iconName: string | undefined = undefined
+        iconName: string | undefined = undefined,
+        websiteURL: string | undefined = undefined,
+        relevantCourses: string[] | undefined = undefined,
     ) {
         this.companyName = companyName;
         this.name = name;
@@ -119,5 +141,7 @@ export default class EventClass {
         this.repositoryURL = repositoryURL;
         this.certificateURL = certificateURL;
         this.iconName = iconName;
+        this.websiteURL = websiteURL;
+        this.relevantCourses = relevantCourses;
     }
 };

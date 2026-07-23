@@ -1,4 +1,3 @@
-import { Icon } from "astro-icon/components";
 import Language from "../classes/Language.ts";
 import Tool from "../classes/Tool.ts";
 
@@ -28,10 +27,31 @@ const DATA = {
             undefined, 
             "Concepción, Chile",
             "2023-03-03",
-            "2030-01-01",
             undefined,
             undefined,
             undefined,
+            undefined,
+            undefined,
+            ["Álgebra II", 
+            "Análisis de Algoritmos y Teoría de Autómatas", 
+            "Arquitectura de Computadores", 
+            "Cálculo II", 
+            "Comunicación de Datos y Redes", 
+            "Comunicación y Argumentación", 
+            "Economía", 
+            "Estadistica y Probabilidades",
+            "Gestión Empresarial", 
+            "Herramientas de la Calidad y Mejora Continua", 
+            "Ingeniería de Software", 
+            "Inglés de Nivel Superior", 
+            "Inglés IV", 
+            "Integración de Servicios en Red", 
+            "Inteligencia Artificial", 
+            "Marketing Digital y Redes Sociales para el Emprendimiento", 
+            "Paradigmas de la Programación", 
+            "Programación Avanzada en PL/SQL", 
+            "Sistemas de Información",
+            "Sistemas Operativos"],
         ),
         new EventClass(
             "BiblioRedes",
@@ -44,6 +64,8 @@ const DATA = {
             undefined,
             undefined,
             undefined,
+            undefined,
+            undefined,
         ),
         new EventClass(
             "Liceo Antonio Varas",
@@ -53,6 +75,8 @@ const DATA = {
             "Cauquenes, Chile",
             "2019-03-03",
             "2022-12-12",
+            undefined,
+            undefined,
             undefined,
             undefined,
             undefined,
@@ -70,6 +94,8 @@ const DATA = {
             undefined,
             undefined,
             undefined,
+            undefined,
+            undefined,
         ),    
     ],
     certifications: [
@@ -80,6 +106,8 @@ const DATA = {
             undefined, 
             "Concepción, Chile", 
             "2023-06-01", 
+            undefined,
+            undefined,
             undefined,
             undefined,
             undefined,
@@ -96,6 +124,8 @@ const DATA = {
             undefined,
             undefined,
             undefined,
+            undefined,
+            undefined,
         ),
         new EventClass(
             "British Council", 
@@ -104,6 +134,8 @@ const DATA = {
             undefined, 
             "Remoto", 
             "2026-07-01", 
+            undefined,
+            undefined,
             undefined,
             undefined,
             undefined,
@@ -121,7 +153,9 @@ const DATA = {
             "2025-08-01", 
             "https://github.com/rogandven/Backend-Plantilla-MDD-2025-1",
             undefined,
-            "vote"
+            "vote",
+            undefined,
+            undefined,
         ),
         new EventClass(
             "Universidad del Bío-Bío", 
@@ -133,7 +167,9 @@ const DATA = {
             undefined, 
             "https://github.com/rogandven/Entrega-BD-2025",
             undefined,
-            "school"
+            "school",
+            undefined,
+            undefined,
         ),   
         new EventClass(
             "Universidad del Bío-Bío", 
@@ -145,7 +181,9 @@ const DATA = {
             undefined, 
             "https://1drv.ms/b/c/3f355de2d03d02f0/IQBt05k7lxf5SaAXGqgXhX7NASK8zGpxG67S5q7jKDE47K05",
             undefined,
-            "mdi:paint-outline"
+            "mdi:paint-outline",
+            undefined,
+            undefined,
         ),
         new EventClass(
             "Universidad del Bío-Bío", 
@@ -157,7 +195,9 @@ const DATA = {
             "2026-01-01", 
             "https://github.com/rogandven/GestionDeElectivosISW-2025-2",
             undefined,
-            "bookshelf"
+            "bookshelf",
+            undefined,
+            undefined,
         ),                          
     ],
     tools: [
