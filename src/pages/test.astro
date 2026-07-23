@@ -2,9 +2,10 @@
 import Layout from "../layouts/Layout.astro";
 import DATA from "../data/data";
 import { Icon } from "astro-icon/components";
-import { DIVIDER } from "../constants/daisyui.constants";
+import { DAISYUI_BADGE_COLORS, DIVIDER } from "../constants/daisyui.constants";
 import { MESES_ESPANIOL } from "../constants/general.constants";
 import DUTooltip from "../components/ui/profilecard/DUTooltip.astro";
+import DUBadge from "../components/ui/profilecard/DUBadge.astro";
 
 const SCHOOL = DATA.education[0];
 console.log(SCHOOL);
@@ -37,13 +38,27 @@ console.log(SCHOOL);
         </span>
     </p>    
 
-    Voluptas nesciunt vitae nihil culpa qui quasi. Accusamus vero ut accusantium ratione. Eius ut earum est molestiae ut et qui. Et totam mollitia nemo qui quisquam eum cum aut.
+    {SCHOOL.description ? (
+        <p>{SCHOOL.description}</p>
+    ) : (
+        <p class="opacity-50 italic">Descripción no disponible</p>
+    )}
 
-    <p class="text-sm flex flex-row align-middle items-center">
-        <span class="text-primary flex flex-row align-middle items-center">
-            <Icon name="mdi:class" class="mr-1" /> 
-            {SCHOOL.relevantCourses.join(", ")}
-        </span>
-    </p>    
+    <div class="flex flex-row flex-wrap">
+        {SCHOOL.relevantCourses.map((course, index) => {
+            return (
+                <div class="m-0.5">
+                <DUTooltip text={String(course).toUpperCase()}>
+                <DUBadge 
+                    color={DAISYUI_BADGE_COLORS[index % DAISYUI_BADGE_COLORS.length]}
+                    content={course}
+                    iconName="mdi:class"
+                    textId="0"
+                />
+                </DUTooltip>
+                </div>
+            )
+        })}
+    </div>
 
 </Layout>

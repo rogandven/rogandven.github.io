@@ -7,6 +7,7 @@ import ExcelIcon from "../components/icons/ExcelIcon.astro";
 import SocialLink from "../classes/SocialLink.ts";
 import LinkedInIcon from "../components/icons/LinkedInIcon.astro";
 import EventClass from "../classes/EventClass.ts";
+import UBBImage from "../assets/images/pexels-pixabay-356065-college.jpg";
 
 const DATA = {
     name: "Roger Venegas",
@@ -23,15 +24,15 @@ const DATA = {
         new EventClass(
             "Universidad del Bío-Bío",
             "Ingeniería de Ejecución en Computación e Informática",
-            undefined,
-            undefined, 
+            "Los conocimientos en TI se ampliaron profesionalmente en la carrera de Ingeniería de Ejecución en Computación e Informática de la Universidad del Bío-Bío, yendo desde la comprensión de la teoría de arriba a abajo hasta el uso de dichos conocimientos en contextos profesionales simulados.",
+            UBBImage.src, 
             "Concepción, Chile",
             "2023-03-03",
             undefined,
             undefined,
             undefined,
-            undefined,
-            undefined,
+            "college",
+            "https://www.ubiobio.cl/w/",
             ["Álgebra II", 
             "Análisis de Algoritmos y Teoría de Autómatas", 
             "Arquitectura de Computadores", 
@@ -51,7 +52,8 @@ const DATA = {
             "Paradigmas de la Programación", 
             "Programación Avanzada en PL/SQL", 
             "Sistemas de Información",
-            "Sistemas Operativos"],
+            "Sistemas Operativos"
+            ],
         ),
         new EventClass(
             "BiblioRedes",

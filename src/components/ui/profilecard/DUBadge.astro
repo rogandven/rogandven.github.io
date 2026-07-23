@@ -1,5 +1,7 @@
 ---
 import { Icon } from 'astro-icon/components';
+import { cutOffText } from "../../../utils/general.utils.ts";
+import { MINIMUM_BADGE_CHARACTERS } from '../../../constants/daisyui.constants';
 
 interface Props {
     color: string,
@@ -18,6 +20,6 @@ const {
 <div class={`badge ${color}`}>
     <Icon name={iconName}/>
     <span id={textId}>
-        {content}
+        {cutOffText(content.toUpperCase(), MINIMUM_BADGE_CHARACTERS)}
     </span>
 </div>

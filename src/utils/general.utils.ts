@@ -25,3 +25,11 @@ export const getAge = (date: Date): number => {
   }
   return years;
 }
+
+export const cutOffText = (original: string, amount: number): string => {
+  original = original.trim();
+  if (original.length <= amount) {
+    return original;
+  }
+  return original.substring(0, amount).trim() + "...";
+}

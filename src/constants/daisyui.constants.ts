@@ -17,3 +17,6 @@ export const DAISYUI_TEXT_COLORS: string[] = ["text-primary", "text-secondary", 
 export const DAISYUI_PROGRESS_COLORS: string[] = ["progress-primary", "progress-secondary", "progress-accent", "progress-info", "progress-success", "progress-warning", "progress-error"];
 export const DAISYUI_LINK_COLORS: string[] = ["link-primary", "link-secondary", "link-accent", "link-info", "link-success", "link-warning", "link-error"];
 export const DIVIDER: string = "⋅";
+
+export const DAISYUI_BADGE_COLORS: string[] = ["badge-primary", "badge-secondary", "badge-accent", "badge-info", "badge-success", "badge-warning", "badge-error"];
+export const MINIMUM_BADGE_CHARACTERS: number = 10;
