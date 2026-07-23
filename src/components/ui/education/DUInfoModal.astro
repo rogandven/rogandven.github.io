@@ -3,6 +3,7 @@ import { Icon } from 'astro-icon/components';
 import EventClass from '../../../classes/EventClass';
 import { DEFAULT_DATE } from '../../../constants/general.constants';
 import DUSchoolInfo from './DUSchoolInfo.astro';
+import DUTooltip from '../profilecard/DUTooltip.astro';
 
 interface Props {
     id?: number;
@@ -14,9 +15,12 @@ const {
     event = new EventClass(undefined, "prueba", "prueba", undefined, undefined, DEFAULT_DATE, DEFAULT_DATE, undefined, undefined, undefined), 
 } = Astro.props;
 ---
+<DUTooltip text="Mostrar Más">
 <button class="btn btn-info btn-sm text-lg" aria-label="Mostrar más" onclick=`{my_modal_${id}.showModal()}`>
     <Icon name="mdi:information-outline" />
 </button>
+</DUTooltip>
+
 <dialog id=`my_modal_${id}` class="modal">
   <div class="modal-box">
     <DUSchoolInfo school={event} id={id}/>
