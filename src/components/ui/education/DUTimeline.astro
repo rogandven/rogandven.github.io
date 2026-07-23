@@ -1,7 +1,11 @@
 ---
 import type EventClass from "../../../classes/EventClass";
+import DUTooltip from "../profilecard/DUTooltip.astro";
 import DUCheckbox from "./DUCheckbox.astro";
 import DUInfoModal from "./DUInfoModal.astro";
+import Picture from "astro/components/Picture.astro";
+import { Icon } from "astro-icon/components";
+import { cutOffText } from "../../../utils/general.utils";
 
 interface Props {
   eventList?: EventClass[];
@@ -11,7 +15,7 @@ const {
   eventList = [], 
 } = Astro.props;
 ---
-<ul class="timeline">
+<ul class="timeline -mt-72">
     {eventList && eventList.length === 0 ? (<div/>) : eventList.map(
         (event, index) => {
             return (
@@ -21,9 +25,29 @@ const {
                     <div class="timeline-middle">
                         <DUCheckbox />
                     </div>
-                    <div class="timeline-end timeline-box w-70">
-                        <h1 class="text-lg" aria-label={event.companyName}><b>{event.companyName}</b></h1>
-                        <p class="text-sm">{event.name}</p>
+                    <div class="timeline-end timeline-box w-75">
+                        <h1 class="text-lg flex flex-row items-center align-middle" aria-label={event.name}>
+                            <Icon name={event.iconName} class={"mr-1"} />
+                            <b>{cutOffText(event.name, 24)}</b>
+                        </h1>
+                        {event.companyName && 
+                            <div class="flex flex-row align-middle items-center text-accent">
+                            <Icon class="text-sm mr-1" name={"mdi:school"}/>
+                            <p class="text-sm">{event.companyName}</p>
+                            </div>
+                        }
+                        {event.imageURL && 
+                            <DUTooltip text={event.companyName || event.name}>
+                                <Picture 
+                                    src={event.imageURL} 
+                                    alt={event.companyName || event.name} 
+                                    class="rounded-md mt-2 mb-2" 
+                                    format="avif"
+                                    width={500}
+                                    height={400}
+                                />
+                            </DUTooltip>
+                        }
                         <DUInfoModal id={index} event={event}/>
                     </div>
                     {index !== (eventList.length - 1) ? (<hr />) : (<div />)}

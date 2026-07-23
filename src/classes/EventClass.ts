@@ -17,6 +17,7 @@ export default class EventClass {
     private _iconName: string | undefined = undefined;
     private _websiteURL: string | undefined = undefined;
     private _relevantCourses: string[] = [];
+    public isImageReferential: boolean = true;
 
     get companyName(): string | undefined {
         return this._companyName;
@@ -130,6 +131,7 @@ export default class EventClass {
         iconName: string | undefined = undefined,
         websiteURL: string | undefined = undefined,
         relevantCourses: string[] | undefined = undefined,
+        isImageReferential: boolean = true,
     ) {
         this.companyName = companyName;
         this.name = name;
@@ -143,5 +145,6 @@ export default class EventClass {
         this.iconName = iconName;
         this.websiteURL = websiteURL;
         this.relevantCourses = relevantCourses;
+        this.isImageReferential = isImageReferential;
     }
 };

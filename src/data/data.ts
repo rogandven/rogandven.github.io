@@ -8,6 +8,9 @@ import SocialLink from "../classes/SocialLink.ts";
 import LinkedInIcon from "../components/icons/LinkedInIcon.astro";
 import EventClass from "../classes/EventClass.ts";
 import UBBImage from "../assets/images/pexels-pixabay-356065-college.jpg";
+import JPImage from "../assets/images/pexels-goumbik-574077-programming.jpg";
+import LAVImage from "../assets/images/pexels-kari-alfonso-2151442665-37865916-high-school.jpg";
+import ICImage from "../assets/images/pexels-delot-18471478-ic.jpg";
 
 const DATA = {
     name: "Roger Venegas",
@@ -58,31 +61,53 @@ const DATA = {
         new EventClass(
             "BiblioRedes",
             "Jóvenes Programadores",
-            undefined,
-            undefined, 
+            "Los conocimientos sobre TI y programación se adquirieron inicialmente en esta iniciativa de cursos proporcionada por el gobierno, a través de lecciones fáciles de entender que, si bien explicaban conceptos teóricos importantes como el patrón MVC (Modelo-Vista-Controlador), se centraban principalmente en la ejecución práctica de la programación.",
+            JPImage, 
             "Remoto",
             "2021-01-12",
             "2023-12-12",
             undefined,
             undefined,
-            undefined,
-            undefined,
-            undefined,
+            "terminal",
+            "https://www.biblioredes.gob.cl/node/318",
+            [   
+                "CSS", 
+                "Introducción a Python", 
+                "JavaScript 1", 
+                "JavaScript 2", 
+                "JavaScript 3: React", 
+                "PHP", 
+                "Python 2: Introducción a Django"
+            ],
         ),
         new EventClass(
             "Liceo Antonio Varas",
-            "Educación media científico-humanista",
-            undefined,
-            undefined, 
+            "Educación Media Científico-Humanista",
+            "Aquí, los se adquirieron conocimientos generales básicos a través de una educación mixta que combinó las bases iniciales necesarias para desempeñarse en carreras que involucran aspectos tanto científicos como humanístas.",
+            LAVImage, 
             "Cauquenes, Chile",
             "2019-03-03",
             "2022-12-12",
             undefined,
             undefined,
+            "google-classroom",
+            "https://lavcauquenes.cl",
+            undefined,
+        ),
+        new EventClass(
+            "Instituto Conosur",
+            "NetEnglish",
+            "Aquí se reforzaban los conocimientos de inglés de nivel intermedio mediante un sistema de gestión del aprendizaje basado en Moodle y clases prácticas ocasionales con un docente presencial.",
+            ICImage,
+            "Cauquenes, Chile",
+            "2018-01-01",
+            "2019-05-05",
             undefined,
             undefined,
-            undefined,
-        ),                  
+            "language",
+            "https://www.instagram.com/instituto_conosur/",
+            ["NetEnglish"]
+        ),         
     ],
     experience: [
         new EventClass(

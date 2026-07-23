@@ -19,6 +19,8 @@ import Layout from '../layouts/Layout.astro';
                 proficiency_color={DAISYUI_PROGRESS_COLORS[index % DAISYUI_TEXT_COLORS.length]}
             />
         })}
+    </div>
+    <div class="flex flex-row flex-wrap">
         {DATA.languages.map((language, index) => {
             return <DULanguageCard 
                 language={language} 

@@ -30,7 +30,7 @@ const {
         </form>
 
         <div class="flex flex-row align-top items-start">
-            <DUTooltip text={"Puesto"}>
+            <DUTooltip text={"Nombre"}>
                 <h1 class="text-lg font-bold flex flex-row align-middle items-center">
                     {school.iconName && <Icon name={school.iconName} class="mr-1" />}
                     {school.name}
@@ -76,9 +76,10 @@ const {
         )}
 
         {school.imageURL ? (
+            <div>
             <DUTooltip text={`${school.companyName}: ${school.name}`}>
                 <PictureAstroComponent
-                    class={"mb-2"} 
+                    class="rounded-lg"
                     src={school.imageURL} 
                     format="avif" 
                     width={640} 
@@ -86,6 +87,10 @@ const {
                     alt={school.companyName + ": " + school.name}
                 />
             </DUTooltip>
+            {school.isImageReferential && 
+                <p class="text-xs italic opacity-50">Imagen es únicamente referencial</p>
+            }
+            </div>
         ) : ("")}
 
         <div class="flex flex-row flex-wrap mb-2">
