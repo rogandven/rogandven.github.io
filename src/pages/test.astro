@@ -13,32 +13,44 @@ console.log(SCHOOL);
 ---
 
 <Layout>
-    <h1 class="text-lg font-bold flex flex-row align-middle items-center">
-        <Icon name={SCHOOL.iconName} class="mr-1" /> 
-        {SCHOOL.name}
-    </h1>
+    <DUTooltip text={"Puesto"}>
+        <h1 class="text-lg font-bold flex flex-row align-middle items-center">
+            <Icon name={SCHOOL.iconName} class="mr-1" /> 
+            {SCHOOL.name}
+        </h1>
+    </DUTooltip>
+
+    
     <p class="text-sm flex flex-row align-middle items-center">
-        <span class="text-accent flex flex-row align-middle items-center">
-            <Icon name="mdi:school" class="mr-1" /> 
-            {SCHOOL.companyName}
-        </span>
+        <DUTooltip text={"Organización"}>
+            <span class="text-accent flex flex-row align-middle items-center">
+                <Icon name="mdi:school" class="mr-1" /> 
+                {SCHOOL.companyName}
+            </span>
+        </DUTooltip>
+
         <span class="ml-1 mr-1">{DIVIDER}</span>
-        <span class="text-info flex flex-row align-middle items-center">
-            <Icon name="mdi:location" class="mr-1" /> 
-            {SCHOOL.location}
-        </span>
+
+        <DUTooltip text={"Ubicación"}>
+            <span class="text-info flex flex-row align-middle items-center">
+                <Icon name="mdi:location" class="mr-1" /> 
+                {SCHOOL.location}
+            </span>
+        </DUTooltip>
     </p>
 
-    <p class="text-sm flex flex-row align-middle items-center">
-        <span class="text-secondary flex flex-row align-middle items-center">
-            <Icon name="mdi:clock" class="mr-1" /> 
-            {MESES_ESPANIOL[SCHOOL.startDate.getMonth()] + " " + SCHOOL.startDate.getFullYear()}
-            <Icon name="mdi:arrow-right" class="mr-1 ml-1"></Icon>
-            {(SCHOOL.endDate && (
-                MESES_ESPANIOL[SCHOOL.endDate.getMonth()] + " " + SCHOOL.endDate.getFullYear()
-            )) || "Presente"}
-        </span>
-    </p>    
+    <DUTooltip text={"Tiempo"}>
+        <p class="text-sm flex flex-row align-middle items-center">
+            <span class="text-secondary flex flex-row align-middle items-center">
+                <Icon name="mdi:clock" class="mr-1" /> 
+                {MESES_ESPANIOL[SCHOOL.startDate.getMonth()] + " " + SCHOOL.startDate.getFullYear()}
+                <Icon name="mdi:arrow-right" class="mr-1 ml-1"></Icon>
+                {(SCHOOL.endDate && (
+                    MESES_ESPANIOL[SCHOOL.endDate.getMonth()] + " " + SCHOOL.endDate.getFullYear()
+                )) || "Presente"}
+            </span>
+        </p>    
+    </DUTooltip>
 
     {SCHOOL.description ? (
         <p class="mt-2 mb-2">{SCHOOL.description}</p>
@@ -47,14 +59,16 @@ console.log(SCHOOL);
     )}
 
     {SCHOOL.imageURL ? (
-        <PictureAstroComponent
-            class={"mb-2"} 
-            src={SCHOOL.imageURL} 
-            format="avif" 
-            width={640} 
-            height={360}
-            alt={SCHOOL.companyName + ": " + SCHOOL.name}
-        />
+        <DUTooltip text={`${SCHOOL.companyName}: ${SCHOOL.name}`}>
+            <PictureAstroComponent
+                class={"mb-2"} 
+                src={SCHOOL.imageURL} 
+                format="avif" 
+                width={640} 
+                height={360}
+                alt={SCHOOL.companyName + ": " + SCHOOL.name}
+            />
+        </DUTooltip>
     ) : ("")}
 
     <div class="flex flex-row flex-wrap mb-2">
@@ -74,12 +88,14 @@ console.log(SCHOOL);
         })}
     </div>
 
-    <a href={SCHOOL.websiteURL} target="_blank">
-    <span class="link link-primary flex flex-row align-middle items-center">
-        <Icon name="mdi:link-variant" class="mr-1" /> 
-        {SCHOOL.websiteURL}
-    </span>   
-    </a>
+    <DUTooltip text="Página Web">
+        <a href={SCHOOL.websiteURL} target="_blank">
+            <span class="link link-primary flex flex-row align-middle items-center">
+                <Icon name="mdi:link-variant" class="mr-1" /> 
+                {SCHOOL.websiteURL}
+            </span>   
+        </a>
+    </DUTooltip>
 
 
 </Layout>
