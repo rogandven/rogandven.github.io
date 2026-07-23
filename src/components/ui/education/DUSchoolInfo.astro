@@ -6,6 +6,7 @@ import DUTooltip from "../../../components/ui/profilecard/DUTooltip.astro";
 import DUBadge from "../../../components/ui/profilecard/DUBadge.astro";
 import PictureAstroComponent from "astro/components/Picture.astro";
 import EventClass from "../../../classes/EventClass";
+import DUSchoolInfoLink from "./DUSchoolInfoLink.astro";
 
 interface Props {
     school?: EventClass | undefined;
@@ -14,7 +15,6 @@ interface Props {
 
 const { 
     school = undefined,
-    id = 0,
 } = Astro.props;
 
 ---
@@ -106,13 +106,17 @@ const {
             })}
         </div>
 
-        {school.websiteURL && <DUTooltip text="Página Web">
-            <a href={school.websiteURL} target="_blank">
-                <span class="link link-primary flex flex-row align-middle items-center">
-                    <Icon name="mdi:link-variant" class="mr-1" /> 
-                    {school.websiteURL}
-                </span>   
-            </a>
-        </DUTooltip>}
+        {school.websiteURL && <DUSchoolInfoLink 
+            link={school.websiteURL}
+            linkName={"Link de la Organización"}
+        />}
+        {school.repositoryURL && <DUSchoolInfoLink 
+            link={school.repositoryURL}
+            linkName={"Link del Repositorio"}
+        />} 
+        {school.certificateURL && <DUSchoolInfoLink 
+            link={school.certificateURL}
+            linkName={"Link del Certificado"}
+        />}                  
     </div>
 ) : ("")}

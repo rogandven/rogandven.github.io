@@ -1,0 +1,24 @@
+---
+import DUTooltip from "../profilecard/DUTooltip.astro"
+import EventClass from "../../../classes/EventClass";
+import { Icon } from "astro-icon/components";
+
+interface Props {
+    school?: EventClass | undefined;
+    link: string;
+    linkName: string;
+}
+
+const { 
+    link = "",
+    linkName = "",
+} = Astro.props;
+---
+{link && <DUTooltip text={linkName}>
+    <a href={link} target="_blank">
+        <span class="link link-primary flex flex-row align-middle items-center">
+            <Icon name="mdi:link-variant" class="mr-1" /> 
+            {link}
+        </span>   
+    </a>
+</DUTooltip>}
