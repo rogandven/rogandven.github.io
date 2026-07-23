@@ -11,6 +11,9 @@ import Layout from '../layouts/Layout.astro';
 
 <Layout>
     <DUProfileCard />
+
+    <h1 class="text-4xl font-extrabold">Habilidades Técnicas</h1>
+
     <div class="flex flex-row flex-wrap">
         {DATA.tools.map((tool, index) => {
             return <DUTechnologyCard 
@@ -20,6 +23,9 @@ import Layout from '../layouts/Layout.astro';
             />
         })}
     </div>
+
+    <h1 class="text-4xl font-extrabold">Idiomas</h1>
+
     <div class="flex flex-row flex-wrap">
         {DATA.languages.map((language, index) => {
             return <DULanguageCard 
@@ -29,5 +35,10 @@ import Layout from '../layouts/Layout.astro';
             />
         })}
     </div>
-    <DUTimeline eventList={DATA.education} />
+
+    <h1 class="text-4xl font-extrabold">Educación</h1>
+
+    <DUTimeline eventList={DATA.education.reverse()} />
+
+    <h1 class="text-4xl font-extrabold">Experiencia</h1>
 </Layout>
