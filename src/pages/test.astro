@@ -13,7 +13,8 @@ console.log(SCHOOL);
 ---
 
 <Layout>
-    <h1 class="text-lg font-bold">
+    <h1 class="text-lg font-bold flex flex-row align-middle items-center">
+        <Icon name={SCHOOL.iconName} class="mr-1" /> 
         {SCHOOL.name}
     </h1>
     <p class="text-sm flex flex-row align-middle items-center">
@@ -40,13 +41,14 @@ console.log(SCHOOL);
     </p>    
 
     {SCHOOL.description ? (
-        <p>{SCHOOL.description}</p>
+        <p class="mt-2 mb-2">{SCHOOL.description}</p>
     ) : (
-        <p class="opacity-50 italic">Descripción no disponible</p>
+        <p class="opacity-50 italic mt-2 mb-2">Descripción no disponible</p>
     )}
 
     {SCHOOL.imageURL ? (
-        <PictureAstroComponent 
+        <PictureAstroComponent
+            class={"mb-2"} 
             src={SCHOOL.imageURL} 
             format="avif" 
             width={640} 
@@ -55,7 +57,7 @@ console.log(SCHOOL);
         />
     ) : ("")}
 
-    <div class="flex flex-row flex-wrap">
+    <div class="flex flex-row flex-wrap mb-2">
         {SCHOOL.relevantCourses.map((course, index) => {
             return (
                 <div class="m-0.5">
