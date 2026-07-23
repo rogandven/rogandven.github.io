@@ -8,6 +8,7 @@ interface Props {
     content: string, 
     iconName: string,
     textId: string,
+    isSmall: boolean,
 }
 
 const { 
@@ -15,12 +16,13 @@ const {
     content,
     iconName,
     textId,
+    isSmall,
 } = Astro.props;
 
 
 
 ---
-<div class={`badge ${color}`}>
+<div class={`badge ${color} ${isSmall ? "badge-sm text-sm" : ""}`}>
     <Icon name={iconName}/>
     <span id={textId}>
         {cutOffText(content.toUpperCase(), MINIMUM_BADGE_CHARACTERS)}

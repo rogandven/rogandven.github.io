@@ -9,22 +9,34 @@ import EventClass from "../../../classes/EventClass";
 
 interface Props {
     school?: EventClass | undefined;
+    id: number;
 }
 
 const { 
-    school = undefined
+    school = undefined,
+    id = 0,
 } = Astro.props;
 
 ---
 {school !== undefined ? (
     <div>
-        <DUTooltip text={"Puesto"}>
-            <h1 class="text-lg font-bold flex flex-row align-middle items-center">
-                {school.iconName && <Icon name={school.iconName} class="mr-1" />}
-                {school.name}
-            </h1>
-        </DUTooltip>
+        <form method="dialog">
+            <button 
+                class="btn btn-sm btn-circle btn-error text-lg absolute right-2 top-2" 
+                aria-label="Cerrar"
+            >
+                <Icon name="mdi:close" />
+            </button>
+        </form>
 
+        <div class="flex flex-row align-top items-start">
+            <DUTooltip text={"Puesto"}>
+                <h1 class="text-lg font-bold flex flex-row align-middle items-center">
+                    {school.iconName && <Icon name={school.iconName} class="mr-1" />}
+                    {school.name}
+                </h1>
+            </DUTooltip>
+        </div>
 
         <p class="text-sm flex flex-row align-middle items-center">
             <DUTooltip text={"Organización"}>
@@ -86,6 +98,7 @@ const {
                         content={course}
                         iconName="mdi:class"
                         textId="0"
+                        isSmall={true}
                     />
                     </DUTooltip>
                     </div>
@@ -93,13 +106,13 @@ const {
             })}
         </div>
 
-        <DUTooltip text="Página Web">
+        {school.websiteURL && <DUTooltip text="Página Web">
             <a href={school.websiteURL} target="_blank">
                 <span class="link link-primary flex flex-row align-middle items-center">
                     <Icon name="mdi:link-variant" class="mr-1" /> 
                     {school.websiteURL}
                 </span>   
             </a>
-        </DUTooltip>
+        </DUTooltip>}
     </div>
 ) : ("")}
