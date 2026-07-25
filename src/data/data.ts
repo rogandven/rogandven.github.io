@@ -14,7 +14,7 @@ import LAVImage from "../assets/images/pexels-kari-alfonso-2151442665-37865916-h
 import ICImage from "../assets/images/pexels-delot-18471478-ic.jpg";
 import PCTPPPImage from "../assets/images/pexels-altman-12936940-laptop-empty-mockup.png";
 
-const DATA = {
+export const DATA = {
     name: "Roger Venegas",
     username: "rogandven",
     location: {
