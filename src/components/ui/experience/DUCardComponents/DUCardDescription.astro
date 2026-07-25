@@ -8,11 +8,13 @@ import EventClass from '../../../../classes/EventClass';
 interface Props {
     _id: string;
     event: EventClass;
+    shallDisplayPresent: boolean;
 }
 
 const { 
     _id,
     event, 
+    shallDisplayPresent,
 } = Astro.props;
 ---
 <div class="card-body line-clamp-10">
@@ -28,6 +30,6 @@ const {
         <p><DUSchoolInfoLink link={event.websiteURL} linkName={"Página Web"} /></p>
     }    
     <div class="card-actions justify-end mt-2">
-        <DUInfoModal event={event} id={_id} />
+        <DUInfoModal event={event} id={_id} shallDisplayPresent={shallDisplayPresent} />
     </div>
 </div>

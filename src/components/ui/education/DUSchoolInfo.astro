@@ -17,6 +17,7 @@ interface Props {
 }
 
 const { 
+    _id,
     school,
     shallDisplayPresent,
 } = Astro.props;
@@ -81,7 +82,7 @@ const {
                         color={DAISYUI_BADGE_COLORS[index % DAISYUI_BADGE_COLORS.length]}
                         content={course}
                         iconName="mdi:class"
-                        textId="0"
+                        textId={`${_id}-badge-${index}`}
                         isSmall={true}
                     />
                     </DUTooltip>

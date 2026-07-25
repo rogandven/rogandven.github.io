@@ -44,7 +44,7 @@ import DUCertfificateCollapse from '../components/ui/certificates/DUCertificateC
     <h1 class="text-4xl font-extrabold">Experiencia</h1>
 
     {DATA.experience.map((event, index) => {
-            return (<DUCard event={event} _id={"experience" + index} isLeftCard={(index % 2) === 0} />)
+            return (<DUCard event={event} _id={"experience" + index} isLeftCard={(index % 2) === 0} shallDisplayPresent={false} />)
     })}    
     
     <h1 class="text-4xl font-extrabold">Certificaciones</h1>
@@ -56,6 +56,6 @@ import DUCertfificateCollapse from '../components/ui/certificates/DUCertificateC
     <h1 class="text-4xl font-extrabold">Proyectos Académicos</h1>
 
     {DATA.projects.map((event, index) => {
-            return (<DUCard event={event} _id={"project" + index} isLeftCard={(index % 2) === 0} />)
+            return (<DUCard event={event} _id={"project" + index} isLeftCard={(index % 2) === 0} shallDisplayPresent={true} />)
     })}    
 </Layout>

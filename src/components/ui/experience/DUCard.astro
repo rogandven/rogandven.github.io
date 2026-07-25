@@ -7,23 +7,25 @@ interface Props {
   event: EventClass,
   _id: string,
   isLeftCard: boolean,
+  shallDisplayPresent: boolean,
 }
 
 const { 
   event,
   _id,
   isLeftCard,
+  shallDisplayPresent,
 } = Astro.props;
 ---
 
   {isLeftCard ? 
       <div class="card card-side bg-base-100 shadow-sm w-150">
         <DUCardImage event={event} />
-        <DUCardDescription event={event} _id={_id} />
+        <DUCardDescription event={event} _id={_id} shallDisplayPresent={shallDisplayPresent} />
       </div>
   :
       <div class="card card-side bg-base-100 shadow-sm w-150">
-        <DUCardDescription event={event} _id={_id} />
+        <DUCardDescription event={event} _id={_id} shallDisplayPresent={shallDisplayPresent} />
         <DUCardImage event={event} />
       </div>
   }

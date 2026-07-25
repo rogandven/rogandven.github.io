@@ -1,7 +1,6 @@
 ---
 import { Icon } from 'astro-icon/components';
 import EventClass from '../../../classes/EventClass';
-import { DEFAULT_DATE } from '../../../constants/general.constants';
 import DUSchoolInfo from './DUSchoolInfo.astro';
 import DUTooltip from '../profilecard/DUTooltip.astro';
 
@@ -25,6 +24,6 @@ const {
 
 <dialog id=`my_modal_${id}` class="modal">
   <div class="modal-box">
-    <DUSchoolInfo school={event} _id={id} shallDisplayPresent={shallDisplayPresent}/>
+    <DUSchoolInfo school={event} _id={`education-${id}`} shallDisplayPresent={shallDisplayPresent}/>
   </div>
 </dialog>
