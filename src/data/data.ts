@@ -17,6 +17,7 @@ import GDMImage from "../assets/images/gestion_de_matriculas.png";
 import CEEImage from "../assets/images/cee.png";
 import ElectivosImage from "../assets/images/electivos.png";
 import SCMImage from "../assets/images/scm.png";
+import ASImage from "../assets/images/artsell.png";
 
 export const DATA = {
     name: "Roger Venegas",
@@ -212,7 +213,7 @@ export const DATA = {
             "Universidad del Bío-Bío", 
             "Art Sell", 
             "Se realizó un análisis económico de 3 integrantes sobre la posible creación de un sitio web de venta de ilustraciones. Esta nueva plataforma, si se fuese a desarrollar, tendría el potencial de aumentar la seguridad en la contratación de ilustraciones. Se utilizaron indicadores financieros conocidos, como el análisis de la competencia, el análisis de las cinco fuerzas de Porter, el análisis del modelo Canvas, los métodos de recopilación de información y la segmentación del mercado y el público objetivo, entre otros. ", 
-            undefined, 
+            ASImage, 
             "Concepción, Chile", 
             "2025-11-01", 
             undefined, 
