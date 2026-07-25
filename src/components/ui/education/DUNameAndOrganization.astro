@@ -6,13 +6,11 @@ import EventClass from "../../../classes/EventClass";
 
 interface Props {
     school: EventClass | undefined;
-    id: number;
     shallShowLocation: boolean
 }
 
 const { 
     school = undefined,
-    id = 0,
     shallShowLocation = false,
 } = Astro.props;
 

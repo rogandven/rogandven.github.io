@@ -1,7 +1,6 @@
 ---
 import Picture from 'astro/components/Picture.astro';
 import EventClass from '../../../classes/EventClass';
-import { DEFAULT_EVENT_NAME } from '../../../constants/event.constants';
 import { cutOffText } from '../../../utils/general.utils';
 import DUInfoModal from '../education/DUInfoModal.astro';
 import { DEFAULT_IMAGE_URL } from '../../../constants/daisyui.constants';
@@ -10,7 +9,7 @@ import DUTooltip from '../profilecard/DUTooltip.astro';
 
 interface Props {
   event: EventClass,
-  _id: number,
+  _id: string,
 }
 
 const { 
@@ -32,7 +31,7 @@ const {
   </figure>
   </DUTooltip>
   <div class="card-body line-clamp-10">
-    <DUNameAndOrganization school={event} id={0} shallShowLocation={false} />
+    <DUNameAndOrganization school={event} shallShowLocation={false} />
     <p>{event.description && cutOffText(event.description, 100)}</p>
     <div class="card-actions justify-end mt-2">
       <DUInfoModal event={event} id={_id} />

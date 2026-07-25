@@ -43,5 +43,8 @@ import DULeftCard from '../components/ui/experience/DULeftCard.astro';
 
     <h1 class="text-4xl font-extrabold">Experiencia</h1>
 
-    <DULeftCard event={DATA.experience[0]}/>
+    {DATA.experience.map((event, index) => {
+        return (<DULeftCard event={event} _id={"experience" + index} />)
+    })}
+    
 </Layout>

@@ -6,12 +6,12 @@ import DUSchoolInfo from './DUSchoolInfo.astro';
 import DUTooltip from '../profilecard/DUTooltip.astro';
 
 interface Props {
-    id?: number;
+    id?: string;
     event?: EventClass;
 }
 
 const { 
-    id = 0,
+    id = "0",
     event = new EventClass(undefined, "prueba", "prueba", undefined, undefined, DEFAULT_DATE, DEFAULT_DATE, undefined, undefined, undefined), 
 } = Astro.props;
 ---
