@@ -8,6 +8,7 @@ import { DAISYUI_PROGRESS_COLORS, DAISYUI_TEXT_COLORS } from '../constants/daisy
 import DATA from '../data/data';
 import Layout from '../layouts/Layout.astro';
 import DULeftCard from '../components/ui/experience/DULeftCard.astro';
+import DURightCard from '../components/ui/experience/DURightCard.astro';
 ---
 
 <Layout>
@@ -44,7 +45,10 @@ import DULeftCard from '../components/ui/experience/DULeftCard.astro';
     <h1 class="text-4xl font-extrabold">Experiencia</h1>
 
     {DATA.experience.map((event, index) => {
-        return (<DULeftCard event={event} _id={"experience" + index} />)
+        if ((index % 2) === 0) {
+            return (<DULeftCard event={event} _id={"experience" + index} />)
+        }
+        return (<DURightCard event={event} _id={"experience" + index} />)
     })}
     
 </Layout>
