@@ -19,17 +19,17 @@ const {
 ---
 <div class="card card-side bg-base-100 shadow-sm w-150">
   <div class="card-body line-clamp-10">
-    <DUNameAndOrganization school={event} shallShowLocation={false} />
+    <DUNameAndOrganization school={event} shallShowLocation={false} shallDisplayShortDate={false} />
     <p>{event.description && cutOffText(event.description, 100)}</p>
     <div class="card-actions justify-end mt-2">
       <DUInfoModal event={event} id={_id} />
     </div>
   </div>
-  <DUTooltip text={`${event.companyName}: ${event.name}`}>
+  <DUTooltip text={`${event.name}`}>
   <figure>
       <Picture 
         src={event.imageURL || DEFAULT_IMAGE_URL} 
-        alt={`${event.companyName}: ${event.name}`} 
+        alt={`${event.name}`} 
         format="avif" 
         width="200" 
         height="280"

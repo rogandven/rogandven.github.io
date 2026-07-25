@@ -6,6 +6,7 @@ import DUInfoModal from '../education/DUInfoModal.astro';
 import { DEFAULT_IMAGE_URL } from '../../../constants/daisyui.constants';
 import DUNameAndOrganization from '../education/DUNameAndOrganization.astro';
 import DUTooltip from '../profilecard/DUTooltip.astro';
+import DUSchoolInfoLink from '../education/DUSchoolInfoLink.astro';
 
 interface Props {
   event: EventClass,
@@ -18,11 +19,11 @@ const {
 } = Astro.props;
 ---
 <div class="card card-side bg-base-100 shadow-sm w-150">
-  <DUTooltip text={`${event.companyName}: ${event.name}`}>
+  <DUTooltip text={`${event.name}`}>
   <figure>
       <Picture 
         src={event.imageURL || DEFAULT_IMAGE_URL} 
-        alt={`${event.companyName}: ${event.name}`} 
+        alt={`${event.name}`} 
         format="avif" 
         width="200" 
         height="280"
@@ -31,8 +32,14 @@ const {
   </figure>
   </DUTooltip>
   <div class="card-body line-clamp-10">
-    <DUNameAndOrganization school={event} shallShowLocation={false} />
+    <DUNameAndOrganization school={event} shallShowLocation={false} shallDisplayShortDate={false} />
     <p>{event.description && cutOffText(event.description, 100)}</p>
+    {event.repositoryURL && 
+      <p><DUSchoolInfoLink link={event.repositoryURL} linkName={"Link del Repositorio"} /></p>
+    }
+    {event.reportURL && 
+      <p><DUSchoolInfoLink link={event.reportURL} linkName={"Link del Informe"} /></p>
+    }    
     <div class="card-actions justify-end mt-2">
       <DUInfoModal event={event} id={_id} />
     </div>
