@@ -18,6 +18,7 @@ export default class EventClass {
     private _websiteURL: string | undefined = undefined;
     private _relevantCourses: string[] = [];
     public isImageReferential: boolean = true;
+    private _reportURL: string | undefined = undefined;
 
     get companyName(): string | undefined {
         return this._companyName;
@@ -118,6 +119,17 @@ export default class EventClass {
         this._relevantCourses = relevantCourses;
     }
 
+    get reportURL(): string | undefined {
+        return this._reportURL;
+    }
+    set reportURL(reportURL: string | undefined) {
+        if (reportURL === undefined) {
+            this._reportURL = undefined;
+        }
+
+        this._reportURL = validateRelativePath(reportURL);
+    }
+
     constructor(
         companyName: string | undefined = undefined, 
         name: string = DEFAULT_EVENT_NAME, 
@@ -132,6 +144,7 @@ export default class EventClass {
         websiteURL: string | undefined = undefined,
         relevantCourses: string[] | undefined = undefined,
         isImageReferential: boolean = true,
+        reportURL: string | undefined = undefined,
     ) {
         this.companyName = companyName;
         this.name = name;
@@ -146,5 +159,6 @@ export default class EventClass {
         this.websiteURL = websiteURL;
         this.relevantCourses = relevantCourses;
         this.isImageReferential = isImageReferential;
+        this.reportURL = reportURL;
     }
 };

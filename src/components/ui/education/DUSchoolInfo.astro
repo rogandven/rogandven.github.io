@@ -99,6 +99,10 @@ const {
         {school.certificateURL && <DUSchoolInfoLink 
             link={school.certificateURL}
             linkName={"Link del Certificado"}
-        />}                  
+        />}        
+        {school.reportURL && <DUSchoolInfoLink 
+            link={school.reportURL}
+            linkName={"Link del Informe"}
+        />}                    
     </div>
 ) : ("")}
