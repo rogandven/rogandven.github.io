@@ -14,19 +14,6 @@ const school = Astro?.props?.school;
 const shallDisplayPresent = Astro?.props?.shallDisplayPresent;
 const _class = Astro?.props?._class;
 
-if (shallDisplayPresent === undefined) {
-    throw Error(`\`shallDisplayPresent\` cannot be \`undefined\`!!!`);
-}
-
-console.log(school.name, "shallDisplayPresent: ", shallDisplayPresent);
-
-/* const { 
-    school,
-    shallDisplayPresent,
-} = Astro.props; */
-
-// const ArrowRight = ();
-
 ---
 <span class={_class}>{
     (school.endDate && 
