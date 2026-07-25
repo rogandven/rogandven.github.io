@@ -10,13 +10,15 @@ import DUTooltip from '../profilecard/DUTooltip.astro';
 
 interface Props {
   event: EventClass,
+  _id: number,
 }
 
 const { 
   event,
+  _id,
 } = Astro.props;
 ---
-<div class="card card-side bg-base-100 shadow-sm w-120">
+<div class="card card-side bg-base-100 shadow-sm w-150">
   <DUTooltip text={`${event.companyName}: ${event.name}`}>
   <figure>
       <Picture 
@@ -29,11 +31,11 @@ const {
       />
   </figure>
   </DUTooltip>
-  <div class="card-body">
+  <div class="card-body line-clamp-10">
     <DUNameAndOrganization school={event} id={0} shallShowLocation={false} />
-    <p>{event.description && cutOffText(event.description, 20)}</p>
-    <div class="card-actions justify-end">
-      <DUInfoModal event={event} id={10} />
+    <p>{event.description && cutOffText(event.description, 100)}</p>
+    <div class="card-actions justify-end mt-2">
+      <DUInfoModal event={event} id={_id} />
     </div>
   </div>
 </div>
