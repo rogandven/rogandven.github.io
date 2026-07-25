@@ -13,6 +13,10 @@ import JPImage from "../assets/images/pexels-goumbik-574077-programming.jpg";
 import LAVImage from "../assets/images/pexels-kari-alfonso-2151442665-37865916-high-school.jpg";
 import ICImage from "../assets/images/pexels-delot-18471478-ic.jpg";
 import PCTPPPImage from "../assets/images/pexels-altman-12936940-laptop-empty-mockup.png";
+import GDMImage from "../assets/images/gestion_de_matriculas.png";
+import CEEImage from "../assets/images/cee.png";
+import ElectivosImage from "../assets/images/electivos.png";
+import SCMImage from "../assets/images/scm.png";
 
 export const DATA = {
     name: "Roger Venegas",
@@ -178,7 +182,7 @@ export const DATA = {
             "Universidad del Bío-Bío", 
             "CEE", 
             "Se trabajó en un proyecto de 5 integrantes dedicado al desarrollo integral de un sistema de gestión de quejas para consejos estudiantiles, que tuvo como objectivo aumentar la eficiencia en la resolución de inquietudes. El desarrollo del sistema se basó en la metodología clásica de cascada. El software se desarrolló utilizando CSS, Express.js, JavaScript, Node.js y React como componentes principales del conjunto de tecnologías empleadas.", 
-            undefined, 
+            CEEImage, 
             "Concepción, Chile", 
             "2025-03-01", 
             "2025-08-01", 
@@ -187,12 +191,13 @@ export const DATA = {
             "vote",
             undefined,
             undefined,
+            false,
         ),
         new EventClass(
             "Universidad del Bío-Bío", 
             "Gestión de Matriculas", 
             "Se desarrolló un prototipo de sistema de gestión de matrículas para escuelas y universidades en solitario, el cual tuvo como objetivo mejorar la eficiencia del proceso de matrícula. El prototipo completo y totalmente funcional se desarrolló en 7 días utilizando Java, JavaFX, PostgreSQL y Swing como componentes principales del conjunto de tecnologías empleadas.", 
-            undefined, 
+            GDMImage, 
             "Concepción, Chile", 
             "2025-06-01", 
             undefined, 
@@ -201,6 +206,7 @@ export const DATA = {
             "id-card-outline",
             undefined,
             undefined,
+            false,
         ),   
         new EventClass(
             "Universidad del Bío-Bío", 
@@ -215,14 +221,14 @@ export const DATA = {
             "paint-outline",
             undefined,
             undefined,
-            false,
+            true,
             "/reports/InformeArtSell_RogerVenegas.pdf",
         ),
         new EventClass(
             "Universidad del Bío-Bío", 
             "Gestión de Electivos", 
             "Se trabajó en un proyecto de 5 integrantes dedicado al desarrollo integral de un sistema de gestión de clases para escuelas y universidades, que tuvo como objectivo agilizar la gestión de las matrículas, proceso que originalmente se realizaba manualmente mediante hojas de cálculo de Excel sin conexión. El desarrollo del sistema se basó en la metodología de cascada con subproyectos. El software se desarrolló utilizando CSS, Express.js, JavaScript, Node.js y React como componentes principales del conjunto de tecnologías empleadas.", 
-            undefined, 
+            ElectivosImage, 
             "Concepción, Chile", 
             "2025-08-01", 
             "2026-01-01", 
@@ -231,12 +237,13 @@ export const DATA = {
             "bookshelf",
             undefined,
             undefined,
+            false,
         ),  
        new EventClass(
             "Universidad del Bío-Bío", 
             "Proyecto SCM", 
             "Página de inicio correspondiente a un proceso de migración aún por realizar. Astro, DaisyUI y TailwindCSS fueron los componentes principales del conjunto de tecnologías empleadas.", 
-            undefined, 
+            SCMImage, 
             "Concepción, Chile", 
             "2026-03-23", 
             "2026-04-11", 
@@ -245,6 +252,7 @@ export const DATA = {
             "marketplace",
             "https://rogandven.github.io/projectwebsite/",
             undefined,
+            false,
         ),        
         
     ],

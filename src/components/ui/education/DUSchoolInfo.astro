@@ -54,7 +54,7 @@ const {
 
         {school.imageURL ? (
             <div>
-            <DUTooltip text={`${school.companyName}: ${school.name}`}>
+            <DUTooltip text={`${school.name}`}>
                 <PictureAstroComponent
                     class="rounded-lg"
                     src={school.imageURL} 
@@ -90,7 +90,7 @@ const {
 
         {school.websiteURL && <DUSchoolInfoLink 
             link={school.websiteURL}
-            linkName={"Link de la Organización"}
+            linkName={"Página Web"}
         />}
         {school.repositoryURL && <DUSchoolInfoLink 
             link={school.repositoryURL}

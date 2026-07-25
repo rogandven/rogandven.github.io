@@ -24,6 +24,9 @@ const {
     {event.reportURL && 
         <p><DUSchoolInfoLink link={event.reportURL} linkName={"Link del Informe"} /></p>
     }    
+    {event.websiteURL && 
+        <p><DUSchoolInfoLink link={event.websiteURL} linkName={"Página Web"} /></p>
+    }    
     <div class="card-actions justify-end mt-2">
         <DUInfoModal event={event} id={_id} />
     </div>
