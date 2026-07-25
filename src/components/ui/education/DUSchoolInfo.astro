@@ -7,14 +7,16 @@ import DUBadge from "../../../components/ui/profilecard/DUBadge.astro";
 import PictureAstroComponent from "astro/components/Picture.astro";
 import EventClass from "../../../classes/EventClass";
 import DUSchoolInfoLink from "./DUSchoolInfoLink.astro";
+import DUNameAndOrganization from "./DUNameAndOrganization.astro";
 
 interface Props {
     school?: EventClass | undefined;
-    id: number;
+    _id: number;
 }
 
 const { 
     school = undefined,
+    _id = 0
 } = Astro.props;
 
 ---
@@ -29,32 +31,7 @@ const {
             </button>
         </form>
 
-        <div class="flex flex-row align-top items-start">
-            <DUTooltip text={"Nombre"}>
-                <h1 class="text-lg font-bold flex flex-row align-middle items-center">
-                    {school.iconName && <Icon name={school.iconName} class="mr-1" />}
-                    {school.name}
-                </h1>
-            </DUTooltip>
-        </div>
-
-        <p class="text-sm flex flex-row align-middle items-center">
-            <DUTooltip text={"Organización"}>
-                <span class="text-accent flex flex-row align-middle items-center">
-                    <Icon name="mdi:school" class="mr-1" /> 
-                    {school.companyName}
-                </span>
-            </DUTooltip>
-
-            <span class="ml-1 mr-1">{DIVIDER}</span>
-
-            <DUTooltip text={"Ubicación"}>
-                <span class="text-info flex flex-row align-middle items-center">
-                    <Icon name="mdi:location" class="mr-1" /> 
-                    {school.location}
-                </span>
-            </DUTooltip>
-        </p>
+        <DUNameAndOrganization school={school} id={_id} shallShowLocation={true}  />
 
         <DUTooltip text={"Tiempo"}>
             <p class="text-sm flex flex-row align-middle items-center">

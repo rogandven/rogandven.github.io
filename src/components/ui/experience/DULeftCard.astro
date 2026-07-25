@@ -1,0 +1,36 @@
+---
+import Picture from 'astro/components/Picture.astro';
+import EventClass from '../../../classes/EventClass';
+import { DEFAULT_EVENT_NAME } from '../../../constants/event.constants';
+import { cutOffText } from '../../../utils/general.utils';
+import DUInfoModal from '../education/DUInfoModal.astro';
+import { DEFAULT_IMAGE_URL } from '../../../constants/daisyui.constants';
+import DUNameAndOrganization from '../education/DUNameAndOrganization.astro';
+
+interface Props {
+  event: EventClass,
+}
+
+const { 
+  event,
+} = Astro.props;
+---
+<div class="card card-side bg-base-100 shadow-sm w-120">
+  <figure>
+    <Picture 
+      src={event.imageURL || DEFAULT_IMAGE_URL} 
+      alt={`${event.companyName}: ${event.name}`} 
+      format="avif" 
+      width="200" 
+      height="280"
+      class="h-full" 
+    />
+  </figure>
+  <div class="card-body">
+    <DUNameAndOrganization school={event} id={0} shallShowLocation={false} />
+    <p>{event.description && cutOffText(event.description, 20)}</p>
+    <div class="card-actions justify-end">
+      <DUInfoModal event={event} id={10} />
+    </div>
+  </div>
+</div>

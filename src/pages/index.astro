@@ -7,6 +7,7 @@ import DUTechnologyCard from '../components/ui/technologies/DUTechnologyCard.ast
 import { DAISYUI_PROGRESS_COLORS, DAISYUI_TEXT_COLORS } from '../constants/daisyui.constants';
 import DATA from '../data/data';
 import Layout from '../layouts/Layout.astro';
+import DULeftCard from '../components/ui/experience/DULeftCard.astro';
 ---
 
 <Layout>
@@ -38,7 +39,9 @@ import Layout from '../layouts/Layout.astro';
 
     <h1 class="text-4xl font-extrabold">Educación</h1>
 
-    <DUTimeline eventList={DATA.education.reverse()} />
+    <DUTimeline eventList={DATA.education} />
 
     <h1 class="text-4xl font-extrabold">Experiencia</h1>
+
+    <DULeftCard event={DATA.experience[0]}/>
 </Layout>

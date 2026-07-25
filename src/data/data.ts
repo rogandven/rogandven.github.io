@@ -108,7 +108,7 @@ const DATA = {
             "https://www.instagram.com/instituto_conosur/",
             ["NetEnglish"]
         ),         
-    ],
+    ].toReversed(),
     experience: [
         new EventClass(
             "Universidad del Bío-Bío", 
