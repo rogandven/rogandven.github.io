@@ -41,7 +41,8 @@ const {
                 <span class="text-secondary flex flex-row align-middle items-center">
                     <Icon name="mdi:calendar-outline" class="mr-1" /> 
                     {MESES_ESPANIOL[school.startDate.getMonth()] + " " + school.startDate.getFullYear()}
-                    <DUSchoolInfoDate 
+                    <DUSchoolInfoDate
+                        _class={"flex flex-row align-middle items-center"} 
                         school={school} 
                         shallDisplayPresent={shallDisplayPresent} 
                     />

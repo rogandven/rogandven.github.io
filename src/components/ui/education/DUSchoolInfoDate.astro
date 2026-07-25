@@ -5,12 +5,20 @@ import EventClass from "../../../classes/EventClass";
 import DUArrowRight from "./DUArrowRight.astro";
 
 interface Props {
-    school: EventClass
-    shallDisplayPresent: boolean
+    school: EventClass,
+    shallDisplayPresent: boolean,
+    _class: string,
 };
 
 const school = Astro?.props?.school;
 const shallDisplayPresent = Astro?.props?.shallDisplayPresent;
+const _class = Astro?.props?._class;
+
+if (shallDisplayPresent === undefined) {
+    throw Error(`\`shallDisplayPresent\` cannot be \`undefined\`!!!`);
+}
+
+console.log(school.name, "shallDisplayPresent: ", shallDisplayPresent);
 
 /* const { 
     school,
@@ -20,10 +28,10 @@ const shallDisplayPresent = Astro?.props?.shallDisplayPresent;
 // const ArrowRight = ();
 
 ---
-<div>{
+<span class={_class}>{
     (school.endDate && 
-        <div><DUArrowRight />{MESES_ESPANIOL[school.endDate.getMonth()] + " " + school.endDate.getFullYear()}</div>
+        <span class={_class}><DUArrowRight />{MESES_ESPANIOL[school.endDate.getMonth()] + " " + school.endDate.getFullYear()}</span>
     ) || (shallDisplayPresent && 
-        <div><DUArrowRight />{"Presente"}</div>
-    ) || <div></div>
-}</div>
+        <span class={_class}><DUArrowRight />{"Presente"}</span>
+    ) || <span></span>
+}</span>

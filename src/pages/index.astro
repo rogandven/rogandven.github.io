@@ -56,6 +56,6 @@ import DUCertfificateCollapse from '../components/ui/certificates/DUCertificateC
     <h1 class="text-4xl font-extrabold">Proyectos Académicos</h1>
 
     {DATA.projects.map((event, index) => {
-            return (<DUCard event={event} _id={"project" + index} isLeftCard={(index % 2) === 0} shallDisplayPresent={true} />)
+            return (<DUCard event={event} _id={"project" + index} isLeftCard={(index % 2) === 0} shallDisplayPresent={false} />)
     })}    
 </Layout>
