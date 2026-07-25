@@ -8,15 +8,17 @@ import PictureAstroComponent from "astro/components/Picture.astro";
 import EventClass from "../../../classes/EventClass";
 import DUSchoolInfoLink from "./DUSchoolInfoLink.astro";
 import DUNameAndOrganization from "./DUNameAndOrganization.astro";
+import DUSchoolInfoDate from "./DUSchoolInfoDate.astro";
 
 interface Props {
-    school?: EventClass | undefined;
+    school: EventClass;
     _id: string;
+    shallDisplayPresent: boolean;
 }
 
 const { 
-    school = undefined,
-    _id = 0
+    school,
+    shallDisplayPresent,
 } = Astro.props;
 
 ---
@@ -38,10 +40,10 @@ const {
                 <span class="text-secondary flex flex-row align-middle items-center">
                     <Icon name="mdi:calendar-outline" class="mr-1" /> 
                     {MESES_ESPANIOL[school.startDate.getMonth()] + " " + school.startDate.getFullYear()}
-                    <Icon name="mdi:arrow-right" class="mr-1 ml-1"></Icon>
-                    {(school.endDate && (
-                        MESES_ESPANIOL[school.endDate.getMonth()] + " " + school.endDate.getFullYear()
-                    )) || "Presente"}
+                    <DUSchoolInfoDate 
+                        school={school} 
+                        shallDisplayPresent={shallDisplayPresent} 
+                    />
                 </span>
             </p>    
         </DUTooltip>

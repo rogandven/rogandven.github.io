@@ -6,13 +6,15 @@ import DUSchoolInfo from './DUSchoolInfo.astro';
 import DUTooltip from '../profilecard/DUTooltip.astro';
 
 interface Props {
-    id?: string;
-    event?: EventClass;
+    id: string;
+    event: EventClass;
+    shallDisplayPresent: boolean;
 }
 
 const { 
-    id = "0",
-    event = new EventClass(undefined, "prueba", "prueba", undefined, undefined, DEFAULT_DATE, DEFAULT_DATE, undefined, undefined, undefined), 
+    id,
+    event,
+    shallDisplayPresent,
 } = Astro.props;
 ---
 <DUTooltip text="Mostrar Más">
@@ -23,6 +25,6 @@ const {
 
 <dialog id=`my_modal_${id}` class="modal">
   <div class="modal-box">
-    <DUSchoolInfo school={event} _id={id}/>
+    <DUSchoolInfo school={event} _id={id} shallDisplayPresent={shallDisplayPresent}/>
   </div>
 </dialog>
