@@ -216,7 +216,7 @@ export const DATA = {
             undefined,
             undefined,
             false,
-            "/reports/InformeDePracticaPCTPPP_RogerVenegas.pdf",
+            "/reports/InformeArtSell_RogerVenegas.pdf",
         ),
         new EventClass(
             "Universidad del Bío-Bío", 
