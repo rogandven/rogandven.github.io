@@ -6,6 +6,7 @@ import { cutOffText } from '../../../utils/general.utils';
 import DUInfoModal from '../education/DUInfoModal.astro';
 import { DEFAULT_IMAGE_URL } from '../../../constants/daisyui.constants';
 import DUNameAndOrganization from '../education/DUNameAndOrganization.astro';
+import DUTooltip from '../profilecard/DUTooltip.astro';
 
 interface Props {
   event: EventClass,
@@ -16,16 +17,18 @@ const {
 } = Astro.props;
 ---
 <div class="card card-side bg-base-100 shadow-sm w-120">
+  <DUTooltip text={`${event.companyName}: ${event.name}`}>
   <figure>
-    <Picture 
-      src={event.imageURL || DEFAULT_IMAGE_URL} 
-      alt={`${event.companyName}: ${event.name}`} 
-      format="avif" 
-      width="200" 
-      height="280"
-      class="h-full" 
-    />
+      <Picture 
+        src={event.imageURL || DEFAULT_IMAGE_URL} 
+        alt={`${event.companyName}: ${event.name}`} 
+        format="avif" 
+        width="200" 
+        height="280"
+        class="h-full" 
+      />
   </figure>
+  </DUTooltip>
   <div class="card-body">
     <DUNameAndOrganization school={event} id={0} shallShowLocation={false} />
     <p>{event.description && cutOffText(event.description, 20)}</p>

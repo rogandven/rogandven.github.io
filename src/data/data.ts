@@ -7,10 +7,12 @@ import ExcelIcon from "../components/icons/ExcelIcon.astro";
 import SocialLink from "../classes/SocialLink.ts";
 import LinkedInIcon from "../components/icons/LinkedInIcon.astro";
 import EventClass from "../classes/EventClass.ts";
+
 import UBBImage from "../assets/images/pexels-pixabay-356065-college.jpg";
 import JPImage from "../assets/images/pexels-goumbik-574077-programming.jpg";
 import LAVImage from "../assets/images/pexels-kari-alfonso-2151442665-37865916-high-school.jpg";
 import ICImage from "../assets/images/pexels-delot-18471478-ic.jpg";
+import PCTPPPImage from "../assets/images/pexels-altman-12936940-laptop-empty-mockup.png";
 
 const DATA = {
     name: "Roger Venegas",
@@ -114,7 +116,7 @@ const DATA = {
             "Universidad del Bío-Bío", 
             "Pasantía de Administrador de Sistemas", 
             undefined, 
-            undefined, 
+            PCTPPPImage, 
             "Concepción, Chile", 
             "2025-01-01", 
             "2025-03-03",
