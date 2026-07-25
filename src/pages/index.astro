@@ -6,8 +6,7 @@ import DUTechnologyCard from '../components/ui/technologies/DUTechnologyCard.ast
 import { DAISYUI_PROGRESS_COLORS, DAISYUI_TEXT_COLORS } from '../constants/daisyui.constants';
 import DATA from '../data/data';
 import Layout from '../layouts/Layout.astro';
-import DULeftCard from '../components/ui/experience/DULeftCard.astro';
-import DURightCard from '../components/ui/experience/DURightCard.astro';
+import DUCard from '../components/ui/experience/DUCard.astro';
 import DUCertfificateCollapse from '../components/ui/certificates/DUCertificateCollapse.astro';
 ---
 
@@ -45,11 +44,8 @@ import DUCertfificateCollapse from '../components/ui/certificates/DUCertificateC
     <h1 class="text-4xl font-extrabold">Experiencia</h1>
 
     {DATA.experience.map((event, index) => {
-        if ((index % 2) === 0) {
-            return (<DULeftCard event={event} _id={"experience" + index} />)
-        }
-        return (<DURightCard event={event} _id={"experience" + index} />)
-    })}
+            return (<DUCard event={event} _id={"experience" + index} isLeftCard={(index % 2) === 0} />)
+    })}    
     
     <h1 class="text-4xl font-extrabold">Certificaciones</h1>
 
@@ -60,9 +56,6 @@ import DUCertfificateCollapse from '../components/ui/certificates/DUCertificateC
     <h1 class="text-4xl font-extrabold">Proyectos Académicos</h1>
 
     {DATA.projects.map((event, index) => {
-        if ((index % 2) === 0) {
-            return (<DULeftCard event={event} _id={"project" + index} />)
-        }
-        return (<DURightCard event={event} _id={"project" + index} />)
+            return (<DUCard event={event} _id={"project" + index} isLeftCard={(index % 2) === 0} />)
     })}    
 </Layout>

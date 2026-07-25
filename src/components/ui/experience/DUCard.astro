@@ -1,0 +1,31 @@
+---
+import EventClass from '../../../classes/EventClass';
+import DUCardDescription from './DUCardComponents/DUCardDescription.astro';
+import DUCardImage from './DUCardComponents/DUCardImage.astro';
+
+interface Props {
+  event: EventClass,
+  _id: string,
+  isLeftCard: boolean,
+}
+
+const { 
+  event,
+  _id,
+  isLeftCard,
+} = Astro.props;
+---
+
+  {isLeftCard ? 
+      <div class="card card-side bg-base-100 shadow-sm w-150">
+        <DUCardImage event={event} />
+        <DUCardDescription event={event} _id={_id} />
+      </div>
+  :
+      <div class="card card-side bg-base-100 shadow-sm w-150">
+        <DUCardDescription event={event} _id={_id} />
+        <DUCardImage event={event} />
+      </div>
+  }
+
+</div>
