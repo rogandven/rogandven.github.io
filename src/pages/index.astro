@@ -1,7 +1,6 @@
 ---
 import DUTimeline from '../components/ui/education/DUTimeline.astro';
 import DULanguageCard from '../components/ui/languages/DULanguageCard.astro';
-import DUAvatar from '../components/ui/profilecard/DUAvatar.astro';
 import DUProfileCard from '../components/ui/profilecard/DUProfileCard.astro';
 import DUTechnologyCard from '../components/ui/technologies/DUTechnologyCard.astro';
 import { DAISYUI_PROGRESS_COLORS, DAISYUI_TEXT_COLORS } from '../constants/daisyui.constants';
@@ -9,6 +8,7 @@ import DATA from '../data/data';
 import Layout from '../layouts/Layout.astro';
 import DULeftCard from '../components/ui/experience/DULeftCard.astro';
 import DURightCard from '../components/ui/experience/DURightCard.astro';
+import DUCertfificateCollapse from '../components/ui/certificates/DUCertificateCollapse.astro';
 ---
 
 <Layout>
@@ -51,4 +51,9 @@ import DURightCard from '../components/ui/experience/DURightCard.astro';
         return (<DURightCard event={event} _id={"experience" + index} />)
     })}
     
+    <h1 class="text-4xl font-extrabold">Certificaciones</h1>
+
+    {DATA.certifications.map((certification, index) => {
+        return (<DUCertfificateCollapse certificate={certification} _id={index} />)
+    })}
 </Layout>

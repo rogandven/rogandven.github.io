@@ -31,12 +31,12 @@ const {
             </button>
         </form>
 
-        <DUNameAndOrganization school={school} shallShowLocation={true}  />
+        <DUNameAndOrganization school={school} shallShowLocation={true} shallDisplayShortDate={false}  />
 
         <DUTooltip text={"Tiempo"}>
             <p class="text-sm flex flex-row align-middle items-center">
                 <span class="text-secondary flex flex-row align-middle items-center">
-                    <Icon name="mdi:clock" class="mr-1" /> 
+                    <Icon name="mdi:calendar-outline" class="mr-1" /> 
                     {MESES_ESPANIOL[school.startDate.getMonth()] + " " + school.startDate.getFullYear()}
                     <Icon name="mdi:arrow-right" class="mr-1 ml-1"></Icon>
                     {(school.endDate && (

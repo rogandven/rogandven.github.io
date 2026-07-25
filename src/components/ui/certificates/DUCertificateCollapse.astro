@@ -1,0 +1,36 @@
+---
+import EventClass from '../../../classes/EventClass';
+import DUNameAndOrganization from '../education/DUNameAndOrganization.astro';
+import DUSchoolInfoLink from '../education/DUSchoolInfoLink.astro';
+
+interface Props {
+    certificate: EventClass | undefined,
+    _id: number
+}
+
+const { 
+    certificate = undefined,
+    _id = 0,
+} = Astro.props;
+---
+{certificate && <div class="collapse collapse-arrow bg-base-100 border border-base-300">
+  <input type="checkbox" name={`my-certification-${_id}`} />
+  <div class="collapse-title font-semibold">
+    <DUNameAndOrganization school={certificate} shallShowLocation={true} shallDisplayShortDate={true} />
+  </div>
+  <div class="collapse-content text-sm">
+    {certificate.description ? 
+      certificate.description : 
+      <span class="italic opacity-50">Descripción no disponible</span>}
+
+      {certificate.websiteURL && <p><DUSchoolInfoLink 
+          link={certificate.websiteURL}
+          linkName={"Link de la Página Web"}
+      /></p>}
+
+      {certificate.certificateURL && <p><DUSchoolInfoLink 
+          link={certificate.certificateURL}
+          linkName={"Link del Certificado"}
+      /></p>}       
+  </div>
+</div>}

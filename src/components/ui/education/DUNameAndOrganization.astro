@@ -3,15 +3,18 @@ import DUTooltip from "../profilecard/DUTooltip.astro";
 import { Icon } from "astro-icon/components";
 import { DIVIDER } from "../../../constants/daisyui.constants";
 import EventClass from "../../../classes/EventClass";
+import { getPrintableDate } from "../../../utils/general.utils";
 
 interface Props {
     school: EventClass | undefined;
-    shallShowLocation: boolean
+    shallShowLocation: boolean;
+    shallDisplayShortDate: boolean;
 }
 
 const { 
     school = undefined,
     shallShowLocation = false,
+    shallDisplayShortDate = false,
 } = Astro.props;
 
 ---
@@ -43,6 +46,15 @@ const {
                     {school.location}
                 </span>
             </DUTooltip>}
+
+            {shallDisplayShortDate && <span class="ml-1 mr-1">{DIVIDER}</span>}
+
+            {shallDisplayShortDate && <DUTooltip text={"Fecha"}>
+                <span class="text-secondary flex flex-row align-middle items-center">
+                    <Icon name="mdi:calendar-outline" class="mr-1" /> 
+                    {getPrintableDate(school.startDate)}
+                </span>
+            </DUTooltip>}            
         </p>
     }
 </p>

@@ -33,3 +33,7 @@ export const cutOffText = (original: string, amount: number): string => {
   }
   return original.substring(0, amount).trim() + "...";
 }
+
+export const getPrintableDate = (date: Date): string => {
+  return date.toISOString().split("T")[0].split("-").toReversed().join("-");
+}
