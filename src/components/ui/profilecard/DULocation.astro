@@ -14,7 +14,7 @@ const {
     url = DEFAULT_URL,
 } = Astro.props;
 ---
-<a href={url} target="_blank">
+<a href={url} aria-label={text} target="_blank">
     <DUTooltip text="Ubicación">
         <div class="flex flex-row items-center align-bottom w-min link link-info text-sm">
             <Icon name="mdi:location" class="mr-0.5"/>
