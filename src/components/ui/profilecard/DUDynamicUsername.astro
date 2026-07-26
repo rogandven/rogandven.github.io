@@ -14,7 +14,7 @@ const {
     iconSize = DEFAULT_ICON_ICONSIZE,
 } = Astro.props;
 ---
-<span class={`text-rotate duration-6000 ${textSize}`}>
+<span class={`text-rotate duration-6000 ${textSize}`} aria-hidden="true">
   <span>
     {
         links.map((link, index) => {

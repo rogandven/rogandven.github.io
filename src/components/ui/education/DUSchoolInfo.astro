@@ -4,7 +4,7 @@ import { DAISYUI_BADGE_COLORS } from "../../../constants/daisyui.constants";
 import { MESES_ESPANIOL } from "../../../constants/general.constants";
 import DUTooltip from "../../../components/ui/profilecard/DUTooltip.astro";
 import DUBadge from "../../../components/ui/profilecard/DUBadge.astro";
-import PictureAstroComponent from "astro/components/Picture.astro";
+import Picture from "astro/components/Picture.astro";
 import EventClass from "../../../classes/EventClass";
 import DUSchoolInfoLink from "./DUSchoolInfoLink.astro";
 import DUNameAndOrganization from "./DUNameAndOrganization.astro";
@@ -26,7 +26,7 @@ const {
 {school !== undefined ? (
     <div>
         <form method="dialog">
-            <button 
+            <button aria-label="Cerrar" aria-modal="true"
                 class="btn btn-sm btn-circle btn-error text-lg absolute right-2 top-2" 
             >
                 <Icon name="mdi:close" />
@@ -58,14 +58,14 @@ const {
         {school.imageURL ? (
             <div>
             <DUTooltip text={`${school.name}`}>
-                <PictureAstroComponent
+                <Picture
                     class="rounded-lg object-fill"
                     fit="fill"
                     src={school.imageURL} 
                     format="avif" 
                     width={640} 
                     height={360}
-                    alt={school.companyName + ": " + school.name}
+                    alt={school.name}
                 />
             </DUTooltip>
             {school.isImageReferential && 

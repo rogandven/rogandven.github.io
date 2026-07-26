@@ -16,16 +16,20 @@ const {
 } = Astro.props;
 
 const Logo = tool.icon;
+
+const percentageString = `${tool.displayName} (${tool.percentageString})`;
 ---
-<DUTooltip text={`${tool.displayName} (${tool.percentageString})`}>
+<DUTooltip text={percentageString}>
 <div class="card bg-base-100 w-20 shadow-sm m-2">
-    <div class="w-fit flex flex-col align-middle items-center">
-        <div class={`${text_color} mb-1`}>{tool.displayName}</div>
-        <Logo 
+    <div class="w-fit flex flex-col align-middle items-center" 
+    aria-label={percentageString}
+    >
+        <div aria-hidden="true" class={`${text_color} mb-1`}>{tool.displayName}</div>
+        <span aria-hidden="true"><Logo 
             class={`text-2xl size-15 ${text_color} ml-2 mr-2 mb-1`}
             _class={`size-15 ${text_color} mb-1`}
-        />
-        <progress class={`progress ${proficiency_color} w-20 mt-1`} value={tool.percentage} max={100}></progress>
+        /></span>
+        <progress aria-hidden="true" class={`progress ${proficiency_color} w-20 mt-1`} value={tool.percentage} max={100}></progress>
     </div>
 </div>
 </DUTooltip>

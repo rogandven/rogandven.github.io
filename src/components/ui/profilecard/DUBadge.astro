@@ -22,9 +22,11 @@ const {
 
 
 ---
-<div class={`badge ${color} ${isSmall ? "badge-sm text-sm" : ""}`}>
-    <Icon name={iconName}/>
-    <span id={textId}>
-        {cutOffText(content.toUpperCase(), MINIMUM_BADGE_CHARACTERS)}
+<div class={`badge ${color} ${isSmall ? "badge-sm text-sm" : ""}`} aria-label={content}>
+    <span aria-hidden={true} class="flex flex-row align-middle items-center">
+        <Icon name={iconName} class={"mr-1"}/>
+        <span id={textId}>
+            {cutOffText(content.toUpperCase(), MINIMUM_BADGE_CHARACTERS)}
+        </span>
     </span>
 </div>

@@ -36,9 +36,13 @@ const {
             <div>
                 <span>
                     <h2 class="card-title flex flex-row align-middle items-center content-center">
-                        <DUTooltip text={DATA.location.COUNTRY_NAME}>
-                            <Icon name={getCountryCode(DATA.location.COUNTRY_CODE)} class="rounded-sm"/>
-                        </DUTooltip>
+                        <div aria-label={DATA.location.COUNTRY_NAME}>
+                            <div aria-hidden="true">
+                                <DUTooltip text={DATA.location.COUNTRY_NAME}>
+                                    <Icon name={getCountryCode(DATA.location.COUNTRY_CODE)} class="rounded-sm"/>
+                                </DUTooltip>
+                            </div>
+                        </div>
                         {DATA.name}
                         <DUTooltip text="Edad">
                             <DUBadge
@@ -66,7 +70,7 @@ const {
                 <div class="flex flex-row">
                 {DATA.socials.map((link: any, index: number) => {
                     return (<DUSocialButton 
-                        color={DAISYUI_BUTTON_COLORS[index % DAISYUI_BUTTON_COLORS.length]}
+                        color={DAISYUI_BUTTON_COLORS[index % DAISYUI_BUTTON_COLORS.length] || ""}
                         Logo={link.icon} 
                         destination={link.URL}
                         content={link.displayName}
