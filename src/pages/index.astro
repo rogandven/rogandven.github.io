@@ -1,61 +1,18 @@
 ---
-import DUTimeline from '../components/ui/education/DUTimeline.astro';
-import DULanguageCard from '../components/ui/languages/DULanguageCard.astro';
-import DUProfileCard from '../components/ui/profilecard/DUProfileCard.astro';
-import DUTechnologyCard from '../components/ui/technologies/DUTechnologyCard.astro';
-import { DAISYUI_PROGRESS_COLORS, DAISYUI_TEXT_COLORS } from '../constants/daisyui.constants';
 import DATA from '../data/data';
 import Layout from '../layouts/Layout.astro';
-import DUCard from '../components/ui/experience/DUCard.astro';
-import DUCertfificateCollapse from '../components/ui/certificates/DUCertificateCollapse.astro';
+
+import DUProfileCard from '../components/ui/profilecard/DUProfileCard.astro';
+import DUTechnologies from '../components/ui/sections/DUTechnologies.astro';
+import DULanguages from '../components/ui/sections/DULanguages.astro';
+import DUEducation from '../components/ui/sections/DUEducation.astro';
+import DUCertificates from '../components/ui/sections/DUCertificates.astro';
 ---
 
 <Layout>
-    <DUProfileCard />
-
-    <h1 class="text-4xl font-extrabold">Habilidades Técnicas</h1>
-
-    <div class="flex flex-row flex-wrap">
-        {DATA.tools.map((tool, index) => {
-            return <DUTechnologyCard 
-                tool={tool} 
-                text_color={DAISYUI_TEXT_COLORS[index % DAISYUI_TEXT_COLORS.length]}
-                proficiency_color={DAISYUI_PROGRESS_COLORS[index % DAISYUI_TEXT_COLORS.length]}
-            />
-        })}
-    </div>
-
-    <h1 class="text-4xl font-extrabold">Idiomas</h1>
-
-    <div class="flex flex-row flex-wrap">
-        {DATA.languages.map((language, index) => {
-            return <DULanguageCard 
-                language={language} 
-                text_color={DAISYUI_TEXT_COLORS[index % DAISYUI_TEXT_COLORS.length]}
-                proficiency_color={DAISYUI_PROGRESS_COLORS[index % DAISYUI_TEXT_COLORS.length]}
-            />
-        })}
-    </div>
-
-    <h1 class="text-4xl font-extrabold">Educación</h1>
-
-    <DUTimeline eventList={DATA.education} />
-
-    <h1 class="text-4xl font-extrabold">Experiencia</h1>
-
-    {DATA.experience.map((event, index) => {
-            return (<DUCard event={event} _id={"experience" + index} isLeftCard={(index % 2) === 0} shallDisplayPresent={false} />)
-    })}    
-    
-    <h1 class="text-4xl font-extrabold">Certificaciones</h1>
-
-    {DATA.certifications.map((certification, index) => {
-        return (<DUCertfificateCollapse certificate={certification} _id={index} />)
-    })}
-
-    <h1 class="text-4xl font-extrabold">Proyectos Académicos</h1>
-
-    {DATA.projects.map((event, index) => {
-            return (<DUCard event={event} _id={"project" + index} isLeftCard={(index % 2) === 0} shallDisplayPresent={false} />)
-    })}    
+    <DUProfileCard DATA={DATA} />
+    <DUTechnologies DATA={DATA} />
+    <DULanguages DATA={DATA} />
+    <DUEducation DATA={DATA} />
+    <DUCertificates DATA={DATA} />
 </Layout>

@@ -1,0 +1,25 @@
+---
+import DULanguageCard from '../languages/DULanguageCard.astro';
+import { DAISYUI_TEXT_COLORS } from '../../../constants/daisyui.constants';
+import { DAISYUI_PROGRESS_COLORS } from '../../../constants/daisyui.constants';
+import type Language from '../../../classes/Language';
+
+interface Props {
+    DATA: any
+}
+
+const { 
+    DATA,
+} = Astro.props;
+---
+<h1 class="text-4xl font-extrabold">Idiomas</h1>
+
+<div class="flex flex-row flex-wrap">
+    {DATA.languages.map((language: Language, index: number) => {
+        return <DULanguageCard 
+            language={language} 
+            text_color={DAISYUI_TEXT_COLORS[index % DAISYUI_TEXT_COLORS.length]}
+            proficiency_color={DAISYUI_PROGRESS_COLORS[index % DAISYUI_TEXT_COLORS.length]}
+        />
+    })}
+</div>

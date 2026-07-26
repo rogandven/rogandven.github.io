@@ -1,0 +1,17 @@
+---
+import type EventClass from '../../../classes/EventClass';
+import DUCertificateCollapse from '../certificates/DUCertificateCollapse.astro';
+
+interface Props {
+    DATA: any
+}
+
+const { 
+    DATA,
+} = Astro.props;
+---
+<h1 class="text-4xl font-extrabold">Certificaciones</h1>
+
+{DATA.certifications.map((certification: EventClass, index: number) => {
+    return (<DUCertificateCollapse certificate={certification} _id={index} />)
+})}

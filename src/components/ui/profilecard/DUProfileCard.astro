@@ -1,5 +1,4 @@
 ---
-import DATA from "../../../data/data.ts";
 import DUAvatar from "./DUAvatar.astro";
 import DUDynamicUsername from "./DUDynamicUsername.astro";
 import DUBadge from "./DUBadge.astro";
@@ -10,6 +9,14 @@ import DUTooltip from "./DUTooltip.astro";
 import DULocation from "./DULocation.astro";
 import { getCountryCode } from "../../../utils/language.utils";
 import { Icon  } from "astro-icon/components";
+
+interface Props {
+    DATA: any
+}
+
+const { 
+    DATA,
+} = Astro.props;
 ---
 <div class="card bg-base-100 w-100 shadow-sm">
   <div class="card-body">
@@ -54,7 +61,7 @@ import { Icon  } from "astro-icon/components";
             </div>
             <p class="mb-1">{DATA.description}</p>
             <div class="flex flex-row">
-            {DATA.socials.map((link, index) => {
+            {DATA.socials.map((link: any, index: number) => {
                 return (<DUSocialButton 
                     color={DAISYUI_BUTTON_COLORS[index % DAISYUI_BUTTON_COLORS.length]}
                     Logo={link.icon} 
