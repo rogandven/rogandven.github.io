@@ -4,14 +4,18 @@ import DUCard from '../experience/DUCard.astro';
 
 interface Props {
     DATA: any
+    _class?: string
 }
 
 const { 
     DATA,
+    _class = "",
 } = Astro.props;
 ---
 <h1 class="text-4xl font-extrabold">Proyectos Académicos</h1>
 
-{DATA.projects.map((event: EventClass, index: number) => {
-        return (<DUCard event={event} _id={"project" + index} isLeftCard={(index % 2) === 0} shallDisplayPresent={false} />)
-})}    
+<div class={_class}>
+    {DATA.projects.map((event: EventClass, index: number) => {
+            return (<DUCard event={event} _id={"project" + index} isLeftCard={(index % 2) === 0} shallDisplayPresent={false} />)
+    })}
+</div>  

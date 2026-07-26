@@ -8,73 +8,78 @@ import DUSocialButton from "./DUSocialButton.astro";
 import DUTooltip from "./DUTooltip.astro";
 import DULocation from "./DULocation.astro";
 import { getCountryCode } from "../../../utils/language.utils";
-import { Icon  } from "astro-icon/components";
+import { Icon } from "astro-icon/components";
 
 interface Props {
-    DATA: any
+    DATA: any,
+    _class?: string,
 }
 
 const { 
     DATA,
+    _class = "",
 } = Astro.props;
 ---
-<div class="card bg-base-100 w-100 shadow-sm">
-  <div class="card-body">
-    <div class="flex flex-row align-middle items-center-safe justify-items-center-safe">
-        <div class="mr-3">
-            <DUAvatar 
-                color="ring-primary"
-                imageURL="/images/pfp.png"
-                imageALT={DATA.name}
-                imageSize={30}
-                imageSizeClass="w-30"
-            />
-        </div>
-        <div>
-            <span>
-                <h2 class="card-title flex flex-row align-middle items-center content-center">
-                    <DUTooltip text={DATA.location.COUNTRY_NAME}>
-                        <Icon name={getCountryCode(DATA.location.COUNTRY_CODE)} class="rounded-sm"/>
-                    </DUTooltip>
-                    {DATA.name}
-                    <DUTooltip text="Edad">
-                        <DUBadge
-                            color="badge-accent"
-                            content={String(getAge(DATA.date_of_birth))}
-                            iconName="mdi:cake"
-                            textId={AGE_BADGE_NAME}
-                            isSmall={false}
-                        />
-                    </DUTooltip>
-                </h2>
-            </span>
-            <div class="flex flex-row align-middle place-items-center content-center">
-                <span>
-                    <DUTooltip text="Redes Sociales">
-                        <DUDynamicUsername links={DATA.socials}/>
-                    </DUTooltip>
-                </span>
-                <span class="ml-1 mr-1">{DIVIDER}</span>
-                <span>
-                    <DULocation text={DATA.location.NAME} url={DATA.location.URL} />
-                </span>
+<div class={_class}>
+    <div class="card bg-base-100 w-100 shadow-sm">
+    <div class="card-body">
+        <div class="flex flex-row align-middle items-center-safe justify-items-center-safe">
+            <div class="mr-3">
+                <DUAvatar 
+                    color="ring-primary"
+                    imageURL="/images/pfp.png"
+                    imageALT={DATA.name}
+                    imageSize={30}
+                    imageSizeClass="w-30"
+                />
             </div>
-            <p class="mb-1">{DATA.description}</p>
-            <div class="flex flex-row">
-            {DATA.socials.map((link: any, index: number) => {
-                return (<DUSocialButton 
-                    color={DAISYUI_BUTTON_COLORS[index % DAISYUI_BUTTON_COLORS.length]}
-                    Logo={link.icon} 
-                    destination={link.URL}
-                    content={link.displayName}
-                    margin="mr-2"
-                />);
-            })}
+            <div>
+                <span>
+                    <h2 class="card-title flex flex-row align-middle items-center content-center">
+                        <DUTooltip text={DATA.location.COUNTRY_NAME}>
+                            <Icon name={getCountryCode(DATA.location.COUNTRY_CODE)} class="rounded-sm"/>
+                        </DUTooltip>
+                        {DATA.name}
+                        <DUTooltip text="Edad">
+                            <DUBadge
+                                color="badge-accent"
+                                content={String(getAge(DATA.date_of_birth))}
+                                iconName="mdi:cake"
+                                textId={AGE_BADGE_NAME}
+                                isSmall={false}
+                            />
+                        </DUTooltip>
+                    </h2>
+                </span>
+                <div class="flex flex-row align-middle place-items-center content-center">
+                    <span>
+                        <DUTooltip text="Redes Sociales">
+                            <DUDynamicUsername links={DATA.socials}/>
+                        </DUTooltip>
+                    </span>
+                    <span class="ml-1 mr-1">{DIVIDER}</span>
+                    <span>
+                        <DULocation text={DATA.location.NAME} url={DATA.location.URL} />
+                    </span>
+                </div>
+                <p class="mb-1">{DATA.description}</p>
+                <div class="flex flex-row">
+                {DATA.socials.map((link: any, index: number) => {
+                    return (<DUSocialButton 
+                        color={DAISYUI_BUTTON_COLORS[index % DAISYUI_BUTTON_COLORS.length]}
+                        Logo={link.icon} 
+                        destination={link.URL}
+                        content={link.displayName}
+                        margin="mr-2"
+                    />);
+                })}
+                </div>
             </div>
         </div>
     </div>
-  </div>
+    </div>
 </div>
+
 <script is:inline type="module">
     try {
         const DATE_OF_BIRTH = new Date("2004-09-16");

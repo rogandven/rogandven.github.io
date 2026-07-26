@@ -3,15 +3,19 @@ import type EventClass from '../../../classes/EventClass';
 import DUCard from '../experience/DUCard.astro';
 
 interface Props {
-    DATA: any
+    DATA: any,
+    _class?: string,
 }
 
 const { 
     DATA,
+    _class = "",
 } = Astro.props;
 ---
 <h1 class="text-4xl font-extrabold">Experiencia</h1>
 
-{DATA.experience.map((event: EventClass, index: number) => {
-        return (<DUCard event={event} _id={"experience" + index} isLeftCard={(index % 2) === 0} shallDisplayPresent={false} />)
-})}    
+<div class={_class}>
+    {DATA.experience.map((event: EventClass, index: number) => {
+            return (<DUCard event={event} _id={"experience" + index} isLeftCard={(index % 2) === 0} shallDisplayPresent={false} />)
+    })}    
+</div>

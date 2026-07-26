@@ -2,13 +2,17 @@
 import DUTimeline from '../education/DUTimeline.astro';
 
 interface Props {
-    DATA: any
+    DATA: any,
+    _class?: string,
 }
 
 const { 
     DATA,
+    _class = "",
 } = Astro.props;
 ---
 <h1 class="text-4xl font-extrabold">Educación</h1>
 
-<DUTimeline eventList={DATA.education} />
+<div class={_class}>
+    <DUTimeline eventList={DATA.education} />
+</div>
