@@ -1,6 +1,6 @@
 ---
 import { Icon } from "astro-icon/components";
-import { DAISYUI_BADGE_COLORS, DIVIDER } from "../../../constants/daisyui.constants";
+import { DAISYUI_BADGE_COLORS } from "../../../constants/daisyui.constants";
 import { MESES_ESPANIOL } from "../../../constants/general.constants";
 import DUTooltip from "../../../components/ui/profilecard/DUTooltip.astro";
 import DUBadge from "../../../components/ui/profilecard/DUBadge.astro";
@@ -28,7 +28,6 @@ const {
         <form method="dialog">
             <button 
                 class="btn btn-sm btn-circle btn-error text-lg absolute right-2 top-2" 
-                aria-label="Cerrar"
             >
                 <Icon name="mdi:close" />
             </button>
@@ -81,7 +80,7 @@ const {
                     <div class="m-0.5">
                     <DUTooltip text={String(course).toUpperCase()}>
                     <DUBadge 
-                        color={DAISYUI_BADGE_COLORS[index % DAISYUI_BADGE_COLORS.length]}
+                        color={DAISYUI_BADGE_COLORS[index % DAISYUI_BADGE_COLORS.length] || ""}
                         content={course}
                         iconName="mdi:class"
                         textId={`${_id}-badge-${index}`}

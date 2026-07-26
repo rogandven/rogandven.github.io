@@ -15,7 +15,7 @@ const {
 } = Astro.props;
 ---
 {link && <DUTooltip text={linkName}>
-    <a aria-label={linkName} href={link} target="_blank">
+    <a href={link} target="_blank">
         <span class="link link-primary text-sm flex flex-row align-middle items-center">
             <Icon name="mdi:link-variant" class="mr-1" /> 
             {link}
