@@ -1,6 +1,7 @@
 ---
 import type EventClass from '../../../classes/EventClass';
 import DUCard from '../experience/DUCard.astro';
+import InvisibleEvent from '../other/InvisibleEvent.astro';
 
 interface Props {
     DATA: any,
@@ -12,10 +13,19 @@ const {
     _class = "",
 } = Astro.props;
 ---
-<div class="text-4xl font-extrabold">Experiencia</div>
+<h2 class="text-4xl font-extrabold">Experiencia</h2>
 
+<div class="hidden size-0">
+    {DATA.experience.map((experience: EventClass) => {
+        return <InvisibleEvent school={experience} shallDisplayPresent={false} />
+    })}
+</div>
+
+
+<aside>
 <div class={_class}>
     {DATA.experience.map((event: EventClass, index: number) => {
             return (<DUCard event={event} _id={"experience" + index} isLeftCard={(index % 2) === 0} shallDisplayPresent={false} />)
-    })}    
+    })}  
 </div>
+</aside> 

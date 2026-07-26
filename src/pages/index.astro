@@ -12,11 +12,39 @@ import DUExperiences from '../components/ui/sections/DUExperiences.astro';
 ---
 
 <Layout>
-    <DUProfileCard DATA={DATA} />
-    <DUTechnologies DATA={DATA} />
-    <DULanguages DATA={DATA} />
-    <DUEducation DATA={DATA} />
-    <DUExperiences DATA={DATA} />
-    <DUCertificates DATA={DATA} />
-    <DUProjects DATA={DATA} />
+    <main>
+        <article>
+        <section aria-label={"Mis Datos"}>
+            <DUProfileCard DATA={DATA} />
+        </section>
+
+        <hr class="hidden size-0" />
+
+        <section aria-label={"Habilidades Técnicas"}>
+            <DUTechnologies DATA={DATA} />
+        </section>
+
+        <hr class="hidden size-0" />
+
+        <section aria-label={"Idiomas"}>
+            <DULanguages DATA={DATA} />
+        </section>
+
+        <hr class="hidden size-0" />
+
+        <section aria-label={"Educación"}>
+            <DUEducation DATA={DATA} />
+        </section>
+
+        <section aria-label={"Experiencia Laboral"}>
+            <DUExperiences DATA={DATA} />
+        </section>
+        <section aria-label={"Certificados"}>
+            <DUCertificates DATA={DATA} />
+        </section>
+        <section aria-label={"Proyectos Académicos"}>
+            <DUProjects DATA={DATA} />
+        </section>
+        </article>
+    </main>
 </Layout>

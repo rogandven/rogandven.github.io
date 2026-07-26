@@ -14,16 +14,24 @@ const {
     _class = ""
 } = Astro.props;
 ---
-<div class="text-4xl font-extrabold">Idiomas</div>
+<h2 class="text-4xl font-extrabold">Idiomas</h2>
 
-<div class={_class}>
-    <div class="flex flex-row flex-wrap">
-        {DATA.languages.map((language: Language, index: number) => {
-            return <DULanguageCard 
-                language={language} 
-                text_color={DAISYUI_TEXT_COLORS[index % DAISYUI_TEXT_COLORS.length]}
-                proficiency_color={DAISYUI_PROGRESS_COLORS[index % DAISYUI_TEXT_COLORS.length]}
-            />
-        })}
+<ul class="hidden size-0">
+{DATA.languages.map((language: Language) => {
+    return <li>{`${language.name}: ${language.levelString}`}</li>
+})}
+</ul>
+
+<aside>
+    <div class={_class}>
+        <div class="flex flex-row flex-wrap">
+            {DATA.languages.map((language: Language, index: number) => {
+                return <DULanguageCard 
+                    language={language} 
+                    text_color={DAISYUI_TEXT_COLORS[index % DAISYUI_TEXT_COLORS.length]}
+                    proficiency_color={DAISYUI_PROGRESS_COLORS[index % DAISYUI_TEXT_COLORS.length]}
+                />
+            })}
+        </div>
     </div>
-</div>
+</aside>

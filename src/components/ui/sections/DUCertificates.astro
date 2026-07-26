@@ -1,6 +1,7 @@
 ---
 import type EventClass from '../../../classes/EventClass';
 import DUCertificateCollapse from '../certificates/DUCertificateCollapse.astro';
+import InvisibleEvent from '../other/InvisibleEvent.astro';
 
 interface Props {
     DATA: any,
@@ -12,10 +13,18 @@ const {
     _class = "",
 } = Astro.props;
 ---
-<div class="text-4xl font-extrabold">Certificaciones</div>
+<h2 class="text-4xl font-extrabold">Certificaciones</h2>
 
+<div class="hidden size-0">
+    {DATA.certifications.map((certificate: EventClass) => {
+        return <InvisibleEvent school={certificate} shallDisplayPresent={false} />
+    })}
+</div>
+
+<aside>
 <div class={_class}>
     {DATA.certifications.map((certification: EventClass, index: number) => {
         return (<DUCertificateCollapse certificate={certification} _id={index} />)
     })}
 </div>
+</aside>

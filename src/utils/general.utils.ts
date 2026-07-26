@@ -1,4 +1,5 @@
-import { DEFAULT_DATE, TODAY } from "../constants/general.constants";
+import { DEFAULT_DATE, MESES_ESPANIOL, TODAY } from "../constants/general.constants";
+import EventClass from "../classes/EventClass";
 
 export const slugify = (text: string): string => {
   return text
@@ -36,4 +37,23 @@ export const cutOffText = (original: string, amount: number): string => {
 
 export const getPrintableDate = (date: Date): string => {
   return date.toISOString().split("T")[0].split("-").toReversed().join("-");
+}
+
+export const getMonthPlusYear = (date: Date): string => {
+  return MESES_ESPANIOL[date.getMonth()] + " " + date.getFullYear();
+}
+
+export const getPrintableTimePeriod = (event: EventClass, shallDisplayPresent: boolean): string => {
+  let date: string = getMonthPlusYear(event.startDate);
+  if (event.endDate) {
+    return date + " - " + getMonthPlusYear(event.endDate);
+  }
+  if (shallDisplayPresent) {
+    return date + " - Presente";
+  }
+  return date;
+}
+
+export const hasURL = (event: EventClass): boolean => {
+  return Boolean(event.certificateURL || event.reportURL || event.repositoryURL || event.websiteURL);
 }

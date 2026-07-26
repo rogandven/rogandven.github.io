@@ -2,13 +2,14 @@
 import DUAvatar from "./DUAvatar.astro";
 import DUDynamicUsername from "./DUDynamicUsername.astro";
 import DUBadge from "./DUBadge.astro";
-import { getAge } from "../../../utils/general.utils";
+import { getAge, getPrintableDate } from "../../../utils/general.utils";
 import { AGE_BADGE_NAME, DAISYUI_BUTTON_COLORS, DIVIDER } from "../../../constants/daisyui.constants";
 import DUSocialButton from "./DUSocialButton.astro";
 import DUTooltip from "./DUTooltip.astro";
 import DULocation from "./DULocation.astro";
 import { getCountryCode } from "../../../utils/language.utils";
 import { Icon } from "astro-icon/components";
+import type SocialLink from "../../../classes/SocialLink";
 
 interface Props {
     DATA: any,
@@ -35,7 +36,11 @@ const {
             </div>
             <div>
                 <span>
-                    <h2 class="card-title flex flex-row align-middle items-center content-center">
+                    <h1 
+                        class="card-title flex flex-row align-middle items-center content-center"
+                        title={`${DATA.name}, ${DATA.location.COUNTRY_NAME}, ${getPrintableDate(DATA.date_of_birth)}`}
+                        aria-label={`${DATA.name}, ${DATA.location.COUNTRY_NAME}, ${getPrintableDate(DATA.date_of_birth)}`}
+                    >
                         <div aria-label={DATA.location.COUNTRY_NAME}>
                             <div aria-hidden="true">
                                 <DUTooltip text={DATA.location.COUNTRY_NAME}>
@@ -44,6 +49,7 @@ const {
                             </div>
                         </div>
                         {DATA.name}
+                        
                         <DUTooltip text="Edad">
                             <DUBadge
                                 color="badge-accent"
@@ -53,7 +59,7 @@ const {
                                 isSmall={false}
                             />
                         </DUTooltip>
-                    </h2>
+                    </h1>
                 </span>
                 <div class="flex flex-row align-middle place-items-center content-center">
                     <span>
@@ -68,7 +74,7 @@ const {
                 </div>
                 <div class="mb-1">{DATA.description}</div>
                 <div class="flex flex-row">
-                {DATA.socials.map((link: any, index: number) => {
+                {DATA.socials.map((link: SocialLink, index: number) => {
                     return (<DUSocialButton 
                         color={DAISYUI_BUTTON_COLORS[index % DAISYUI_BUTTON_COLORS.length] || ""}
                         Logo={link.icon} 
@@ -82,6 +88,13 @@ const {
         </div>
     </div>
     </div>
+    <ul class="hidden size-0">
+        <li>Ciudad: {DATA.location.NAME}, {DATA.location.COUNTRY_NAME}</li>
+        <li>Fecha de nacimiento: {getPrintableDate(DATA.date_of_birth)}</li>
+        {DATA.socials.map((link: SocialLink) => {
+            return <li>{`${link.displayName}: ${link.URL}`}</li>
+        })}
+    </ul>    
 </div>
 
 <script is:inline type="module">

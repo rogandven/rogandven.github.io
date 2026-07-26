@@ -15,15 +15,24 @@ const {
 } = Astro.props;
 ---
 
-<div class="text-4xl font-extrabold">Habilidades Técnicas</div>
-<div class={_class}>
-    <div class="flex flex-row flex-wrap">
-        {DATA.tools.map((tool: Tool, index: number) => {
-            return <DUTechnologyCard 
-                tool={tool} 
-                text_color={DAISYUI_TEXT_COLORS[index % DAISYUI_TEXT_COLORS.length]}
-                proficiency_color={DAISYUI_PROGRESS_COLORS[index % DAISYUI_TEXT_COLORS.length]}
-            />
-        })}
+<h2 class="text-4xl font-extrabold">Habilidades Técnicas</h2>
+
+<ul class="hidden size-0">
+{DATA.tools.map((tool: Tool) => {
+    return <li>{`${tool.displayName}: ${tool.percentageString}`}</li>
+})}
+</ul>
+
+<aside>
+    <div class={_class}>
+        <div class="flex flex-row flex-wrap">
+            {DATA.tools.map((tool: Tool, index: number) => {
+                return <DUTechnologyCard 
+                    tool={tool} 
+                    text_color={DAISYUI_TEXT_COLORS[index % DAISYUI_TEXT_COLORS.length]}
+                    proficiency_color={DAISYUI_PROGRESS_COLORS[index % DAISYUI_TEXT_COLORS.length]}
+                />
+            })}
+        </div>
     </div>
-</div>
+</aside>

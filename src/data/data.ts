@@ -119,7 +119,7 @@ export const DATA = {
     experience: [
         new EventClass(
             "Universidad del Bío-Bío", 
-            "Pasantía de Administrador de Sistemas", 
+            "Práctica Profesional de Administrador de Sistemas", 
             "Se configuró una instancia de Moodle para proporcionar un Sistema de Gestión del Aprendizaje (LMS) a los estudiantes en prácticas de la Universidad del Bío-Bío. Este sistema enriquecido tenía como objetivo optimizar la creación, el intercambio y la implementación de cursos internos, así como permitir que los estudiantes en prácticas compartieran consejos y trucos entre sí.", 
             PCTPPPImage, 
             "Concepción, Chile", 
