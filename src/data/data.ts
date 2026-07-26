@@ -265,7 +265,7 @@ export const DATA = {
         new Tool("Git", Git, "Herramienta de control de versiones", 3),
         new Tool("HTML5", Html5, "Lenguaje de marcado de hipertexto", 3),
         new Tool("Java", Openjdk, "Lenguaje de programación de alto nivel orientado a objetos", 4),
-        new Tool("JavaScipt", Javascript, "Lenguaje de programación de alto nivel orientado a web", 3),
+        new Tool("JavaScript", Javascript, "Lenguaje de programación de alto nivel orientado a web", 3),
         new Tool("LaTeX", Latex, "Lenguaje de marcado orientado a documentos", 3),
         new Tool("Linux", Linux, "Familia de sistemas operativos", 3),
         new Tool("Node.js", Nodedotjs, "Entorno de desarrollo de JavaScript", 3),
