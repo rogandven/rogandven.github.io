@@ -26,14 +26,14 @@ const {
                         <DUCheckbox />
                     </div>
                     <div class="timeline-end timeline-box w-75">
-                        <h1 class="text-lg flex flex-row items-center align-middle" aria-label={event.name}>
+                        <div class="text-lg flex flex-row items-center align-middle" aria-label={event.name}>
                             <Icon name={event.iconName} class={"mr-1"} />
                             <b>{cutOffText(event.name, 24)}</b>
-                        </h1>
+                        </div>
                         {event.companyName && 
                             <div class="flex flex-row align-middle items-center text-accent">
                             <Icon class="text-sm mr-1" name={"mdi:school"}/>
-                            <p class="text-sm">{event.companyName}</p>
+                            <div class="text-sm">{event.companyName}</div>
                             </div>
                         }
                         {event.imageURL && 

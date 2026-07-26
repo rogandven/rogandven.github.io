@@ -23,14 +23,14 @@ const {
       certificate.description : 
       <span class="italic opacity-50">Descripción no disponible</span>}
 
-      {certificate.websiteURL && <p><DUSchoolInfoLink 
+      {certificate.websiteURL && <div><DUSchoolInfoLink 
           link={certificate.websiteURL}
           linkName={"Link de la Página Web"}
-      /></p>}
+      /></div>}
 
-      {certificate.certificateURL && <p><DUSchoolInfoLink 
+      {certificate.certificateURL && <div><DUSchoolInfoLink 
           link={certificate.certificateURL}
           linkName={"Link del Certificado"}
-      /></p>}       
+      /></div>}       
   </div>
 </div>}

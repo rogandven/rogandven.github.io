@@ -19,18 +19,18 @@ const {
 
 ---
 
-<p class="text-sm flex flex-row align-middle items-center">
+<div class="text-sm flex flex-row align-middle items-center">
     { school && 
         <div class="flex flex-row align-top items-start">
             <DUTooltip text={"Nombre"}>
-                <h1 class="text-lg font-bold flex flex-row align-middle items-center">
+                <div class="text-lg font-bold flex flex-row align-middle items-center">
                     {school.iconName && <Icon name={school.iconName} class="mr-1" />}
                     {school.name}
-                </h1>
+                </div>
             </DUTooltip>
         </div>
 
-        <p class="text-sm flex flex-row align-middle items-center">
+        <div class="text-sm flex flex-row align-middle items-center">
             <DUTooltip text={"Organización"}>
                 <span class="text-accent flex flex-row align-middle items-center">
                     <Icon name="mdi:school" class="mr-1" /> 
@@ -55,6 +55,6 @@ const {
                     {getPrintableDate(school.startDate)}
                 </span>
             </DUTooltip>}            
-        </p>
+        </div>
     }
-</p>
+</div>

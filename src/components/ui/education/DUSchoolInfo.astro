@@ -37,7 +37,7 @@ const {
         <DUNameAndOrganization school={school} shallShowLocation={true} shallDisplayShortDate={false}  />
 
         <DUTooltip text={"Tiempo"}>
-            <p class="text-sm flex flex-row align-middle items-center">
+            <div class="text-sm flex flex-row align-middle items-center">
                 <span class="text-secondary flex flex-row align-middle items-center">
                     <Icon name="mdi:calendar-outline" class="mr-1" /> 
                     {MESES_ESPANIOL[school.startDate.getMonth()] + " " + school.startDate.getFullYear()}
@@ -47,13 +47,13 @@ const {
                         shallDisplayPresent={shallDisplayPresent} 
                     />
                 </span>
-            </p>    
+            </div>    
         </DUTooltip>
 
         {school.description ? (
-            <p class="mt-2 mb-2">{school.description}</p>
+            <div class="mt-2 mb-2">{school.description}</div>
         ) : (
-            <p class="opacity-50 italic mt-2 mb-2">Descripción no disponible</p>
+            <div class="opacity-50 italic mt-2 mb-2">Descripción no disponible</div>
         )}
 
         {school.imageURL ? (
@@ -70,7 +70,7 @@ const {
                 />
             </DUTooltip>
             {school.isImageReferential && 
-                <p class="text-xs italic opacity-50">Imagen es únicamente referencial</p>
+                <div class="text-xs italic opacity-50">Imagen es únicamente referencial</div>
             }
             </div>
         ) : ("")}

@@ -19,15 +19,15 @@ const {
 ---
 <div class="card-body line-clamp-10">
     <DUNameAndOrganization school={event} shallShowLocation={false} shallDisplayShortDate={false} />
-    <p>{event.description && cutOffText(event.description, 100)}</p>
+    <div>{event.description && cutOffText(event.description, 100)}</div>
     {event.repositoryURL && 
-        <p><DUSchoolInfoLink link={event.repositoryURL} linkName={"Link del Repositorio"} /></p>
+        <div><DUSchoolInfoLink link={event.repositoryURL} linkName={"Link del Repositorio"} /></div>
     }
     {event.reportURL && 
-        <p><DUSchoolInfoLink link={event.reportURL} linkName={"Link del Informe"} /></p>
+        <div><DUSchoolInfoLink link={event.reportURL} linkName={"Link del Informe"} /></div>
     }    
     {event.websiteURL && 
-        <p><DUSchoolInfoLink link={event.websiteURL} linkName={"Página Web"} /></p>
+        <div><DUSchoolInfoLink link={event.websiteURL} linkName={"Página Web"} /></div>
     }    
     <div class="card-actions justify-end mt-2">
         <DUInfoModal event={event} id={_id} shallDisplayPresent={shallDisplayPresent} />
