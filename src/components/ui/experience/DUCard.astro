@@ -19,14 +19,14 @@ const {
 ---
 
   {isLeftCard ? 
-      <div class="card card-side bg-base-100 shadow-sm w-150">
+      <div class="card card-side bg-base-100 shadow-xs card-border w-150">
         <span aria-hidden="true">
           <DUCardImage event={event} />
         </span>
         <DUCardDescription event={event} _id={_id} shallDisplayPresent={shallDisplayPresent} />
       </div>
   :
-      <div class="card card-side bg-base-100 shadow-sm w-150">
+      <div class="card card-side bg-base-100 shadow-xs card-border w-150">
         <DUCardDescription event={event} _id={_id} shallDisplayPresent={shallDisplayPresent} />
         <span aria-hidden="true">
           <DUCardImage event={event} />
