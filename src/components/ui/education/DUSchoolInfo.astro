@@ -29,7 +29,7 @@ const {
             <button aria-label="Cerrar" aria-modal="true"
                 class="btn btn-sm btn-circle btn-error text-lg absolute right-2 top-2" 
             >
-                <Icon name="mdi:close" />
+                <Icon name="mdi:close" aria-hidden="true" />
             </button>
         </form>
 
@@ -38,7 +38,7 @@ const {
         <DUTooltip text={"Tiempo"}>
             <div class="text-sm flex flex-row align-middle items-center">
                 <span class="text-secondary flex flex-row align-middle items-center">
-                    <Icon name="mdi:calendar-outline" class="mr-1" /> 
+                    <Icon name="mdi:calendar-outline" class="mr-1" aria-hidden="true" /> 
                     {MESES_ESPANIOL[school.startDate.getMonth()] + " " + school.startDate.getFullYear()}
                     <DUSchoolInfoDate
                         _class={"flex flex-row align-middle items-center"} 

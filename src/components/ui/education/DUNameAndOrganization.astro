@@ -24,7 +24,7 @@ const {
         <div class="flex flex-row align-top items-start">
             <DUTooltip text={"Nombre"}>
                 <div class="text-lg font-bold flex flex-row align-middle items-center">
-                    {school.iconName && <Icon name={school.iconName} class="mr-1" />}
+                    {school.iconName && <Icon name={school.iconName} class="mr-1" aria-hidden="true" />}
                     {school.name}
                 </div>
             </DUTooltip>
@@ -33,7 +33,7 @@ const {
         <div class="text-sm flex flex-row align-middle items-center">
             <DUTooltip text={"Organización"}>
                 <span class="text-accent flex flex-row align-middle items-center">
-                    <Icon name="mdi:school" class="mr-1" /> 
+                    <Icon name="mdi:school" class="mr-1" aria-hidden="true" /> 
                     {school.companyName}
                 </span>
             </DUTooltip>
@@ -42,7 +42,7 @@ const {
 
             {shallShowLocation && <DUTooltip text={"Ubicación"}>
                 <span class="text-info flex flex-row align-middle items-center">
-                    <Icon name="mdi:location" class="mr-1" /> 
+                    <Icon name="mdi:location" class="mr-1" aria-hidden="true" /> 
                     {school.location}
                 </span>
             </DUTooltip>}
@@ -51,7 +51,7 @@ const {
 
             {shallDisplayShortDate && <DUTooltip text={"Fecha"}>
                 <span class="text-secondary flex flex-row align-middle items-center">
-                    <Icon name="mdi:calendar-outline" class="mr-1" /> 
+                    <Icon name="mdi:calendar-outline" class="mr-1" aria-hidden="true" /> 
                     {getPrintableDate(school.startDate)}
                 </span>
             </DUTooltip>}            

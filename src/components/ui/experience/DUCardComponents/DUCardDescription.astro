@@ -20,8 +20,8 @@ const {
 <div class="card-body line-clamp-10">
     <DUNameAndOrganization school={event} shallShowLocation={false} shallDisplayShortDate={false} />
     
-    <div aria-label={event.description || ""}>
-        <span aria-hidden="true">{event.description && cutOffText(event.description, 100)}</span>
+    <div>
+        <span aria-label={event.description || ""}>{event.description && cutOffText(event.description, 100)}</span>
     </div>
     
     {event.repositoryURL && 

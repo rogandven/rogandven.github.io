@@ -15,7 +15,7 @@ const {
   eventList = [], 
 } = Astro.props;
 ---
-<ul class="timeline -mt-72">
+<ul class="timeline -mt-72" aria-label={"Línea de tiempo"}>
     {eventList && eventList.length === 0 ? (<div/>) : eventList.map(
         (event, index) => {
             return (
@@ -27,12 +27,12 @@ const {
                     </div>
                     <div class="timeline-end timeline-box w-75">
                         <div class="text-lg flex flex-row items-center align-middle">
-                            <Icon name={event.iconName} class={"mr-1"} />
-                            <b>{cutOffText(event.name, 24)}</b>
+                            <Icon name={event.iconName} class={"mr-1"} aria-hidden="true" />
+                            <b aria-label={event.name}>{cutOffText(event.name, 24)}</b>
                         </div>
                         {event.companyName && 
                             <div class="flex flex-row align-middle items-center text-accent">
-                            <Icon class="text-sm mr-1" name={"mdi:school"}/>
+                            <Icon class="text-sm mr-1" name={"mdi:school"} aria-hidden="true"/>
                             <div class="text-sm">{event.companyName}</div>
                             </div>
                         }

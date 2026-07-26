@@ -1,5 +1,6 @@
 ---
 import EventClass from '../../../classes/EventClass';
+import { getPrintableDate } from '../../../utils/general.utils';
 import DUNameAndOrganization from '../education/DUNameAndOrganization.astro';
 import DUSchoolInfoLink from '../education/DUSchoolInfoLink.astro';
 
@@ -14,8 +15,10 @@ const {
 } = Astro.props;
 ---
 {certificate && <div class="collapse collapse-arrow bg-base-100 border border-base-300">
-  <input type="checkbox" name={`my-certification-${_id}`} />
-  <div class="collapse-title font-semibold">
+  <input type="checkbox" name={`my-certification-${_id}`} aria-label={
+    certificate.name + ", " + certificate.companyName + ", " + certificate.location + ", " + getPrintableDate(certificate.startDate)
+  } aria-haspopup="menu"/>
+  <div class="collapse-title font-semibold" aria-hidden="true">
     <DUNameAndOrganization school={certificate} shallShowLocation={true} shallDisplayShortDate={true} />
   </div>
   <div class="collapse-content text-sm">
@@ -31,6 +34,7 @@ const {
       {certificate.certificateURL && <div><DUSchoolInfoLink 
           link={certificate.certificateURL}
           linkName={"Link del Certificado"}
-      /></div>}       
+      /></div>} 
+      
   </div>
 </div>}
