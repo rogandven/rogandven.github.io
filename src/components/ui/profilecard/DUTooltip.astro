@@ -10,7 +10,7 @@ const {
 } = Astro.props;
 ---
 
-<div class="tooltip text-base font-normal" data-tip={text}>
+<div class="tooltip text-base font-normal h-min" data-tip={text}>
   {/* <slot aria-label={text}/> */}
   <slot />
 </div>

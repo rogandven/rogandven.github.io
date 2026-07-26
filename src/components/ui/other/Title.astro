@@ -1,0 +1,12 @@
+---
+interface Props {
+    text?: string,
+    _class?: string
+}
+
+const { 
+  text = "",
+  _class = "",
+} = Astro.props;
+---
+<h2 class=`text-4xl font-extrabold w-full ${_class} text-center mt-3 mb-3`>{text}</h2>

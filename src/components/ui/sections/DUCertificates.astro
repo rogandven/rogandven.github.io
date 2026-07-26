@@ -2,6 +2,7 @@
 import type EventClass from '../../../classes/EventClass';
 import DUCertificateCollapse from '../certificates/DUCertificateCollapse.astro';
 import InvisibleEvent from '../other/InvisibleEvent.astro';
+import Title from '../other/Title.astro';
 
 interface Props {
     DATA: any,
@@ -13,7 +14,7 @@ const {
     _class = "",
 } = Astro.props;
 ---
-<h2 class="text-4xl font-extrabold">Certificaciones</h2>
+<Title text={"Certificaciones"} />
 
 <div class="hidden size-0">
     {DATA.certifications.map((certificate: EventClass) => {

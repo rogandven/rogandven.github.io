@@ -3,6 +3,7 @@ import DULanguageCard from '../languages/DULanguageCard.astro';
 import { DAISYUI_TEXT_COLORS } from '../../../constants/daisyui.constants';
 import { DAISYUI_PROGRESS_COLORS } from '../../../constants/daisyui.constants';
 import type Language from '../../../classes/Language';
+import Title from '../other/Title.astro';
 
 interface Props {
     DATA: any
@@ -14,7 +15,7 @@ const {
     _class = ""
 } = Astro.props;
 ---
-<h2 class="text-4xl font-extrabold">Idiomas</h2>
+<Title text={"Idiomas"} />
 
 <ul class="hidden size-0">
 {DATA.languages.map((language: Language) => {
@@ -24,7 +25,7 @@ const {
 
 <aside>
     <div class={_class}>
-        <div class="flex flex-row flex-wrap">
+        <div class="flex flex-row flex-wrap justify-center content-center w-full">
             {DATA.languages.map((language: Language, index: number) => {
                 return <DULanguageCard 
                     language={language} 

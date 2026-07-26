@@ -3,6 +3,7 @@ import DUTooltip from "../../profilecard/DUTooltip.astro";
 import Picture from "astro/components/Picture.astro";
 import EventClass from "../../../../classes/EventClass";
 import { DEFAULT_IMAGE_URL } from "../../../../constants/daisyui.constants";
+import { maxSize } from "astro:schema";
 
 interface Props {
     event: EventClass;
@@ -13,15 +14,14 @@ const {
 } = Astro.props;
 ---
 
-<DUTooltip text={`${event.name}`}>
 <figure>
     <Picture 
     src={event.imageURL || DEFAULT_IMAGE_URL} 
     alt={`${event.name}`} 
     format="avif" 
-    width="200" 
+    width="200"
     height="280"
-    class="h-full" 
+    fit="cover"
+    class="h-max min-h-max" 
     />
 </figure>
-</DUTooltip>

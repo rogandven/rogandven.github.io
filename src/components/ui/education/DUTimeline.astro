@@ -9,17 +9,19 @@ import { cutOffText } from "../../../utils/general.utils";
 
 interface Props {
   eventList?: EventClass[];
+  _class?: string;
 }
 
 const { 
-  eventList = [], 
+  eventList = [],
+  _class = "",
 } = Astro.props;
 ---
-<ul class="timeline -mt-72" aria-label={"Línea de tiempo"}>
+<ul class=`timeline ${_class} overflow-x-scroll overflow-y-hidden m-2 border-base-300 shadow-xs rounded-md bg-base-200` aria-label={"Línea de tiempo"}>
     {eventList && eventList.length === 0 ? (<div/>) : eventList.map(
         (event, index) => {
             return (
-                <li>
+                <li class="-mt-72">
                     {index !== 0 ? (<hr />) : (<div />)}
                     <div class="timeline-start">{event.startDate.getUTCFullYear()}</div>
                     <div class="timeline-middle">

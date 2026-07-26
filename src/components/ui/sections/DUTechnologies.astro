@@ -3,6 +3,7 @@ import DUTechnologyCard from '../technologies/DUTechnologyCard.astro';
 import { DAISYUI_TEXT_COLORS } from '../../../constants/daisyui.constants';
 import { DAISYUI_PROGRESS_COLORS } from '../../../constants/daisyui.constants';
 import type Tool from '../../../classes/Tool';
+import Title from '../other/Title.astro';
 
 interface Props {
     DATA: any,
@@ -14,8 +15,7 @@ const {
     _class = ""
 } = Astro.props;
 ---
-
-<h2 class="text-4xl font-extrabold">Habilidades Técnicas</h2>
+<Title text={"Habilidades Técnicas"} />
 
 <ul class="hidden size-0">
 {DATA.tools.map((tool: Tool) => {
@@ -25,7 +25,7 @@ const {
 
 <aside>
     <div class={_class}>
-        <div class="flex flex-row flex-wrap">
+        <div class="flex flex-row flex-wrap justify-center content-center w-full">
             {DATA.tools.map((tool: Tool, index: number) => {
                 return <DUTechnologyCard 
                     tool={tool} 
