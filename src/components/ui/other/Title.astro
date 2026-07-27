@@ -1,4 +1,5 @@
 ---
+import { Icon } from 'astro-icon/components';
 import type HeadingTitle from '../../../classes/HeadingTitle';
 import { slugify } from '../../../utils/general.utils';
 
@@ -12,4 +13,9 @@ const {
   _class = "",
 } = Astro.props;
 ---
-<h2 id={title.sluggifiedTitle} class=`text-4xl font-extrabold w-full ${_class} text-center`>{title.normalTitle}</h2>
+<div class="w-full text-center items-center justify-center place-items-center">
+  <h2 id={title.sluggifiedTitle} class=`text-4xl font-extrabold w-fit ${_class} text-center flex flex-row items-center place-items-center w-fit justify-center`>
+      <Icon name={title.iconName} class="mr-1 w-fit" />
+      {title.normalTitle}
+  </h2>
+</div>
