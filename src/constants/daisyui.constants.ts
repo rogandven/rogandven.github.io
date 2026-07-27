@@ -1,4 +1,4 @@
-import Cat from "../../public/images/pfp.png";
+import Cat from "../../src/assets/images/roger_logo_bg.png";
 
 export const DEFAULT_IMAGE_FORMAT: string = "avif";
 export const VALID_SIZE_REGEX: RegExp = /w-[0-9]*/;
