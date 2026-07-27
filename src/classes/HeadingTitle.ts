@@ -1,5 +1,13 @@
 import { slugify } from "../utils/general.utils";
 
+export const headingTitleCopier = (anyObject: any) => {
+    if (!(anyObject instanceof HeadingTitle)) {
+        console.warn("¡El objeto dado no corresponde a un título!");
+        return undefined;
+    }
+    return new HeadingTitle(anyObject.normalTitle);
+}
+
 export default class HeadingTitle {
     private _normalTitle: string = "";
     private _sluggifiedTitle: string = "";

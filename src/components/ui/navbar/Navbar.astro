@@ -1,3 +1,34 @@
 ---
+import { Icon } from "astro-icon/components";
+import DATA from "../../../data/data";
+import HeadingTitle from "../../../classes/HeadingTitle";
+import { headingTitleCopier } from "../../../classes/HeadingTitle";
 
+let currentTitle: HeadingTitle | undefined = undefined;
 ---
+<header>
+    <div class="navbar bg-base-100 shadow-xs border border-base-200 mb-4">
+    <div class="navbar-start">
+        <div class="dropdown">
+        <div tabindex="0" role="button" class="btn btn-ghost btn-circle">
+            <Icon class="text-lg" name="mdi:hamburger-menu" />
+        </div>
+        <ul
+            tabindex="-1"
+            class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow-xs border border-base-200">
+            {Object.keys(DATA.titles).toSorted().map((key: string) => {
+                currentTitle = headingTitleCopier(DATA.titles[key]);
+                return currentTitle && (
+                    <li><a href={`./#${currentTitle.sluggifiedTitle}`}>{currentTitle.normalTitle}</a></li>
+                )
+            })}
+        </ul>
+        </div>
+    </div>
+    <div class="navbar-center">
+        <a class="btn btn-ghost text-xl">{DATA.name}</a>
+    </div>
+    <div class="navbar-end">
+    </div>
+    </div>    
+</header>

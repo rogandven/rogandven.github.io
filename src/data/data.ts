@@ -20,6 +20,16 @@ import ElectivosImage from "../assets/images/electivos.png";
 import SCMImage from "../assets/images/scm.png";
 import ASImage from "../assets/images/artsell.png";
 
+const titles: {[key: string]: HeadingTitle} = {
+    _1_HABILIDADES_TECNICAS: new HeadingTitle("Habilidades Técnicas"),
+    _2_IDIOMAS: new HeadingTitle("Idiomas"),
+    _3_EDUCACION: new HeadingTitle("Educación"),
+    _4_EXPERIENCIA: new HeadingTitle("Experiencia"),
+    _5_CERTIFICACIONES: new HeadingTitle("Certificaciones"),
+    _6_PROYECTOS: new HeadingTitle("Proyectos Académicos"),
+    _0_HOGAR: new HeadingTitle("Inicio"),
+}
+
 export const DATA = {
     name: "Roger Venegas",
     username: "rogandven",
@@ -285,14 +295,7 @@ export const DATA = {
         new SocialLink("LinkedIn", LinkedInIcon, "https://www.linkedin.com/in/rogandven", "rogandven"),
         new SocialLink("YouTube", Youtube, "https://www.youtube.com/@rogandven", "rogandven"),
     ],
-    titles: {
-        _0_HABILIDADES_TECNICAS: new HeadingTitle("Habilidades Técnicas"),
-        _1_IDIOMAS: new HeadingTitle("Idiomas"),
-        _2_EDUCACION: new HeadingTitle("Educación"),
-        _3_EXPERIENCIA: new HeadingTitle("Experiencia"),
-        _4_CERTIFICACIONES: new HeadingTitle("Certificaciones"),
-        _5_PROYECTOS: new HeadingTitle("Proyectos Académicos"),
-    },
+    titles: titles,
 };
 
 export default DATA;

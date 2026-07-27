@@ -16,7 +16,7 @@ const {
     _class = "",
 } = Astro.props;
 ---
-{certificate && <div class={`collapse collapse-arrow bg-base-100 border border-base-300 ${_class}`}>
+{certificate && <div class={`collapse collapse-arrow bg-base-100 border border-base-200 ${_class}`}>
   <input type="checkbox" name={`my-certification-${_id}`} aria-label={
     certificate.name + ", " + certificate.companyName + ", " + certificate.location + ", " + getPrintableDate(certificate.startDate)
   } aria-haspopup="menu"/>
