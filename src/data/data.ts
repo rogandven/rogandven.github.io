@@ -21,13 +21,13 @@ import SCMImage from "../assets/images/scm.png";
 import ASImage from "../assets/images/artsell.png";
 
 const titles: {[key: string]: HeadingTitle} = {
-    _1_HABILIDADES_TECNICAS: new HeadingTitle("Habilidades Técnicas"),
-    _2_IDIOMAS: new HeadingTitle("Idiomas"),
-    _3_EDUCACION: new HeadingTitle("Educación"),
-    _4_EXPERIENCIA: new HeadingTitle("Experiencia"),
-    _5_CERTIFICACIONES: new HeadingTitle("Certificaciones"),
-    _6_PROYECTOS: new HeadingTitle("Proyectos Académicos"),
-    _0_HOGAR: new HeadingTitle("Inicio"),
+    _1_HABILIDADES_TECNICAS: new HeadingTitle("Habilidades Técnicas", "computer-classic"),
+    _2_IDIOMAS: new HeadingTitle("Idiomas", "translate-variant"),
+    _3_EDUCACION: new HeadingTitle("Educación", "world"),
+    _4_EXPERIENCIA: new HeadingTitle("Experiencia", "business"),
+    _5_CERTIFICACIONES: new HeadingTitle("Certificaciones", "medal"),
+    _6_PROYECTOS: new HeadingTitle("Proyectos Académicos", "planner"),
+    _0_HOGAR: new HeadingTitle("Inicio", "roger"),
 }
 
 export const DATA = {

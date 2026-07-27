@@ -10,6 +10,7 @@ import DULocation from "./DULocation.astro";
 import { getCountryCode } from "../../../utils/language.utils";
 import { Icon } from "astro-icon/components";
 import type SocialLink from "../../../classes/SocialLink";
+import Cat from "../../../assets/images/roger_logo_bg.png";
 
 interface Props {
     DATA: any,
@@ -28,9 +29,9 @@ const {
             <div class="mr-3">
                 <DUAvatar 
                     color="ring-primary"
-                    imageURL="/images/pfp.png"
+                    imageURL={Cat}
                     imageALT={DATA.name}
-                    imageSize={30}
+                    imageSize={500}
                     imageSizeClass="w-30"
                 />
             </div>

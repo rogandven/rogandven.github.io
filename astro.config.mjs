@@ -16,6 +16,7 @@ export default defineConfig({
       mdi: ['*'],
       bi: ['*'],
       flag: ['*'],
+      local: ['*'],
     }
   }), react()],
 });

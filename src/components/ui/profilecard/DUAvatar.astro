@@ -6,7 +6,7 @@ import DUTooltip from './DUTooltip.astro';
 
 interface Props {
   color?: string;
-  imageURL?: string;
+  imageURL?: ImageMetadata;
   imageALT?: string;
   imageSize?: number;
   imageSizeClass?: string;
@@ -24,7 +24,7 @@ const {
 <div aria-hidden="true">
   <DUTooltip text={imageALT}>
     <div class="avatar">
-      <div class={`${color} ring-offset-base-100 ${validateSizeClass(imageSizeClass, imageSize)} rounded-full ring-2 ring-offset-2`}>
+      <div class={`${color} ring-offset-base-100 ${imageSizeClass} rounded-full ring-2 ring-offset-2`}>
         <Picture src={imageURL} alt={imageALT || ""} width={imageSize || 0} height={imageSize || 0} format={DEFAULT_IMAGE_FORMAT}/>
       </div>
     </div>

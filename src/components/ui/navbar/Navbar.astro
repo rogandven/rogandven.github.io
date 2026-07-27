@@ -19,14 +19,22 @@ let currentTitle: HeadingTitle | undefined = undefined;
             {Object.keys(DATA.titles).toSorted().map((key: string) => {
                 currentTitle = headingTitleCopier(DATA.titles[key]);
                 return currentTitle && (
-                    <li><a href={`./#${currentTitle.sluggifiedTitle}`}>{currentTitle.normalTitle}</a></li>
+                    <li>
+                        <a href={`./#${currentTitle.sluggifiedTitle}`}>
+                            <Icon name={currentTitle.iconName} />
+                            {currentTitle.normalTitle}
+                        </a>
+                    </li>
                 )
             })}
         </ul>
         </div>
     </div>
     <div class="navbar-center">
-        <a class="btn btn-ghost text-xl">{DATA.name}</a>
+        <a class="btn btn-ghost text-xl" href=`./#${DATA.titles._0_HOGAR.sluggifiedTitle}`>
+            <Icon name="roger"/>
+            {DATA.name}
+        </a>
     </div>
     <div class="navbar-end">
     </div>
