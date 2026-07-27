@@ -14,8 +14,8 @@ import Footer from "../components/ui/navbar/Footer.astro";
 		<meta name="generator" content={Astro.generator} />
 		<title>{DATA.name}</title>
 	</head>
-	<body>
-		<div class="w-full h-full bg-base-300">
+	<body class="w-screen max-w-screen">
+		<div class="w-screen max-w-screen h-full bg-base-300 overflow-x-clip object-scale-down">
 		<Navbar />
 		<slot />
 		<Footer />

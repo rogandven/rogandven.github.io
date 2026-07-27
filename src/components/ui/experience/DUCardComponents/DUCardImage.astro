@@ -14,14 +14,14 @@ const {
 } = Astro.props;
 ---
 
-<figure>
-    <Picture 
+<figure class="overflow-hidden object-fill">
+    <Picture
     src={event.imageURL || DEFAULT_IMAGE_URL} 
     alt={`${event.name}`} 
     format="avif" 
     width="200"
     height="280"
     fit="cover"
-    class="h-max min-h-max" 
+    class="overflow-hidden object-fill h-full" 
     />
 </figure>

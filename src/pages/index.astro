@@ -10,43 +10,43 @@ import DUCertificates from '../components/ui/sections/DUCertificates.astro';
 import DUProjects from '../components/ui/sections/DUProjects.astro';
 import DUExperiences from '../components/ui/sections/DUExperiences.astro';
 
-const CENTERED_CLASS = "items-center content-center object-center justify-center-safe place-items-center";
+const CENTERED_CLASS = "items-center content-center object-center justify-center-safe place-items-center object-scale-down";
 ---
 
 <Layout>
     <main>
-        <div class=`w-full ${CENTERED_CLASS}`>
-            <article class=`w-2xl ${CENTERED_CLASS}`>
-                <section aria-label={"Mis Datos"} class={CENTERED_CLASS}>
-                    <DUProfileCard DATA={DATA} _class={CENTERED_CLASS} />
+        <div class=`w-screen max-w-screen ${CENTERED_CLASS} object-scale-down overflow-clip`>
+            <article class=`w-screen max-w-screen ${CENTERED_CLASS}`>
+                <section aria-label={"Mis Datos"} class={`${CENTERED_CLASS}`}>
+                    <DUProfileCard DATA={DATA} _class={`${CENTERED_CLASS}`} />
                 </section>
 
                 <hr class="hidden size-0" />
 
-                <section aria-label={"Habilidades Técnicas"} class={CENTERED_CLASS}>
-                    <DUTechnologies DATA={DATA} _class={CENTERED_CLASS} />
+                <section aria-label={"Habilidades Técnicas"} class={`${CENTERED_CLASS} w-3/4`}>
+                    <DUTechnologies DATA={DATA} _class={`${CENTERED_CLASS}`} />
                 </section>
 
                 <hr class="hidden size-0" />
 
                 <section aria-label={"Idiomas"}>
-                    <DULanguages DATA={DATA} _class={CENTERED_CLASS} />
+                    <DULanguages DATA={DATA} _class={`${CENTERED_CLASS}  max-w-11/12`} />
                 </section>
 
                 <hr class="hidden size-0" />
 
                 <section aria-label={"Educación"}>
-                    <DUEducation DATA={DATA} _class={CENTERED_CLASS} />
+                    <DUEducation DATA={DATA} _class={`${CENTERED_CLASS}  max-w-11/12`} />
                 </section>
 
                 <section aria-label={"Experiencia"}>
-                    <DUExperiences DATA={DATA} _class={CENTERED_CLASS} />
+                    <DUExperiences DATA={DATA} _class={`${CENTERED_CLASS} max-w-11/12`} />
                 </section>
                 <section aria-label={"Certificados"}>
-                    <DUCertificates DATA={DATA} _class={CENTERED_CLASS} />
+                    <DUCertificates DATA={DATA} _class={`${CENTERED_CLASS}  max-w-11/12`} />
                 </section>
                 <section aria-label={"Proyectos Académicos"}>
-                    <DUProjects DATA={DATA} />
+                    <DUProjects DATA={DATA} _class={`${CENTERED_CLASS}  max-w-11/12`} />
                 </section>
             </article>
         </div>

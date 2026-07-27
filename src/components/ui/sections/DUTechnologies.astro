@@ -24,8 +24,8 @@ const {
 </ul>
 
 <aside>
-    <div class={_class}>
-        <div class="flex flex-row flex-wrap justify-center content-center w-full">
+    <div class={`${_class}`}>
+        <div class="flex flex-row flex-wrap justify-center content-center">
             {DATA.tools.map((tool: Tool, index: number) => {
                 return <DUTechnologyCard 
                     tool={tool} 

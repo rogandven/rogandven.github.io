@@ -25,13 +25,11 @@ export default class HeadingTitle {
     }
 
     set iconName(iconName: string) {
-        console.log(`oldIconName: ${iconName}`);
         if (iconName === "roger") {
             this._iconName = "roger";
         } else {
             this._iconName = "mdi:" + iconName;
         }
-        console.log(`newIconName: ${this._iconName}`);
     }
     get iconName(): string {
         return this._iconName;
