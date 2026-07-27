@@ -20,7 +20,7 @@ const {
 const languageString = `${language.name} (${language.level})`;
 ---
 <DUTooltip text={languageString}>
-<div class="card bg-base-100 w-20 shadow-md card-border m-2">
+<div class="card bg-base-100 w-20 shadow-md card-border m-2 rounded-md">
     <div class="w-fit flex flex-col align-middle items-center" aria-label={languageString}>
         <div class={`${text_color} mb-1`} aria-hidden="true">{language.name}</div>
         <Icon
