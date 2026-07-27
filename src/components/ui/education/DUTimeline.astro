@@ -17,7 +17,7 @@ const {
   _class = "",
 } = Astro.props;
 ---
-<ul class=`timeline ${_class} overflow-x-scroll overflow-y-hidden m-2 border border-base-300 shadow-xs rounded-md bg-base-200` aria-label={"Línea de tiempo"}>
+<ul class=`timeline ${_class} overflow-x-scroll overflow-y-hidden m-2 border border-base-300 shadow-md rounded-md bg-base-200` aria-label={"Línea de tiempo"}>
     {eventList && eventList.length === 0 ? (<div/>) : eventList.map(
         (event, index) => {
             return (

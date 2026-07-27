@@ -1,10 +1,11 @@
 ---
 import type SocialLink from "../../../classes/SocialLink";
+import { DAISYUI_TEXT_COLORS } from "../../../constants/daisyui.constants";
 import DATA from "../../../data/data";
 import DUTooltip from "../profilecard/DUTooltip.astro";
 ---
 
-<footer class="w-full footer sm:footer-horizontal bg-neutral text-neutral-content p-10 shadow-xs border border-base-200">
+<footer class="w-full footer sm:footer-horizontal bg-base-100 text-base-content p-10 shadow-md border border-base-200">
   <aside>
     <svg
       width="50"
@@ -22,14 +23,14 @@ import DUTooltip from "../profilecard/DUTooltip.astro";
     </p>
   </aside>
   <nav>
-    <h6 class="footer-title">Redes Sociales</h6>
+    <h6 class="footer-title opacity-100">Redes Sociales</h6>
     <div class="grid grid-flow-col gap-1">
-        {DATA.socials.map((social: SocialLink) => {
+        {DATA.socials.map((social: SocialLink, index: number) => {
             const Logo: any = social.icon;
             return (
                 <DUTooltip text={social.displayName}>
                 <a href={social.URL} target="_blank">
-                    <button class="btn btn-ghost btn-md rounded-full text-xl w-8 h-8 overflow-visible">
+                    <button class={`btn btn-ghost btn-md rounded-full text-xl w-8 h-8 overflow-visible ${DAISYUI_TEXT_COLORS[index]}`}>
                         <Logo class="text-lg overflow-visible" _class="text-lg" />
                     </button>
                 </a>

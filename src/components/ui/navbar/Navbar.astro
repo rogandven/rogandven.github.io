@@ -7,7 +7,7 @@ import { headingTitleCopier } from "../../../classes/HeadingTitle";
 let currentTitle: HeadingTitle | undefined = undefined;
 ---
 <header>
-    <div class="w-full navbar bg-base-100 shadow-xs border border-base-200 mb-4">
+    <div class="w-full navbar bg-base-100 shadow-md border border-base-200 mb-4">
     <div class="navbar-start">
         <div class="dropdown">
         <div tabindex="0" role="button" class="btn btn-ghost btn-circle">
@@ -15,7 +15,7 @@ let currentTitle: HeadingTitle | undefined = undefined;
         </div>
         <ul
             tabindex="-1"
-            class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow-xs border border-base-200">
+            class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow-md border border-base-200">
             {Object.keys(DATA.titles).toSorted().map((key: string) => {
                 currentTitle = headingTitleCopier(DATA.titles[key]);
                 return currentTitle && (

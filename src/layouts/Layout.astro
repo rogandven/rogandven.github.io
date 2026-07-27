@@ -15,9 +15,11 @@ import Footer from "../components/ui/navbar/Footer.astro";
 		<title>{DATA.name}</title>
 	</head>
 	<body>
+		<div class="w-full h-full bg-base-300">
 		<Navbar />
 		<slot />
 		<Footer />
+		</div>
 	</body>
 </html>
 
