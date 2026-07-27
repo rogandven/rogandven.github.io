@@ -1,0 +1,112 @@
+---
+import { Icon } from "astro-icon/components";
+import { DAISYUI_BADGE_COLORS } from "../../../constants/daisyui.constants";
+import { MESES_ESPANIOL } from "../../../constants/general.constants";
+import DUTooltip from "../../../components/ui/profilecard/DUTooltip.astro";
+import DUBadge from "../../../components/ui/profilecard/DUBadge.astro";
+import Picture from "astro/components/Picture.astro";
+import EventClass from "../../../classes/EventClass";
+import DUSchoolInfoLink from "./DUSchoolInfoLink.astro";
+import DUNameAndOrganization from "./DUNameAndOrganization.astro";
+import DUSchoolInfoDate from "./DUSchoolInfoDate.astro";
+
+interface Props {
+    school: EventClass;
+    _id: string;
+    shallDisplayPresent: boolean;
+}
+
+const { 
+    _id,
+    school,
+    shallDisplayPresent,
+} = Astro.props;
+
+---
+{school !== undefined ? (
+    <div>
+        <form method="dialog">
+            <button aria-label="Cerrar" aria-modal="true"
+                class="btn btn-sm btn-circle btn-error text-lg absolute right-2 top-2" 
+            >
+                <Icon name="mdi:close" aria-hidden="true" />
+            </button>
+        </form>
+
+        <DUNameAndOrganization school={school} shallShowLocation={true} shallDisplayShortDate={false}  />
+
+        <DUTooltip text={"Tiempo"}>
+            <div class="text-sm flex flex-row align-middle items-center">
+                <span class="text-secondary flex flex-row align-middle items-center">
+                    <Icon name="mdi:calendar-outline" class="mr-1" aria-hidden="true" /> 
+                    {MESES_ESPANIOL[school.startDate.getMonth()] + " " + school.startDate.getFullYear()}
+                    <DUSchoolInfoDate
+                        _class={"flex flex-row align-middle items-center"} 
+                        school={school} 
+                        shallDisplayPresent={shallDisplayPresent} 
+                    />
+                </span>
+            </div>    
+        </DUTooltip>
+
+        {school.description ? (
+            <div class="mt-2 mb-2">{school.description}</div>
+        ) : (
+            <div class="opacity-50 italic mt-2 mb-2">Descripción no disponible</div>
+        )}
+
+        {school.imageURL ? (
+            <div>
+            <DUTooltip text={`${school.name}`}>
+                <Picture
+                    class="rounded-lg object-fill"
+                    fit="fill"
+                    src={school.imageURL} 
+                    format="avif" 
+                    width={640} 
+                    height={360}
+                    alt={school.name}
+                />
+            </DUTooltip>
+            {school.isImageReferential && 
+                <div class="text-xs italic opacity-50">Imagen es únicamente referencial</div>
+            }
+            </div>
+        ) : ("")}
+
+        <div class="flex flex-row flex-wrap mb-2">
+            {school.relevantCourses.map((course, index) => {
+                return (
+                    <div class="m-0.5">
+                    <DUTooltip text={String(course).toUpperCase()}>
+                    <DUBadge 
+                        color={DAISYUI_BADGE_COLORS[index % DAISYUI_BADGE_COLORS.length] || ""}
+                        content={course}
+                        iconName="mdi:class"
+                        textId={`${_id}-badge-${index}`}
+                        isSmall={true}
+                    />
+                    </DUTooltip>
+                    </div>
+                )
+            })}
+        </div>
+
+        {school.websiteURL && <DUSchoolInfoLink 
+            link={school.websiteURL}
+            linkName={"Página Web"}
+        />}
+        {school.repositoryURL && <DUSchoolInfoLink 
+            link={school.repositoryURL}
+            linkName={"Link del Repositorio"}
+        />} 
+        {school.certificateURL && <DUSchoolInfoLink 
+            link={school.certificateURL}
+            linkName={"Link del Certificado"}
+        />}        
+        {school.reportURL && <DUSchoolInfoLink 
+            link={school.reportURL}
+            linkName={"Link del Informe"}
+        />}                    
+    </div>
+) : ("")}

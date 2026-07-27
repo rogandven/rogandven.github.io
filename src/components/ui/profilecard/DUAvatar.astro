@@ -1,0 +1,32 @@
+---
+import Picture from 'astro/components/Picture.astro';
+import { DEFAULT_IMAGE_FORMAT, DEFAULT_IMAGE_URL, DEFAULT_SIZE_CLASS, DEFAULT_IMAGE_SIZE, DEFAULT_IMAGE_ALT, DEFAULT_COLOR } from "../../../constants/daisyui.constants.ts";
+import { validateSizeClass } from "../../../validations/daisyUI.validations";
+import DUTooltip from './DUTooltip.astro';
+
+interface Props {
+  color?: string;
+  imageURL?: ImageMetadata;
+  imageALT?: string;
+  imageSize?: number;
+  imageSizeClass?: string;
+}
+
+const { 
+  color = DEFAULT_COLOR, 
+  imageURL = DEFAULT_IMAGE_URL,
+  imageALT = DEFAULT_IMAGE_ALT,
+  imageSizeClass = DEFAULT_SIZE_CLASS,
+  imageSize = DEFAULT_IMAGE_SIZE,
+} = Astro.props;
+
+---
+<div aria-hidden="true">
+  <DUTooltip text={imageALT}>
+    <div class="avatar">
+      <div class={`${color} ring-offset-base-100 ${imageSizeClass} rounded-full ring-2 ring-offset-2`}>
+        <Picture src={imageURL} alt={imageALT || ""} width={imageSize || 0} height={imageSize || 0} format={DEFAULT_IMAGE_FORMAT}/>
+      </div>
+    </div>
+  </DUTooltip>
+</div>

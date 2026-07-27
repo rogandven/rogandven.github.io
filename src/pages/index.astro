@@ -1,11 +1,54 @@
 ---
-import Welcome from '../components/Welcome.astro';
+import DATA from '../data/data';
 import Layout from '../layouts/Layout.astro';
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import DUProfileCard from '../components/ui/profilecard/DUProfileCard.astro';
+import DUTechnologies from '../components/ui/sections/DUTechnologies.astro';
+import DULanguages from '../components/ui/sections/DULanguages.astro';
+import DUEducation from '../components/ui/sections/DUEducation.astro';
+import DUCertificates from '../components/ui/sections/DUCertificates.astro';
+import DUProjects from '../components/ui/sections/DUProjects.astro';
+import DUExperiences from '../components/ui/sections/DUExperiences.astro';
+
+const CENTERED_CLASS = "items-center content-center object-center justify-center-safe place-items-center object-scale-down";
 ---
 
 <Layout>
-	<Welcome />
+    <main>
+        <div class=`w-screen max-w-screen ${CENTERED_CLASS} object-scale-down overflow-clip`>
+            <article class=`w-screen max-w-screen ${CENTERED_CLASS}`>
+                <section aria-label={"Mis Datos"} class={`${CENTERED_CLASS}`}>
+                    <DUProfileCard DATA={DATA} _class={`${CENTERED_CLASS}`} />
+                </section>
+
+                <hr class="hidden size-0" />
+
+                <section aria-label={"Habilidades Técnicas"} class={`${CENTERED_CLASS} w-3/4`}>
+                    <DUTechnologies DATA={DATA} _class={`${CENTERED_CLASS}`} />
+                </section>
+
+                <hr class="hidden size-0" />
+
+                <section aria-label={"Idiomas"}>
+                    <DULanguages DATA={DATA} _class={`${CENTERED_CLASS}  max-w-11/12`} />
+                </section>
+
+                <hr class="hidden size-0" />
+
+                <section aria-label={"Educación"}>
+                    <DUEducation DATA={DATA} _class={`${CENTERED_CLASS}  max-w-11/12`} />
+                </section>
+
+                <section aria-label={"Experiencia"}>
+                    <DUExperiences DATA={DATA} _class={`${CENTERED_CLASS} max-w-11/12`} />
+                </section>
+                <section aria-label={"Certificados"}>
+                    <DUCertificates DATA={DATA} _class={`${CENTERED_CLASS}  max-w-11/12`} />
+                </section>
+                <section aria-label={"Proyectos Académicos"}>
+                    <DUProjects DATA={DATA} _class={`${CENTERED_CLASS}  max-w-11/12`} />
+                </section>
+            </article>
+        </div>
+    </main>
 </Layout>

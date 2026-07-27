@@ -1,0 +1,29 @@
+---
+import type EventClass from '../../../classes/EventClass';
+import DUTimeline from '../education/DUTimeline.astro';
+import InvisibleEvent from '../other/InvisibleEvent.astro';
+import Title from '../other/Title.astro';
+
+interface Props {
+    DATA: any,
+    _class?: string,
+}
+
+const { 
+    DATA,
+    _class = "",
+} = Astro.props;
+---
+<Title title={DATA.titles._3_EDUCACION} _class={"mt-2 mb-2"} />
+
+<div class="hidden size-0">
+    {DATA.education.map((school: EventClass) => {
+        return <InvisibleEvent school={school} shallDisplayPresent={true} />
+    })}
+</div>
+
+<aside>
+<div class={_class}>
+    <DUTimeline eventList={DATA.education} _class={_class} />
+</div>
+</aside>

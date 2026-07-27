@@ -1,0 +1,38 @@
+---
+import DUTechnologyCard from '../technologies/DUTechnologyCard.astro';
+import { DAISYUI_TEXT_COLORS } from '../../../constants/daisyui.constants';
+import { DAISYUI_PROGRESS_COLORS } from '../../../constants/daisyui.constants';
+import type Tool from '../../../classes/Tool';
+import Title from '../other/Title.astro';
+
+interface Props {
+    DATA: any,
+    _class?: string,
+}
+
+const { 
+    DATA,
+    _class = ""
+} = Astro.props;
+---
+<Title title={DATA.titles._1_HABILIDADES_TECNICAS} _class={"mt-3 mb-2"} />
+
+<ul class="hidden size-0">
+{DATA.tools.map((tool: Tool) => {
+    return <li>{`${tool.displayName}: ${tool.percentageString}`}</li>
+})}
+</ul>
+
+<aside>
+    <div class={`${_class}`}>
+        <div class="flex flex-row flex-wrap justify-center content-center">
+            {DATA.tools.map((tool: Tool, index: number) => {
+                return <DUTechnologyCard 
+                    tool={tool} 
+                    text_color={DAISYUI_TEXT_COLORS[index % DAISYUI_TEXT_COLORS.length]}
+                    proficiency_color={DAISYUI_PROGRESS_COLORS[index % DAISYUI_TEXT_COLORS.length]}
+                />
+            })}
+        </div>
+    </div>
+</aside>

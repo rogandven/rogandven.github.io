@@ -1,0 +1,115 @@
+---
+import DUAvatar from "./DUAvatar.astro";
+import DUDynamicUsername from "./DUDynamicUsername.astro";
+import DUBadge from "./DUBadge.astro";
+import { getAge, getPrintableDate } from "../../../utils/general.utils";
+import { AGE_BADGE_NAME, DAISYUI_BUTTON_COLORS, DIVIDER } from "../../../constants/daisyui.constants";
+import DUSocialButton from "./DUSocialButton.astro";
+import DUTooltip from "./DUTooltip.astro";
+import DULocation from "./DULocation.astro";
+import { getCountryCode } from "../../../utils/language.utils";
+import { Icon } from "astro-icon/components";
+import type SocialLink from "../../../classes/SocialLink";
+import Cat from "../../../assets/images/roger_logo_bg.png";
+
+interface Props {
+    DATA: any,
+    _class?: string,
+}
+
+const { 
+    DATA,
+    _class = "",
+} = Astro.props;
+---
+<div class={_class}>
+    <div class="card bg-base-100 w-100 shadow-md card-border">
+    <div class="card-body">
+        <div class="flex flex-row align-middle items-center-safe justify-items-center-safe">
+            <div class="mr-3">
+                <DUAvatar 
+                    color="ring-primary"
+                    imageURL={Cat}
+                    imageALT={DATA.name}
+                    imageSize={500}
+                    imageSizeClass="w-30"
+                />
+            </div>
+            <div>
+                <span>
+                    <h1 
+                        class="card-title flex flex-row align-middle items-center content-center"
+                        title={`${DATA.name}, ${DATA.location.COUNTRY_NAME}, ${getPrintableDate(DATA.date_of_birth)}`}
+                        aria-label={`${DATA.name}, ${DATA.location.COUNTRY_NAME}, ${getPrintableDate(DATA.date_of_birth)}`}
+                    >
+                        <div aria-label={DATA.location.COUNTRY_NAME}>
+                            <div aria-hidden="true">
+                                <DUTooltip text={DATA.location.COUNTRY_NAME}>
+                                    <Icon name={getCountryCode(DATA.location.COUNTRY_CODE)} class="rounded-sm"/>
+                                </DUTooltip>
+                            </div>
+                        </div>
+                        {DATA.name}
+                        
+                        <DUTooltip text="Edad">
+                            <DUBadge
+                                color="badge-accent"
+                                content={String(getAge(DATA.date_of_birth))}
+                                iconName="mdi:cake"
+                                textId={AGE_BADGE_NAME}
+                                isSmall={false}
+                            />
+                        </DUTooltip>
+                    </h1>
+                </span>
+                <div class="flex flex-row align-middle place-items-center content-center">
+                    <span>
+                        <DUTooltip text="Redes Sociales">
+                            <DUDynamicUsername links={DATA.socials}/>
+                        </DUTooltip>
+                    </span>
+                    <span class="ml-1 mr-1">{DIVIDER}</span>
+                    <span>
+                        <DULocation text={DATA.location.NAME} url={DATA.location.URL} />
+                    </span>
+                </div>
+                <div class="mb-1">{DATA.description}</div>
+                <div class="flex flex-row">
+                {DATA.socials.map((link: SocialLink, index: number) => {
+                    return (<DUSocialButton 
+                        color={DAISYUI_BUTTON_COLORS[index % DAISYUI_BUTTON_COLORS.length] || ""}
+                        Logo={link.icon} 
+                        destination={link.URL}
+                        content={link.displayName}
+                        margin="mr-2"
+                    />);
+                })}
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <ul class="hidden size-0">
+        <li>Ciudad: {DATA.location.NAME}, {DATA.location.COUNTRY_NAME}</li>
+        <li>Fecha de nacimiento: {getPrintableDate(DATA.date_of_birth)}</li>
+        {DATA.socials.map((link: SocialLink) => {
+            return <li>{`${link.displayName}: ${link.URL}`}</li>
+        })}
+    </ul>    
+</div>
+
+<script is:inline type="module">
+    try {
+        const DATE_OF_BIRTH = new Date("2004-09-16");
+        const AGE_BADGE_NAME = "age-badge";
+        const getAge = (date) => {
+        const TODAY = new Date(Date.now());
+            var years = TODAY.getFullYear() - date.getFullYear();
+            if (!(date.getMonth() <= TODAY.getMonth())) {
+                years -= 1;
+            }
+            return years;
+        }
+        document.getElementById(AGE_BADGE_NAME).textContent = getAge(DATE_OF_BIRTH);
+    } catch (error) {}
+</script>

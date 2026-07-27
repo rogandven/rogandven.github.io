@@ -1,0 +1,31 @@
+---
+import type EventClass from '../../../classes/EventClass';
+import DUCard from '../experience/DUCard.astro';
+import InvisibleEvent from '../other/InvisibleEvent.astro';
+import Title from '../other/Title.astro';
+
+interface Props {
+    DATA: any
+    _class?: string
+}
+
+const { 
+    DATA,
+    _class = "",
+} = Astro.props;
+---
+<Title title={DATA.titles._6_PROYECTOS} _class={"-mt-1"} />
+
+<div class="hidden size-0">
+    {DATA.projects.map((project: EventClass) => {
+        return <InvisibleEvent school={project} shallDisplayPresent={false} />
+    })}
+</div>
+
+<aside>
+<div class={_class}>
+    {DATA.projects.map((event: EventClass, index: number) => {
+            return (<DUCard _class={"mt-4 mb-4"} event={event} _id={"project" + index} isLeftCard={(index % 2) === 0} shallDisplayPresent={false} />)
+    })}
+</div>
+</aside>

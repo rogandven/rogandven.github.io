@@ -1,0 +1,60 @@
+---
+import type EventClass from "../../../classes/EventClass";
+import DUTooltip from "../profilecard/DUTooltip.astro";
+import DUCheckbox from "./DUCheckbox.astro";
+import DUInfoModal from "./DUInfoModal.astro";
+import Picture from "astro/components/Picture.astro";
+import { Icon } from "astro-icon/components";
+import { cutOffText } from "../../../utils/general.utils";
+
+interface Props {
+  eventList?: EventClass[];
+  _class?: string;
+}
+
+const { 
+  eventList = [],
+  _class = "",
+} = Astro.props;
+---
+<ul class=`timeline ${_class} overflow-x-scroll overflow-y-hidden m-2 border border-base-300 shadow-md rounded-md bg-base-200` aria-label={"Línea de tiempo"}>
+    {eventList && eventList.length === 0 ? (<div/>) : eventList.map(
+        (event, index) => {
+            return (
+                <li class="-mt-72">
+                    {index !== 0 ? (<hr />) : (<div />)}
+                    <div class="timeline-start">{event.startDate.getUTCFullYear()}</div>
+                    <div class="timeline-middle">
+                        <DUCheckbox />
+                    </div>
+                    <div class="timeline-end timeline-box w-75">
+                        <div class="text-lg flex flex-row items-center align-middle">
+                            <Icon name={event.iconName} class={"mr-1"} aria-hidden="true" />
+                            <b aria-label={event.name}>{cutOffText(event.name, 24)}</b>
+                        </div>
+                        {event.companyName && 
+                            <div class="flex flex-row align-middle items-center text-accent">
+                            <Icon class="text-sm mr-1" name={"mdi:school"} aria-hidden="true"/>
+                            <div class="text-sm">{event.companyName}</div>
+                            </div>
+                        }
+                        {event.imageURL && 
+                            <DUTooltip text={event.companyName || event.name}>
+                                <Picture 
+                                    src={event.imageURL} 
+                                    alt={event.companyName || event.name} 
+                                    class="rounded-md mt-2 mb-2" 
+                                    format="avif"
+                                    width={500}
+                                    height={400}
+                                />
+                            </DUTooltip>
+                        }
+                        <DUInfoModal id={`timeline_${index}`} event={event} shallDisplayPresent={true}/>
+                    </div>
+                    {index !== (eventList.length - 1) ? (<hr />) : (<div />)}
+                </li>
+            );
+        }
+    )}
+</ul>

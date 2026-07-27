@@ -1,0 +1,32 @@
+---
+import { Icon } from 'astro-icon/components';
+import { cutOffText } from "../../../utils/general.utils.ts";
+import { MINIMUM_BADGE_CHARACTERS } from '../../../constants/daisyui.constants';
+
+interface Props {
+    color: string,
+    content: string, 
+    iconName: string,
+    textId: string,
+    isSmall: boolean,
+}
+
+const { 
+    color,
+    content,
+    iconName,
+    textId,
+    isSmall,
+} = Astro.props;
+
+
+
+---
+<div class={`badge ${color} ${isSmall ? "badge-sm text-sm" : ""}`} aria-label={content}>
+    <span aria-hidden={true} class="flex flex-row align-middle items-center">
+        <Icon name={iconName} class={"mr-1"} aria-hidden="true"/>
+        <span id={textId}>
+            {cutOffText(content.toUpperCase(), MINIMUM_BADGE_CHARACTERS)}
+        </span>
+    </span>
+</div>

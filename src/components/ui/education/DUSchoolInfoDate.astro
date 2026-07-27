@@ -1,0 +1,24 @@
+---
+import { Icon } from "astro-icon/components";
+import { MESES_ESPANIOL } from "../../../constants/general.constants";
+import EventClass from "../../../classes/EventClass";
+import DUArrowRight from "./DUArrowRight.astro";
+
+interface Props {
+    school: EventClass,
+    shallDisplayPresent: boolean,
+    _class: string,
+};
+
+const school = Astro?.props?.school;
+const shallDisplayPresent = Astro?.props?.shallDisplayPresent;
+const _class = Astro?.props?._class;
+
+---
+<span class={_class}>{
+    (school.endDate && 
+        <span class={_class}><DUArrowRight />{MESES_ESPANIOL[school.endDate.getMonth()] + " " + school.endDate.getFullYear()}</span>
+    ) || (shallDisplayPresent && 
+        <span class={_class}><DUArrowRight />{"Presente"}</span>
+    ) || <span></span>
+}</span>

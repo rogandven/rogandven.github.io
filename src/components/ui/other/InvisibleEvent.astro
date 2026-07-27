@@ -1,0 +1,50 @@
+---
+import type EventClass from '../../../classes/EventClass';
+import { getPrintableTimePeriod, hasURL } from '../../../utils/general.utils';
+import Picture from 'astro/components/Picture.astro';
+
+interface Props {
+    school: EventClass,
+    shallDisplayPresent: boolean,
+}
+
+const { 
+    school,
+    shallDisplayPresent,
+} = Astro.props;
+---
+<div>
+    <h3>{`${school.companyName}: ${school.name}`}</h3>
+    <ul>
+        <li>Período: {getPrintableTimePeriod(school, shallDisplayPresent)}</li>
+        <li>Ubicación: {school.location}</li>
+        {school.relevantCourses.length !== 0 ? 
+            <li>Cursos Relevantes:
+                <ul>
+                    {school.relevantCourses.map((_class: string) => {
+                        return <li>{_class}</li>
+                    })}
+                </ul>
+            </li> 
+        : 
+            <div />
+        }
+    </ul>
+    {school.imageURL && <Picture 
+        alt={school.companyName || school.name} 
+        format="avif" 
+        width={1280} 
+        height={720} 
+        src={school.imageURL}
+        fit="fill"
+    />}
+
+    <p>{school.description || ""}</p>
+
+    {hasURL(school) && <ul>
+        {school.websiteURL && <li>Página Web: {school.websiteURL}</li>}
+        {school.repositoryURL && <li>Repositorio: {school.repositoryURL}</li>}
+        {school.certificateURL && <li>Certificado: {school.certificateURL}</li>}
+        {school.reportURL && <li>Informe: {school.reportURL}</li>}
+    </ul>}
+</div>

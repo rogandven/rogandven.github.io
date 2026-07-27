@@ -1,0 +1,1 @@
+export const DEFAULT_EVENT_NAME: string = "Sistema de Gestión de Sistemas de Gestión";

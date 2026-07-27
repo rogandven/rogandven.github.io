@@ -1,0 +1,60 @@
+---
+import DUTooltip from "../profilecard/DUTooltip.astro";
+import { Icon } from "astro-icon/components";
+import { DIVIDER } from "../../../constants/daisyui.constants";
+import EventClass from "../../../classes/EventClass";
+import { getMonthPlusYear } from "../../../utils/general.utils";
+
+interface Props {
+    school: EventClass | undefined;
+    shallShowLocation: boolean;
+    shallDisplayShortDate: boolean;
+}
+
+const { 
+    school = undefined,
+    shallShowLocation = false,
+    shallDisplayShortDate = false,
+} = Astro.props;
+
+---
+
+<div class="text-sm flex flex-col">
+    { school && 
+        <p class="flex flex-row align-top items-start">
+            <DUTooltip text={"Nombre"}>
+                <div class="text-lg font-bold flex flex-row align-middle items-center">
+                    {school.iconName && <Icon name={school.iconName} class="mr-1" aria-hidden="true" />}
+                    {school.name}
+                </div>
+            </DUTooltip>
+        </p>
+
+        <div class="text-sm flex flex-row align-middle items-center">
+            <DUTooltip text={"Organización"}>
+                <span class="text-accent flex flex-row align-middle items-center">
+                    <Icon name="mdi:school" class="mr-1" aria-hidden="true" /> 
+                    {school.companyName}
+                </span>
+            </DUTooltip>
+
+            {shallShowLocation && <span class="ml-1 mr-1">{DIVIDER}</span>}
+
+            {shallShowLocation && <DUTooltip text={"Ubicación"}>
+                <span class="text-info flex flex-row align-middle items-center">
+                    <Icon name="mdi:location" class="mr-1" aria-hidden="true" /> 
+                    {school.location}
+                </span>
+            </DUTooltip>}
+
+            {shallDisplayShortDate && <span class="ml-1 mr-1">{DIVIDER}</span>}
+
+            {shallDisplayShortDate && <DUTooltip text={"Fecha"}>
+                <span class="text-secondary flex flex-row align-middle items-center">
+                    <Icon name="mdi:calendar-outline" class="mr-1" aria-hidden="true" /> 
+                    {getMonthPlusYear(school.startDate)}
+                </span>
+            </DUTooltip>}            
+        </div>
+    }
+</div>

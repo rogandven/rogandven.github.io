@@ -1,0 +1,31 @@
+---
+import type EventClass from '../../../classes/EventClass';
+import DUCertificateCollapse from '../certificates/DUCertificateCollapse.astro';
+import InvisibleEvent from '../other/InvisibleEvent.astro';
+import Title from '../other/Title.astro';
+
+interface Props {
+    DATA: any,
+    _class?: string,
+}
+
+const { 
+    DATA,
+    _class = "",
+} = Astro.props;
+---
+<Title title={DATA.titles._5_CERTIFICACIONES} _class={"mt-1 mb-4"} />
+
+<div class="hidden size-0">
+    {DATA.certifications.map((certificate: EventClass) => {
+        return <InvisibleEvent school={certificate} shallDisplayPresent={false} />
+    })}
+</div>
+
+<aside>
+<div class={_class}>
+    {DATA.certifications.map((certification: EventClass, index: number) => {
+        return (<DUCertificateCollapse certificate={certification} _id={index} _class={"mb-4"} />)
+    })}
+</div>
+</aside>

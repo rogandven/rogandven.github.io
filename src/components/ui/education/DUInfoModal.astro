@@ -1,0 +1,29 @@
+---
+import { Icon } from 'astro-icon/components';
+import EventClass from '../../../classes/EventClass';
+import DUSchoolInfo from './DUSchoolInfo.astro';
+import DUTooltip from '../profilecard/DUTooltip.astro';
+
+interface Props {
+    id: string;
+    event: EventClass;
+    shallDisplayPresent: boolean;
+}
+
+const { 
+    id,
+    event,
+    shallDisplayPresent,
+} = Astro.props;
+---
+<DUTooltip text="Mostrar Más">
+<button class="btn btn-info btn-sm text-lg" onclick=`{my_modal_${id}.showModal()}` aria-haspopup="menu" aria-label="Mostrar Más">
+    <Icon name="mdi:information-outline" />
+</button>
+</DUTooltip>
+
+<dialog id=`my_modal_${id}` class="modal">
+  <div class="modal-box">
+    <DUSchoolInfo school={event} _id={`education-${id}`} shallDisplayPresent={shallDisplayPresent} aria-hidden="true"/>
+  </div>
+</dialog>

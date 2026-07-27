@@ -1,0 +1,16 @@
+---
+import { DEFAULT_DISPLAY_NAME } from '../../../constants/sociallink.constants';
+
+interface Props {
+  text?: string;
+}
+
+const { 
+  text = DEFAULT_DISPLAY_NAME
+} = Astro.props;
+---
+
+<div class="tooltip text-base font-normal h-min" data-tip={text}>
+  {/* <slot aria-label={text}/> */}
+  <slot />
+</div>

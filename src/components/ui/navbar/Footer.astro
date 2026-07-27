@@ -1,0 +1,33 @@
+---
+import type SocialLink from "../../../classes/SocialLink";
+import { DAISYUI_TEXT_COLORS } from "../../../constants/daisyui.constants";
+import DATA from "../../../data/data";
+import DUTooltip from "../profilecard/DUTooltip.astro";
+import { Icon } from "astro-icon/components";
+---
+
+<footer class="w-screen h-fit object-fill footer sm:footer-horizontal bg-base-100 text-base-content p-10 shadow-md border border-base-200">
+  <aside>
+    <Icon name="roger" size={50}/>
+    <p class="-mt-1">
+      {DATA.name}
+    </p>
+  </aside>
+  <nav>
+    <h6 class="footer-title opacity-100">Redes Sociales</h6>
+    <div class="grid grid-flow-col gap-1">
+        {DATA.socials.map((social: SocialLink, index: number) => {
+            const Logo: any = social.icon;
+            return (
+                <DUTooltip text={social.displayName}>
+                <a href={social.URL} aria-label={social.displayName} target="_blank">
+                    <button class={`btn btn-ghost btn-md rounded-full text-xl w-8 h-8 overflow-visible ${DAISYUI_TEXT_COLORS[index]}`}>
+                        <Logo class="text-lg overflow-visible" _class="text-lg" />
+                    </button>
+                </a>
+                </DUTooltip>
+            )
+        })}
+    </div>
+  </nav>
+</footer>
