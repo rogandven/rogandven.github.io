@@ -1,5 +1,6 @@
 import Language from "../classes/Language.ts";
 import Tool from "../classes/Tool.ts";
+import HeadingTitle from "../classes/HeadingTitle.ts";
 
 import { Astro, C, Docker, Git, Html5, Javascript, Libreofficecalc, Openjdk, Latex, Linux, Nodedotjs, Duckdb, Php, Postgresql, Python, React, Databricks, Dblp, Github, Youtube } from "simple-icons-astro";
 import DatabaseIcon from "../components/icons/DatabaseIcon.astro";
@@ -284,6 +285,14 @@ export const DATA = {
         new SocialLink("LinkedIn", LinkedInIcon, "https://www.linkedin.com/in/rogandven", "rogandven"),
         new SocialLink("YouTube", Youtube, "https://www.youtube.com/@rogandven", "rogandven"),
     ],
+    titles: {
+        _0_HABILIDADES_TECNICAS: new HeadingTitle("Habilidades Técnicas"),
+        _1_IDIOMAS: new HeadingTitle("Idiomas"),
+        _2_EDUCACION: new HeadingTitle("Educación"),
+        _3_EXPERIENCIA: new HeadingTitle("Experiencia"),
+        _4_CERTIFICACIONES: new HeadingTitle("Certificaciones"),
+        _5_PROYECTOS: new HeadingTitle("Proyectos Académicos"),
+    },
 };
 
 export default DATA;

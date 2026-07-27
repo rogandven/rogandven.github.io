@@ -1,14 +1,15 @@
 ---
+import type HeadingTitle from '../../../classes/HeadingTitle';
 import { slugify } from '../../../utils/general.utils';
 
 interface Props {
-    text?: string,
+    title: HeadingTitle,
     _class?: string
 }
 
 const { 
-  text = "",
+  title,
   _class = "",
 } = Astro.props;
 ---
-<h2 id={slugify(text)} class=`text-4xl font-extrabold w-full ${_class} text-center`>{text}</h2>
+<h2 id={title.sluggifiedTitle} class=`text-4xl font-extrabold w-full ${_class} text-center`>{title.normalTitle}</h2>
