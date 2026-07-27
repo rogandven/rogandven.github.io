@@ -6,15 +6,17 @@ import DUSchoolInfoLink from '../education/DUSchoolInfoLink.astro';
 
 interface Props {
     certificate: EventClass | undefined,
-    _id: number
+    _id: number,
+    _class?: string,
 }
 
 const { 
     certificate = undefined,
     _id = 0,
+    _class = "",
 } = Astro.props;
 ---
-{certificate && <div class="collapse collapse-arrow bg-base-100 border border-base-300">
+{certificate && <div class={`collapse collapse-arrow bg-base-100 border border-base-300 ${_class}`}>
   <input type="checkbox" name={`my-certification-${_id}`} aria-label={
     certificate.name + ", " + certificate.companyName + ", " + certificate.location + ", " + getPrintableDate(certificate.startDate)
   } aria-haspopup="menu"/>

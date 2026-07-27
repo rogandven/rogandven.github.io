@@ -1,8 +1,6 @@
 ---
 import type EventClass from '../../../classes/EventClass';
 import DUTimeline from '../education/DUTimeline.astro';
-import { getPrintableTimePeriod, hasURL } from "../../../utils/general.utils";
-import Picture from 'astro/components/Picture.astro';
 import InvisibleEvent from '../other/InvisibleEvent.astro';
 import Title from '../other/Title.astro';
 
@@ -16,7 +14,7 @@ const {
     _class = "",
 } = Astro.props;
 ---
-<Title text={"Educación"} />
+<Title text={"Educación"} _class={"mt-2 mb-1"} />
 
 <div class="hidden size-0">
     {DATA.education.map((school: EventClass) => {
