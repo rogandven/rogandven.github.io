@@ -7,3 +7,5 @@ export const ICON_PREFIX: string = "mdi:";
 export const DEFAULT_LOCATION: string = "Calle Falsa 123";
 
 export const MESES_ESPANIOL: string[] = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+
+export const ENABLE_SKILL_PERCENTAGES: boolean = false;

@@ -147,8 +147,8 @@ export const DATA = {
     ],
     certifications: [
         new EventClass(
-            "Centro de Idiomas UBB", 
-            "Diagnóstico de Inglés", 
+            "Cambridge English", 
+            "Cambridge English Placement Test", 
             "El nivel C1 de inglés se confirmó mediante una rigurosa evaluación que incluía actividades que requerían escuchar, hablar y leer en el idioma.", 
             undefined, 
             "Concepción, Chile", 
@@ -157,7 +157,7 @@ export const DATA = {
             undefined,
             undefined,
             "file-text-edit",
-            "https://centrodeidiomas.ubiobio.cl",
+            "https://www.cambridgeenglish.org/es/placement-test/",
             undefined,
         ),        
         new EventClass(
