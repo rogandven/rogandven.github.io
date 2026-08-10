@@ -18,7 +18,7 @@ const {
 
 const Logo = tool.icon;
 
-const percentageString = `${tool.displayName} (${tool.percentageString})`;
+const percentageString = ENABLE_SKILL_PERCENTAGES ? `${tool.displayName} (${tool.percentageString})` : `${tool.displayName}`;
 ---
 <DUTooltip text={percentageString}>
 <div class="card bg-base-100 w-20 shadow-md card-border m-2 rounded-md items-center">

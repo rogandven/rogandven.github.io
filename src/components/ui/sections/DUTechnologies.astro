@@ -4,6 +4,7 @@ import { DAISYUI_TEXT_COLORS } from '../../../constants/daisyui.constants';
 import { DAISYUI_PROGRESS_COLORS } from '../../../constants/daisyui.constants';
 import type Tool from '../../../classes/Tool';
 import Title from '../other/Title.astro';
+import { ENABLE_SKILL_PERCENTAGES } from '../../../constants/general.constants';
 
 interface Props {
     DATA: any,
@@ -19,7 +20,10 @@ const {
 
 <ul class="hidden size-0">
 {DATA.tools.map((tool: Tool) => {
-    return <li>{`${tool.displayName}: ${tool.percentageString}`}</li>
+    if (ENABLE_SKILL_PERCENTAGES) {
+        return <li>{`${tool.displayName}: ${tool.percentageString}`}</li>;
+    }
+    return <li>{tool.displayName}</li>
 })}
 </ul>
 
