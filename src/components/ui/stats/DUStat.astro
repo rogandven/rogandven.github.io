@@ -1,12 +1,22 @@
 ---
 import { Icon } from "astro-icon/components";
----
+import type Stat from "../../../classes/Stat";
 
+interface Props {
+    stat: Stat,
+    color: string,
+}
+
+const { 
+    stat,
+    color,
+} = Astro.props;
+---
 <div class="stat">
-    <div class="stat-figure text-primary">
-        <Icon name="" class="inline-block h-8 w-8" />
+    <div class={`stat-figure ${color}`}>
+        <Icon name={stat.iconName} class="inline-block h-8 w-8" />
     </div>
-    <div class="stat-title">Total Likes</div>
-    <div class="stat-value text-primary">25.6K</div>
-    <div class="stat-desc">21% more than last month</div>
+    <div class="stat-title">{stat.title}</div>
+    <div class={`stat-value ${color}`}>{stat.amount}</div>
+    {stat.description && <div class="stat-desc">{stat.description}</div>}
 </div>

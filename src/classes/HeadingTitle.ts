@@ -1,4 +1,4 @@
-import { slugify } from "../utils/general.utils";
+import { getIconName, slugify } from "../utils/general.utils";
 
 export const headingTitleCopier = (anyObject: any) => {
     if (!(anyObject instanceof HeadingTitle)) {
@@ -28,7 +28,7 @@ export default class HeadingTitle {
         if (iconName === "roger") {
             this._iconName = "roger";
         } else {
-            this._iconName = "mdi:" + iconName;
+            this._iconName = getIconName(iconName);
         }
     }
     get iconName(): string {

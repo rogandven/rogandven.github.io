@@ -1,6 +1,6 @@
 import { DEFAULT_EVENT_NAME } from "../constants/event.constants.ts";
 import { DEFAULT_DATE, ICON_PREFIX } from "../constants/general.constants.ts";
-import { getUNIXDate } from "../utils/general.utils.ts";
+import { getIconName, getUNIXDate } from "../utils/general.utils.ts";
 import { validateAbsolutePath, validateRelativePath, validateString } from "../validations/general.validations.ts";
 import { slugify } from "../utils/general.utils.ts";
 
@@ -98,7 +98,7 @@ export default class EventClass {
             this._iconName = undefined;
             return;
         }
-        this._iconName = ICON_PREFIX + String(validateString(slugify(iconName), "iconName"));
+        this._iconName = getIconName(iconName);
     }
 
     get websiteURL(): string | undefined {

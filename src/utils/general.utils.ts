@@ -1,4 +1,6 @@
 import { DEFAULT_DATE, MESES_ESPANIOL, TODAY } from "../constants/general.constants";
+import { ICON_PREFIX } from "../constants/general.constants";
+import { validateString } from "../validations/general.validations";
 import EventClass from "../classes/EventClass";
 
 export const slugify = (text: string): string => {
@@ -63,4 +65,8 @@ export const getPrintableTimePeriod = (event: EventClass, shallDisplayPresent: b
 
 export const hasURL = (event: EventClass): boolean => {
   return Boolean(event.certificateURL || event.reportURL || event.repositoryURL || event.websiteURL);
+}
+
+export const getIconName = (name: string): string => {
+  return ICON_PREFIX + String(validateString(slugify(name), "iconName"));
 }
