@@ -70,3 +70,7 @@ export const hasURL = (event: EventClass): boolean => {
 export const getIconName = (name: string): string => {
   return ICON_PREFIX + String(validateString(slugify(name), "iconName"));
 }
+
+export const mod = (n: number, m: number) => {
+  return ((n % m) + m) % m;
+}

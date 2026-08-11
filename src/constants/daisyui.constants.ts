@@ -25,3 +25,5 @@ export const DAISYUI_BADGE_COLORS: string[] = ["badge-primary", "badge-secondary
 export const MINIMUM_BADGE_CHARACTERS: number = 10;
 
 export const DAISYUI_HERO_BG: ImageMetadata = Matrix;
+
+export const EDUCATION_CONTAINER_ID: string = "real-education-container";

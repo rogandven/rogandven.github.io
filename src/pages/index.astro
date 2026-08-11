@@ -14,6 +14,7 @@ import DUHero from '../components/ui/downloads/DUHero.astro';
 import { Icon } from 'astro-icon/components';
 import { LATEST_CV } from '../constants/general.constants';
 import { DAISYUI_HERO_BG } from '../constants/daisyui.constants';
+import Carroussel from "../components/ui/carroussel/Carroussel";
 
 const CENTERED_CLASS = "items-center content-center object-center justify-center-safe place-items-center object-scale-down";
 ---
@@ -44,6 +45,7 @@ const CENTERED_CLASS = "items-center content-center object-center justify-center
 
                 <section aria-label={"Educación"}>
                     <DUEducation DATA={DATA} _class={`${CENTERED_CLASS}  max-w-11/12`} />
+                    <Carroussel client:only />
                 </section>
 
                 <section aria-label={"Experiencia"}>
