@@ -13,6 +13,7 @@ import DUStatContainer from '../components/ui/stats/DUStatContainer.astro';
 import DUHero from '../components/ui/downloads/DUHero.astro';
 import { Icon } from 'astro-icon/components';
 import { LATEST_CV } from '../constants/general.constants';
+import { DAISYUI_HERO_BG } from '../constants/daisyui.constants';
 
 const CENTERED_CLASS = "items-center content-center object-center justify-center-safe place-items-center object-scale-down";
 ---
@@ -58,7 +59,7 @@ const CENTERED_CLASS = "items-center content-center object-center justify-center
                 </section>
 
                 <section aria-label={"¿Interesado en Contratarme?"}>
-                    <DUHero _class={"h-1/2 w-screen"}>
+                    <DUHero _class={"h-1/2 w-screen"} image={DAISYUI_HERO_BG}>
                         <h1 class="mb-5 text-5xl font-bold">¿Interesado en Contratarme?</h1>
                         <a href=`/cv/${LATEST_CV}.pdf` target="_blank">
                             <button class="btn btn-primary">
@@ -70,6 +71,11 @@ const CENTERED_CLASS = "items-center content-center object-center justify-center
                         </a>
                     </DUHero>
                 </section>
+
+                <hr class="hidden size-0" />
+
+                <p class="hidden size-0">CV: {`/cv/${LATEST_CV}.pdf`}</p>
+
             </article>
         </div>
     </main>
