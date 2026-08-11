@@ -1,0 +1,24 @@
+---
+import { DEFAULT_IMAGE_URL } from '../../../constants/daisyui.constants';
+
+interface Props {
+    _class?: string,
+    image?: ImageMetadata,
+}
+
+const { 
+    _class = "",
+    image = DEFAULT_IMAGE_URL,
+} = Astro.props;
+---
+<div
+  class={`hero ${_class}`}
+  style={`background-image: url(${image.src});`}
+>
+  <div class="hero-overlay"></div>
+  <div class="hero-content text-neutral-content text-center">
+    <div class="max-w-md">
+        <slot />
+    </div>
+  </div>
+</div>
