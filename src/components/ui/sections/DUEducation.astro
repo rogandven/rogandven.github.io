@@ -5,6 +5,8 @@ import DUCard from '../experience/DUCard.astro';
 import InvisibleEvent from '../other/InvisibleEvent.astro';
 import Title from '../other/Title.astro';
 import { EDUCATION_CONTAINER_ID } from '../../../constants/daisyui.constants';
+import { MdSportsHandball } from 'react-icons/md';
+import DUExternalModal from '../education/DUExternalModal.astro';
 
 interface Props {
     DATA: any,
@@ -28,7 +30,12 @@ const {
 <div class={_class} id={EDUCATION_CONTAINER_ID}>
     <!-- <DUTimeline eventList={DATA.education} _class={_class} /> -->
     {DATA.education.map((event: EventClass, index: number) => {
-            return (<DUCard _class={"mt-2 mb-2"} event={event} _id={"education" + index} isLeftCard={(index % 2) === 0} shallDisplayPresent={false} />)
+            return (<DUCard _class={"mt-2 mb-2"} event={event} _id={"education" + index} isLeftCard={(index % 2) === 0} shallDisplayPresent={false} shallGenerateModal={false} />)
     })}  
+</div>
+<div>
+    {DATA.education.map((event: EventClass, index: number) => {
+        return (<DUExternalModal id={"education" + index} event={event} shallDisplayPresent={false} />)
+    })}
 </div>
 </aside>

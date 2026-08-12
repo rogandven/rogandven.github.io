@@ -9,6 +9,7 @@ interface Props {
   isLeftCard: boolean,
   shallDisplayPresent: boolean,
   _class?: string,
+  shallGenerateModal: boolean,
 }
 
 const { 
@@ -16,6 +17,7 @@ const {
   _id,
   isLeftCard,
   shallDisplayPresent,
+  shallGenerateModal,
   _class = "",
 } = Astro.props;
 ---
@@ -23,11 +25,11 @@ const {
   {isLeftCard ? 
       <div class={`card card-side bg-base-100 shadow-md card-border w-180 max-w-screen`}>
         <DUCardImage event={event} />
-        <DUCardDescription event={event} _id={_id} shallDisplayPresent={shallDisplayPresent} />
+        <DUCardDescription event={event} _id={_id} shallDisplayPresent={shallDisplayPresent} shallGenerateModal={shallGenerateModal} />
       </div>
   :
       <div class={`card card-side bg-base-100 shadow-md card-border w-180 max-w-screen`}>
-        <DUCardDescription event={event} _id={_id} shallDisplayPresent={shallDisplayPresent} />
+        <DUCardDescription event={event} _id={_id} shallDisplayPresent={shallDisplayPresent} shallGenerateModal={shallGenerateModal} />
         <DUCardImage event={event} />
       </div>
   }

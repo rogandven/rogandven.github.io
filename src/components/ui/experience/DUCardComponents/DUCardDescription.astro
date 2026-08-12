@@ -6,15 +6,17 @@ import DUInfoModal from '../../education/DUInfoModal.astro';
 import EventClass from '../../../../classes/EventClass';
 
 interface Props {
-    _id: string;
-    event: EventClass;
-    shallDisplayPresent: boolean;
+    _id: string,
+    event: EventClass,
+    shallDisplayPresent: boolean,
+    shallGenerateModal: boolean,
 }
 
 const { 
     _id,
     event, 
     shallDisplayPresent,
+    shallGenerateModal,
 } = Astro.props;
 ---
 <div class="card-body line-clamp-10">
@@ -34,6 +36,6 @@ const {
         <div><DUSchoolInfoLink link={event.websiteURL} linkName={"Página Web"} /></div>
     }    
     <div class="card-actions justify-end mt-2">
-        <DUInfoModal event={event} id={_id} shallDisplayPresent={shallDisplayPresent} />
+        <DUInfoModal event={event} id={_id} shallDisplayPresent={shallDisplayPresent} shallGenerateModal={shallGenerateModal} />
     </div>
 </div>

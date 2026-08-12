@@ -23,7 +23,7 @@ const {
     { school && 
         <p class="flex flex-row align-top items-start">
             <DUTooltip text={"Nombre"}>
-                <div class="text-lg font-bold flex flex-row align-middle items-center">
+                <div class="text-lg font-bold flex flex-row align-middle items-center pr-5 overflow-hidden text-ellipsis">
                     {school.iconName && <Icon name={school.iconName} class="mr-1" aria-hidden="true" />}
                     {school.name}
                 </div>
