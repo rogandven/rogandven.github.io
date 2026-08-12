@@ -3,7 +3,8 @@ import { DEFAULT_IMAGE_URL, EDUCATION_CONTAINER_ID } from '../../../constants/da
 import DATA from '../../../data/data';
 import { useState } from 'react';
 import { mod } from '../../../utils/general.utils';
-import Picture from 'astro/components/Picture.astro';
+import { MdSchool } from 'react-icons/md';
+import { FaLocationDot } from "react-icons/fa6";
 
 const HIDDEN_PAGINATION_NAME = "hidden_pagination";
 
@@ -14,28 +15,47 @@ function Carroussel() {
     const element = document?.getElementById(EDUCATION_CONTAINER_ID);
     element && (element.className = "size-0 hidden");
 
+    console.log(JSON.stringify(data[index]));
     return (
-        <div>
-            <p>{index}</p>
+        <div className="flex flex-col w-133 h-100 overflow-clip">
+            <div>
+                <div className="card bg-base-100 w-133 h-100 shadow-md ">
+                    <div className="card-body">
+                        <h2 className="card-title text-accent">
+                            <MdSchool />
+                            {data[index].companyName}
+                        </h2>
+                        
+                        <div className='flex flex-row justify-start text-start items-center align-middle text-info'>
+                            <span><FaLocationDot className='mr-1' /></span>
+                            <p>{data[index].location}</p>
+                        </div>
+                    </div>
+                    <figure>
+                        <img 
+                            width={640}
+                            height={480}
+                            src={(data[index].imageURL || DEFAULT_IMAGE_URL).src}
+                            className='object-cover h-full w-full overflow-clip'
+                            alt={(data[index].companyName || data[index].name)}
+                        /> 
+                    </figure>
+                </div>
+            </div>            
+            <div className="w-full self-center items-center flex justify-center justify-items-center absolute mt-90">
+                <div className="join h-10 overflow-clip shadow-md">
+                    <button 
+                        className="join-item btn"
+                        onClick={() => {setIndex(mod((index - 1), data.length))}}
+                    >«</button>
 
-            <div className="join">
-                <img 
-                    width={480}
-                    height={480}
-                    src={(data[index].imageURL || DEFAULT_IMAGE_URL).src}
-                    className='object-cover overflow-clip'
-                />
-                <button 
-                    className="join-item btn"
-                    onClick={() => {setIndex(mod((index - 1), data.length))}}
-                >«</button>
+                    <button className="join-item btn w-15 overflow-clip">{data[index].startDate.getFullYear()}</button>
 
-                <button className="join-item btn">{data[index].startDate.getFullYear()}</button>
-
-                <button 
-                    className="join-item btn"
-                    onClick={() => {setIndex(mod((index + 1), data.length))}}
-                >»</button>
+                    <button 
+                        className="join-item btn"
+                        onClick={() => {setIndex(mod((index + 1), data.length))}}
+                    >»</button>
+                </div>
             </div>
         </div>
     );

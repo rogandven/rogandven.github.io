@@ -3,6 +3,7 @@ import { Icon } from 'astro-icon/components';
 import EventClass from '../../../classes/EventClass';
 import DUSchoolInfo from './DUSchoolInfo.astro';
 import DUTooltip from '../profilecard/DUTooltip.astro';
+import { DAISYUI_ROUNDED_BUTTON } from '../../../constants/daisyui.constants';
 
 interface Props {
     id: string;
@@ -17,8 +18,8 @@ const {
 } = Astro.props;
 ---
 <DUTooltip text="Mostrar Más">
-<button class="btn btn-info btn-sm text-lg" onclick=`{my_modal_${id}.showModal()}` aria-haspopup="menu" aria-label="Mostrar Más">
-    <Icon name="mdi:information-outline" />
+<button class={`btn-info ${DAISYUI_ROUNDED_BUTTON} text-3xl`} onclick=`{my_modal_${id}.showModal()}` aria-haspopup="menu" aria-label="Mostrar Más">
+    <Icon class="overflow-visible" name="mdi:information-outline" />
 </button>
 </DUTooltip>
 
