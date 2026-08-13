@@ -13,8 +13,12 @@ const {
     _class,
 } = Astro.props;
 ---
-<div class={`stats stats-vertical lg:stats-horizontal shadow-md bg-base-100 border border-base-200 ${_class}`}>
-  {stats.map((stat, index) => {
-    return <DUStat stat={stat} color={DAISYUI_TEXT_COLORS[index % DAISYUI_TEXT_COLORS.length]} />
-  })}
+<div class="w-full">
+  <div class="w-fit h-fit ml-auto mr-auto">
+    <div class={`stats stats-vertical lg:stats-horizontal shadow-md bg-base-100 border border-base-200 ${_class}`}>
+      {stats.map((stat, index) => {
+        return <DUStat stat={stat} color={DAISYUI_TEXT_COLORS[index % DAISYUI_TEXT_COLORS.length]} />
+      })}
+    </div>
+  </div>
 </div>

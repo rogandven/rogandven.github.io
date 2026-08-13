@@ -18,10 +18,10 @@ function Carroussel() {
 
     console.log(JSON.stringify(data[index]));
     return (
-        <div className="w-screen">
-            <div className="flex flex-col w-133 h-100 overflow-clip mt-5 mb-5 max-w-full items-center content-center">
-                <div className='max-w-full items-center'>
-                    <div className="card bg-base-100 w-133 h-100 shadow-md max-w-11/12">
+        <div className="">
+            <div className="flex flex-col h-100 overflow-clip mt-5 mb-5">
+                <div className=''>
+                    <div className="card bg-base-100 h-100 shadow-md max-w-full">
                         <div className="card-body">
                             <h2 className="card-title text-accent">
                                 <MdSchool />
@@ -44,7 +44,7 @@ function Carroussel() {
                         </figure>
                     </div>
                 </div>            
-                <div className="w-full self-center items-center flex justify-center justify-items-center absolute mt-90">
+                <div className="self-center items-center flex justify-center justify-items-center absolute mt-90">
                     <div className="join h-10 overflow-clip shadow-md">
                         <button 
                             className="join-item btn"

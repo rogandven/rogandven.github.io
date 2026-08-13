@@ -23,12 +23,12 @@ const {
 ---
 <div class=`${_class}`>
   {isLeftCard ? 
-      <div class={`card card-side bg-base-100 shadow-md card-border w-180 max-w-screen`}>
+      <div class={`card card-side bg-base-100 shadow-md card-border w-180 max-w-full`}>
         <DUCardImage event={event} />
         <DUCardDescription event={event} _id={_id} shallDisplayPresent={shallDisplayPresent} shallGenerateModal={shallGenerateModal} />
       </div>
   :
-      <div class={`card card-side bg-base-100 shadow-md card-border w-180 max-w-screen`}>
+      <div class={`card card-side bg-base-100 shadow-md card-border w-180 max-w-full`}>
         <DUCardDescription event={event} _id={_id} shallDisplayPresent={shallDisplayPresent} shallGenerateModal={shallGenerateModal} />
         <DUCardImage event={event} />
       </div>
