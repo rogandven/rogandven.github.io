@@ -28,6 +28,7 @@ const titles: {[key: string]: HeadingTitle} = {
     _4_EXPERIENCIA: new HeadingTitle("Experiencia", "business"),
     _5_CERTIFICACIONES: new HeadingTitle("Certificaciones", "medal"),
     _6_PROYECTOS: new HeadingTitle("Proyectos Académicos", "planner"),
+    _7_DESCARGAR_CV: new HeadingTitle("Descargar CV", "resume"),
     _0_HOGAR: new HeadingTitle("Inicio", "roger"),
 }
 

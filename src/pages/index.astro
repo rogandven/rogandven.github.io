@@ -16,6 +16,7 @@ import { LATEST_CV } from '../constants/general.constants';
 import { DAISYUI_HERO_BG } from '../constants/daisyui.constants';
 import Carroussel from "../components/ui/carroussel/Carroussel";
 import Resizer from '../tools/Resizer.astro';
+import Title from "../components/ui/other/Title.astro";
 
 // const CENTERED_CLASS = "items-center content-center object-center justify-center-safe place-items-center object-scale-down";
 ---
@@ -68,17 +69,19 @@ import Resizer from '../tools/Resizer.astro';
                 </Resizer>
 
                 <section aria-label={"¿Interesado en Contratarme?"}>
-                    <DUHero _class={"h-1/2"} image={DAISYUI_HERO_BG}>
-                        <h1 class="mb-5 text-5xl font-bold">¿Interesado en Contratarme?</h1>
-                        <a href=`/cv/${LATEST_CV}.pdf` target="_blank">
-                            <button class="btn btn-primary">
-                                <div class="items-center flex flex-row">
-                                    <Icon name="mdi:download" class="mr-1"/>
-                                    <span>Descargar CV</span>
-                                </div>
-                            </button>
-                        </a>
-                    </DUHero>
+                    <div id={DATA.titles._7_DESCARGAR_CV.sluggifiedTitle} class="w-fit h-fit">
+                        <DUHero _class={"h-1/2"} image={DAISYUI_HERO_BG}>
+                            <h1 class="mb-5 text-5xl font-bold">¿Interesado en Contratarme?</h1>
+                            <a href=`/cv/${LATEST_CV}.pdf` target="_blank">
+                                <button class="btn btn-primary">
+                                    <div class="items-center flex flex-row">
+                                        <Icon name="mdi:download" class="mr-1"/>
+                                        <span>Descargar CV</span>
+                                    </div>
+                                </button>
+                            </a>
+                        </DUHero>
+                    </div>
                 </section>
 
                 <hr class="hidden size-0" />
