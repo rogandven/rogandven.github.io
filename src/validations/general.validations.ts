@@ -33,5 +33,14 @@ export const validateAbsolutePath = (str: string | undefined) => {
     } catch (error) {
         throw Error(`Invalid URL: \`${str}\``);
     }
-    
+}
+
+export const validatePositive = (num: number, fieldName: string): number => {
+    if (isNaN(num)) {
+        throw new Error(`\`${String(num)}\` is not a number`);
+    }
+    if (num < 0) {
+        throw new Error(`\`${fieldName}\` must be positive`);
+    }
+    return num;
 }

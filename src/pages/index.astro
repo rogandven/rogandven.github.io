@@ -1,5 +1,5 @@
 ---
-import DATA from '../data/data';
+import DATA, { STATS } from '../data/data';
 import Layout from '../layouts/Layout.astro';
 
 import DUProfileCard from '../components/ui/profilecard/DUProfileCard.astro';
@@ -9,45 +9,85 @@ import DUEducation from '../components/ui/sections/DUEducation.astro';
 import DUCertificates from '../components/ui/sections/DUCertificates.astro';
 import DUProjects from '../components/ui/sections/DUProjects.astro';
 import DUExperiences from '../components/ui/sections/DUExperiences.astro';
+import DUStatContainer from '../components/ui/stats/DUStatContainer.astro';
+import DUHero from '../components/ui/downloads/DUHero.astro';
+import { Icon } from 'astro-icon/components';
+import { LATEST_CV } from '../constants/general.constants';
+import { DAISYUI_HERO_BG } from '../constants/daisyui.constants';
+import Carroussel from "../components/ui/carroussel/Carroussel";
+import Resizer from '../tools/Resizer.astro';
+import Title from "../components/ui/other/Title.astro";
 
-const CENTERED_CLASS = "items-center content-center object-center justify-center-safe place-items-center object-scale-down";
+// const CENTERED_CLASS = "items-center content-center object-center justify-center-safe place-items-center object-scale-down";
 ---
 
 <Layout>
     <main>
-        <div class=`w-screen max-w-screen ${CENTERED_CLASS} object-scale-down overflow-clip`>
-            <article class=`w-screen max-w-screen ${CENTERED_CLASS}`>
-                <section aria-label={"Mis Datos"} class={`${CENTERED_CLASS}`}>
-                    <DUProfileCard DATA={DATA} _class={`${CENTERED_CLASS}`} />
+        <div class=`w-full ${""} object-scale-down overflow-clip`>
+            <article class=`${""}`>
+                <Resizer size={"w-150"}>
+                    <section aria-label={"Mis Datos"} class={`${""}`}>
+                        <DUProfileCard DATA={DATA} _class={`${""}`} />
+                    </section>
+                </Resizer>
+
+                <aside>
+                    <DUStatContainer stats={STATS} _class={"mt-5"}'/>
+                </aside>
+
+                <hr class="hidden size-0" />
+
+                <Resizer size={"w-180"}>
+                    <section aria-label={"Habilidades Técnicas"} class={`${""}`}>
+                        <DUTechnologies DATA={DATA} _class={`${""}`} />
+                    </section>
+
+                    <section aria-label={"Idiomas"} class="items-center">
+                        <DULanguages DATA={DATA} _class={`${""}`} />
+                    </section>
+                </Resizer>
+
+                <hr class="hidden size-0" />
+
+                <Resizer size={"w-150"}>
+                    <section aria-label={"Educación"}>
+                        <DUEducation DATA={DATA} _class={`${""}`} />
+                        <Carroussel client:only />
+                    </section>
+
+                    <section aria-label={"Experiencia"}>
+                        <DUExperiences DATA={DATA} _class={`${""}`} />
+                    </section>
+
+                    <section aria-label={"Certificados"}>
+                        <DUCertificates DATA={DATA} _class={`${""}`} />
+                    </section>
+
+                    <section aria-label={"Proyectos Académicos"}>
+                        <DUProjects DATA={DATA} _class={`${""}`} />
+                    </section>
+                </Resizer>
+
+                <section aria-label={"¿Interesado en Contratarme?"}>
+                    <div id={DATA.titles._7_DESCARGAR_CV.sluggifiedTitle}>
+                        <DUHero _class={"h-1/2"} image={DAISYUI_HERO_BG}>
+                            <h1 class="mb-5 text-5xl font-bold">¿Interesado en Contratarme?</h1>
+                            <a href=`/cv/${LATEST_CV}.pdf` target="_blank">
+                                <button class="btn btn-primary">
+                                    <div class="items-center flex flex-row">
+                                        <Icon name="mdi:download" class="mr-1"/>
+                                        <span>Descargar CV</span>
+                                    </div>
+                                </button>
+                            </a>
+                        </DUHero>
+                    </div>
                 </section>
 
                 <hr class="hidden size-0" />
 
-                <section aria-label={"Habilidades Técnicas"} class={`${CENTERED_CLASS} w-3/4`}>
-                    <DUTechnologies DATA={DATA} _class={`${CENTERED_CLASS}`} />
-                </section>
+                <p class="hidden size-0">CV: {`/cv/${LATEST_CV}.pdf`}</p>
 
-                <hr class="hidden size-0" />
-
-                <section aria-label={"Idiomas"}>
-                    <DULanguages DATA={DATA} _class={`${CENTERED_CLASS}  max-w-11/12`} />
-                </section>
-
-                <hr class="hidden size-0" />
-
-                <section aria-label={"Educación"}>
-                    <DUEducation DATA={DATA} _class={`${CENTERED_CLASS}  max-w-11/12`} />
-                </section>
-
-                <section aria-label={"Experiencia"}>
-                    <DUExperiences DATA={DATA} _class={`${CENTERED_CLASS} max-w-11/12`} />
-                </section>
-                <section aria-label={"Certificados"}>
-                    <DUCertificates DATA={DATA} _class={`${CENTERED_CLASS}  max-w-11/12`} />
-                </section>
-                <section aria-label={"Proyectos Académicos"}>
-                    <DUProjects DATA={DATA} _class={`${CENTERED_CLASS}  max-w-11/12`} />
-                </section>
             </article>
         </div>
     </main>

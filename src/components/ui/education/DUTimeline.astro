@@ -50,7 +50,7 @@ const {
                                 />
                             </DUTooltip>
                         }
-                        <DUInfoModal id={`timeline_${index}`} event={event} shallDisplayPresent={true}/>
+                        <DUInfoModal id={`timeline_${index}`} event={event} shallDisplayPresent={true} shallGenerateModal={false}/>
                     </div>
                     {index !== (eventList.length - 1) ? (<hr />) : (<div />)}
                 </li>

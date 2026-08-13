@@ -1,6 +1,6 @@
 ---
 import { Github } from 'simple-icons-astro';
-import { DEFAULT_ICON_TEXTSIZE, DEFAULT_ICON_ICONSIZE } from '../../../constants/daisyui.constants';
+import { DEFAULT_ICON_TEXTSIZE, DEFAULT_ICON_ICONSIZE, DAISYUI_ROUNDED_BUTTON } from '../../../constants/daisyui.constants';
 import { DEFAULT_DISPLAY_NAME, DEFAULT_URL } from '../../../constants/sociallink.constants';
 import DUTooltip from './DUTooltip.astro';
 
@@ -17,7 +17,7 @@ interface Props {
 const { 
   color = "btn-neutral",
   Logo = Github,
-  textSize = DEFAULT_ICON_TEXTSIZE,
+  textSize = "text-3xl",
   iconSize = DEFAULT_ICON_ICONSIZE, 
   destination = DEFAULT_URL, 
   content = DEFAULT_DISPLAY_NAME,
@@ -27,8 +27,8 @@ const {
   <a href={destination} class={margin} target="_blank" aria-label={content}>
     <div class="flex flex-col align-middle items-center-safe">
       <DUTooltip text={content}>
-      <button class={`btn btn-sm ${color}`} title={content}>
-        <Logo class={`${textSize} ${iconSize} overflow-visible`} _class={`${textSize} ${iconSize} overflow-visible`} />
+      <button class={`${color} ${DAISYUI_ROUNDED_BUTTON} ${textSize}`} title={content}>
+        <Logo class={`${textSize} ${iconSize} overflow-visible w-7 h-7`} _class={`${textSize} ${iconSize} overflow-visible w-6 h-6`} />
       </button>
       </DUTooltip>
     </div>

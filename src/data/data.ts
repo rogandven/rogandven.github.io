@@ -2,7 +2,7 @@ import Language from "../classes/Language.ts";
 import Tool from "../classes/Tool.ts";
 import HeadingTitle from "../classes/HeadingTitle.ts";
 
-import { Astro, C, Docker, Git, Html5, Javascript, Libreofficecalc, Openjdk, Latex, Linux, Nodedotjs, Duckdb, Php, Postgresql, Python, React, Databricks, Dblp, Github, Youtube } from "simple-icons-astro";
+import { Astro, C, Docker, Git, Html5, Javascript, Libreofficecalc, Openjdk, Latex, Linux, Nodedotjs, Duckdb, Php, Postgresql, Python, React, Databricks, Dblp, Github, Youtube, Akasaair } from "simple-icons-astro";
 import DatabaseIcon from "../components/icons/DatabaseIcon.astro";
 import ExcelIcon from "../components/icons/ExcelIcon.astro";
 import SocialLink from "../classes/SocialLink.ts";
@@ -19,6 +19,7 @@ import CEEImage from "../assets/images/cee.png";
 import ElectivosImage from "../assets/images/electivos.png";
 import SCMImage from "../assets/images/scm.png";
 import ASImage from "../assets/images/artsell.png";
+import Stat from "../classes/Stat.ts";
 
 const titles: {[key: string]: HeadingTitle} = {
     _1_HABILIDADES_TECNICAS: new HeadingTitle("Habilidades Técnicas", "computer-classic"),
@@ -27,6 +28,7 @@ const titles: {[key: string]: HeadingTitle} = {
     _4_EXPERIENCIA: new HeadingTitle("Experiencia", "business"),
     _5_CERTIFICACIONES: new HeadingTitle("Certificaciones", "medal"),
     _6_PROYECTOS: new HeadingTitle("Proyectos Académicos", "planner"),
+    _7_DESCARGAR_CV: new HeadingTitle("Descargar CV", "resume"),
     _0_HOGAR: new HeadingTitle("Inicio", "roger"),
 }
 
@@ -126,7 +128,9 @@ export const DATA = {
             "https://www.instagram.com/instituto_conosur/",
             ["NetEnglish"]
         ),         
-    ].toReversed(),
+    ].toReversed().toSorted((a, b) => {
+        return a.startDate.getUTCFullYear() - b.startDate.getUTCFullYear();
+    }),
     experience: [
         new EventClass(
             "Universidad del Bío-Bío", 
@@ -144,11 +148,13 @@ export const DATA = {
             true,
             "/reports/InformeDePracticaPCTPPP_RogerVenegas.pdf",
         ),           
-    ],
+    ].toSorted((a, b) => {
+        return a.startDate.getUTCFullYear() - b.startDate.getUTCFullYear()
+    }),
     certifications: [
         new EventClass(
-            "Centro de Idiomas UBB", 
-            "Diagnóstico de Inglés", 
+            "Cambridge English", 
+            "Cambridge English Placement Test", 
             "El nivel C1 de inglés se confirmó mediante una rigurosa evaluación que incluía actividades que requerían escuchar, hablar y leer en el idioma.", 
             undefined, 
             "Concepción, Chile", 
@@ -157,7 +163,7 @@ export const DATA = {
             undefined,
             undefined,
             "file-text-edit",
-            "https://centrodeidiomas.ubiobio.cl",
+            "https://www.cambridgeenglish.org/es/placement-test/",
             undefined,
         ),        
         new EventClass(
@@ -188,7 +194,9 @@ export const DATA = {
             "https://learnenglish.britishcouncil.org/english-levels/online-english-level-test",
             undefined,
         ),        
-    ],
+    ].toSorted((a, b) => {
+        return a.startDate.getUTCFullYear() - b.startDate.getUTCFullYear();
+    }),
     projects: [
         new EventClass(
             "Universidad del Bío-Bío", 
@@ -251,7 +259,7 @@ export const DATA = {
             undefined,
             false,
         ),  
-       new EventClass(
+        new EventClass(
             "Universidad del Bío-Bío", 
             "Proyecto SCM", 
             "Página de inicio correspondiente a un proceso de migración aún por realizar. Astro, DaisyUI y TailwindCSS fueron los componentes principales del conjunto de tecnologías empleadas.", 
@@ -266,8 +274,9 @@ export const DATA = {
             undefined,
             false,
         ),        
-        
-    ],
+    ].toSorted((a, b) => {
+        return a.startDate.getUTCFullYear() - b.startDate.getUTCFullYear();
+    }),
     tools: [
         new Tool("Astro", Astro, "Framework de páginas web estáticas", 3),
         new Tool("C", C, "Lenguaje de programación de bajo nivel", 3),
@@ -285,17 +294,33 @@ export const DATA = {
         new Tool("PostgreSQL", Postgresql, "Sistema de gestión de bases de datos de código abierto", 3),
         new Tool("Python", Python, "Lenguaje de programación de alto nivel orientado a uso general", 3),
         new Tool("React", React, "Framework de JavaScript orientado al contenido dinámico", 3)
-    ],
+    ].toSorted((a, b) => {
+        return a.displayName.localeCompare(b.displayName);
+    }),
     languages: [
         new Language("Español", undefined, true, "es"),
         new Language("Inglés", "C1", false, "gb"),
-    ],
+    ].toSorted((a, b) => {
+        return b.levelNumber - a.levelNumber;
+    }),
     socials: [
         new SocialLink("GitHub", Github, "https://www.github.com/rogandven", "rogandven"),
         new SocialLink("LinkedIn", LinkedInIcon, "https://www.linkedin.com/in/rogandven", "rogandven"),
         new SocialLink("YouTube", Youtube, "https://www.youtube.com/@rogandven", "rogandven"),
-    ],
+    ].toSorted((a, b) => {
+        return a.displayName.localeCompare(b.displayName)
+    }),
     titles: titles,
 };
+
+export const STATS: Stat[] = [
+    new Stat(DATA.titles._4_EXPERIENCIA.iconName, "Experiencia Profesional", DATA.experience.length, undefined),
+    new Stat(DATA.titles._5_CERTIFICACIONES.iconName, "Certificados", DATA.certifications.length, undefined),
+    new Stat(DATA.titles._6_PROYECTOS.iconName, "Proyectos Académicos", DATA.projects.length, undefined),
+    new Stat(DATA.titles._1_HABILIDADES_TECNICAS.iconName, "Habilidades Técnicas", DATA.tools.length, undefined),
+    new Stat(DATA.titles._2_IDIOMAS.iconName, "Idiomas Hablados", DATA.languages.length, undefined),
+].toSorted((a, b) => {
+    return a.title.localeCompare(b.title);
+})
 
 export default DATA;

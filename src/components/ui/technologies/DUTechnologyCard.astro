@@ -1,6 +1,7 @@
 ---
 import Tool from '../../../classes/Tool';
 import { DAISYUI_TEXT_COLORS, DAISYUI_PROGRESS_COLORS } from '../../../constants/daisyui.constants';
+import { ENABLE_SKILL_PERCENTAGES } from '../../../constants/general.constants';
 import DUTooltip from '../profilecard/DUTooltip.astro';
 
 interface Props {
@@ -17,19 +18,19 @@ const {
 
 const Logo = tool.icon;
 
-const percentageString = `${tool.displayName} (${tool.percentageString})`;
+const percentageString = ENABLE_SKILL_PERCENTAGES ? `${tool.displayName} (${tool.percentageString})` : `${tool.displayName}`;
 ---
 <DUTooltip text={percentageString}>
-<div class="card bg-base-100 w-20 shadow-md card-border m-2 rounded-md">
+<div class="card bg-base-100 w-20 shadow-md card-border m-2 rounded-md items-center">
     <div class="w-fit flex flex-col align-middle items-center" 
     aria-label={percentageString}
     >
         <div aria-hidden="true" class={`${text_color} mb-1`}>{tool.displayName}</div>
-        <span aria-hidden="true"><Logo 
-            class={`text-2xl size-15 ${text_color} ml-2 mr-2 mb-1`}
-            _class={`size-15 ${text_color} mb-1`}
+        <span aria-hidden="true" class="overflow-clip"><Logo 
+            class={`text-2xl size-15 ${text_color} ml-2 mr-2 mb-1 overflow-clip`}
+            _class={`size-15 ${text_color} mb-1 overflow-clip`}
         /></span>
-        <progress aria-hidden="true" class={`progress ${proficiency_color} w-20 mt-1`} value={tool.percentage} max={100}></progress>
+        {ENABLE_SKILL_PERCENTAGES && <progress aria-hidden="true" class={`progress ${proficiency_color} w-20 mt-1`} value={tool.percentage} max={100}></progress>}
     </div>
 </div>
 </DUTooltip>

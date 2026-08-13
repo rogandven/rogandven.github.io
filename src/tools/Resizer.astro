@@ -1,0 +1,14 @@
+---
+interface Props {
+    size: string,
+}
+
+const { 
+    size,
+} = Astro.props;
+---
+<div class="w-full">
+    <div class={`max-w-full ${size} ml-auto mr-auto`}>
+        <slot />
+    </div>
+</div>

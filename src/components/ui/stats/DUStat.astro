@@ -1,0 +1,22 @@
+---
+import { Icon } from "astro-icon/components";
+import type Stat from "../../../classes/Stat";
+
+interface Props {
+    stat: Stat,
+    color: string,
+}
+
+const { 
+    stat,
+    color,
+} = Astro.props;
+---
+<div class="stat">
+    <div class={`stat-figure ${color}`}>
+        <Icon name={stat.iconName} class="inline-block h-8 w-8" />
+    </div>
+    <div class="stat-title">{stat.title}</div>
+    <div class={`stat-value ${color}`}>{stat.amount}</div>
+    {stat.description && <div class="stat-desc">{stat.description}</div>}
+</div>

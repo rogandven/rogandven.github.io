@@ -1,4 +1,5 @@
 import Cat from "../../src/assets/images/roger_logo_bg.png";
+import Matrix from "../../src/assets/images/pexels-markusspiske-1089438-recolored.jpg";
 
 export const DEFAULT_IMAGE_FORMAT: string = "avif";
 export const VALID_SIZE_REGEX: RegExp = /w-[0-9]*/;
@@ -22,3 +23,9 @@ export const DIVIDER: string = "⋅";
 
 export const DAISYUI_BADGE_COLORS: string[] = ["badge-primary", "badge-secondary", "badge-accent", "badge-info", "badge-success", "badge-warning", "badge-error"];
 export const MINIMUM_BADGE_CHARACTERS: number = 10;
+
+export const DAISYUI_HERO_BG: ImageMetadata = Matrix;
+
+export const EDUCATION_CONTAINER_ID: string = "real-education-container";
+
+export const DAISYUI_ROUNDED_BUTTON: string = "btn w-10 h-10 overflow-visible rounded-full";

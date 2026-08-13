@@ -25,7 +25,7 @@ const {
 <aside>
 <div class={_class}>
     {DATA.experience.map((event: EventClass, index: number) => {
-            return (<DUCard _class={"mt-2 mb-2"} event={event} _id={"experience" + index} isLeftCard={(index % 2) === 0} shallDisplayPresent={false} />)
+            return (<DUCard _class={"mt-2 mb-2"} event={event} _id={"experience" + index} isLeftCard={(index % 2) === 0} shallDisplayPresent={false} shallGenerateModal={true} />)
     })}  
 </div>
 </aside> 

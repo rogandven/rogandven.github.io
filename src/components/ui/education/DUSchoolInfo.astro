@@ -1,6 +1,6 @@
 ---
 import { Icon } from "astro-icon/components";
-import { DAISYUI_BADGE_COLORS } from "../../../constants/daisyui.constants";
+import { DAISYUI_BADGE_COLORS, DAISYUI_ROUNDED_BUTTON } from "../../../constants/daisyui.constants";
 import { MESES_ESPANIOL } from "../../../constants/general.constants";
 import DUTooltip from "../../../components/ui/profilecard/DUTooltip.astro";
 import DUBadge from "../../../components/ui/profilecard/DUBadge.astro";
@@ -27,9 +27,9 @@ const {
     <div>
         <form method="dialog">
             <button aria-label="Cerrar" aria-modal="true"
-                class="btn btn-sm btn-circle btn-error text-lg absolute right-2 top-2" 
+                class={`btn-error ${DAISYUI_ROUNDED_BUTTON} absolute right-2 top-2 text-3xl`}
             >
-                <Icon name="mdi:close" aria-hidden="true" />
+                <Icon class="overflow-visible" name="mdi:close" aria-hidden="true" />
             </button>
         </form>
 
